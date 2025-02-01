@@ -32,7 +32,7 @@ const ContactUs = () => {
     return (
         <>
             <section className="ContactUs py-12 relative">
-                <div className="container max-w-full mx-auto">
+                <div className="container mx-auto px-4">
                     <div className="bg-gradient-yellow">
                         <div className="max-w-3xl mx-auto text-center">
                             <h1 className="text-3xl text-gray-500 md:text-5xl font-gt font-bold mt-6">

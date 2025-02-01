@@ -498,6 +498,7 @@ const Header = () => {
         },
         { label: "About Us", link: "/about-us" },
         { label: "Blog", link: "/post" },
+        { label: "Contact", link: "/contact-us"}
 
     ];
 
@@ -554,7 +555,7 @@ const Header = () => {
         <header className="sticky top-0 bg-white py-4 shadow-md z-50">
             {isMobileMenuOpen && (
                 <div
-                    className="fixed top-0 left-0 w-full h-full bg-black opacity-60 z-40 blur-sm lg:hidden"
+                    className="fixed top-0 left-0 w-full h-full bg-black opacity-60 z-40  lg:hidden"
                     onClick={closeMobileMenu}
                 />
             )}
@@ -604,7 +605,7 @@ const Header = () => {
                             </div>
                         )}
 
-                        <div className="lg:flex lg:items-center space-y-2 lg:space-y-0">
+                        <div className="lg:flex lg:items-center">
                             {navLinks.map((link, index) =>
                                 link.dropdownItems ? (
                                     <NavDropdown
@@ -617,7 +618,7 @@ const Header = () => {
                                         closeMobileMenu={closeMobileMenu}
                                     />
                                 ) : (
-                                    <Link href={link.link} key={index} className="px-3 py-2 cursor-pointer text-dark-color font-medium" onClick={handleNavLinkClick}>
+                                    <Link href={link.link} key={index} className="px-3 py-2 cursor-pointer text-dark-color font-medium block" onClick={handleNavLinkClick}>
                                         {link.label}
                                     </Link>
                                 )
@@ -637,9 +638,9 @@ const Header = () => {
                             <FiMenu className="size-6" />
                         </button>
 
-                        <div className="hidden lg:flex gap-4 border-l border-gray-300 pl-4">
+                        {/* <div className="hidden lg:flex gap-4 border-l border-gray-300 pl-4">
                             <Link href="/contact-us" className="bg-gray-900 text-white py-1.5 px-4 rounded-md ">Contact Us</Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

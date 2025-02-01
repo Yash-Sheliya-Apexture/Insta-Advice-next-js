@@ -100,7 +100,7 @@ const AboutUs = () => {
                                 Instaadvice provides a first-of-its-kind service to help you navigate the complex world of Instagram growth tools. Easily compare features, prices, and user feedback. We empower you to make informed choices, ensuring your business receives trusted guidance.</p>
                         </div>
 
-                        <div className="hidden justify-center sm:flex mt-6 max-w-4xl mx-auto">
+                        <div className=" justify-center sm:flex mt-6 max-w-4xl mx-auto">
                             <Image
                                 src={about}
                                 alt="Company mission"
@@ -114,9 +114,9 @@ const AboutUs = () => {
 
                     {/* Our Mission */}
                     <div className="sm:mt-20 mt-16">
-                        <div className="flex flex-col md:flex-row gap-8">
+                        <div className="flex flex-col lg:flex-row gap-8">
                             {/* Text Section */}
-                            <div className="w-full md:w-1/2">
+                            <div className="w-full lg:w-1/2">
                                 <h2 className="md:text-5xl text-3xl font-semibold text-gray-800">Who We Are?</h2>
 
                                 <p className="text-gray-500 text-lg md:text-xl mt-4">
@@ -128,7 +128,7 @@ const AboutUs = () => {
                                 <p className="text-gray-500 text-lg md:text-xl mt-4">Whether you're a seasoned influencer, a business looking to grow, a passionate content creator, or just starting your Instagram journey – start with (NAME).</p>
                             </div>
                             {/* Image Section */}
-                            <div className="w-full md:w-1/2">
+                            <div className="w-full lg:w-1/2">
                                 <Image
                                     src={mission}
                                     alt="Our Mission"
