@@ -1,0 +1,41 @@
+/* components/ReviewSummary.module.css */
+.comparison-summary p{
+    margin-bottom: 16px;
+    color: #111827;
+}
+.comparison-summary h1{
+    font-size:30px;
+    font-weight:700;
+    color:#111827;
+    margin: 4px 0px 16px;
+}
+.comparison-summary h2{
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+    margin: 4px 0px 16px;
+}
+.comparison-summary h3{
+    font-size:26px;
+    font-weight:700;
+    color:#111827;
+    margin: 4px 0px 12px;
+}
+.comparison-summary h4{
+    font-size:24px;
+    font-weight:700;
+    color:#111827;
+    margin: 4px 0px 12px;
+}
+.comparison-summary h5{
+    font-size:22px;
+    font-weight:700;
+    color:#111827;
+    margin: 4px 0px 12px;
+}
+.comparison-summary h6{
+    font-size:20px;
+    font-weight:700;
+    color:#111827;
+    margin: 4px 0px 12px;
+}

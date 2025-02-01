@@ -1,0 +1,312 @@
+import React from 'react'
+
+const Demo = () => {
+    return (
+        <>
+            <p>As an experienced Instagram growth expert, I've personally explored Plixi, focusing on its core service, growth
+                methodologies, and support effectiveness. Plixi's main goal is to offer organic growth using an AI-based targeting
+                system.</p>
+            <p>I found their features like real-time analytics, and AI-Match to be compelling on paper, and the claims of 5000+
+                followers per month seem ambitious.</p>
+            <p>However, in my analysis, I noted inconsistencies between their claims and the user experience. reports show issues
+                like billing discrepancies and non-existent refunds.</p>
+            <p>The 24/7 support, although advertised, didn't always come across as responsive. I also came across several users who
+                received fake followers. Despite the promises, Plixi’s service delivered inconsistent experiences, requiring users
+                to be extra careful.</p>
+            <div className='rating-breakdown' id="rating-breakdown">
+                <h2>Rating Breakdown</h2>
+                <div
+                    className="w-full border border-gray-300 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-150 ease-in-out overflow-hidden my-3">
+                    <div className="overflow-x-auto custom-scrollbar">
+                        <table className="w-full ">
+                            <thead>
+                                <tr className="text-gray-500 border-b border-gray-200 text-left text-nowrap">
+                                    <th className="p-3 font-semibold text-gray-900">Parameter</th>
+                                    <th className="p-3 font-semibold text-gray-900">Score</th>
+                                    <th className="p-3 font-semibold text-gray-900">Why This Score?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">
+                                        Price Value
+                                    </td>
+                                    <td className="p-4">4.5</td>
+                                    <td className="p-4">Affordable entry-tier plans, but the Experts™ tier is costly for small creators.
+                                        also, Users have experienced unauthorized yearly charges, hidden fees, and difficulty obtaining
+                                        refunds.</td>
+                                </tr>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Features</td>
+                                    <td className="p-4">5.5</td>
+                                    <td className="p-4">Advanced AI targeting and analytics but lack manual growth options and
+                                        irrelevant audience targeting.</td>
+                                </tr>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Delivery Quality</td>
+                                    <td className="p-4">4.0</td>
+                                    <td className="p-4">Gradual organic growth (1,000–5,000 followers/mo), though some users report
+                                        inconsistent results.</td>
+                                </tr>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Ease of Use</td>
+                                    <td className="p-4">6.0</td>
+                                    <td className="p-4">Intuitive dashboard, 2-minute setup, and automated workflows.</td>
+                                </tr>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Support</td>
+                                    <td className="p-4">4.0</td>
+                                    <td className="p-4">Plixi's 24/7 live chat, but mixed reviews is unresponsive, and dishonest,
+                                        particularly concerning billing and refunds. Lack of transparency erodes user trust.</td>
+                                </tr>
+                                <tr className="text-gray-500 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Overall Score</td>
+                                    <td className="p-4">5.0</td>
+                                    <td className="p-4">Strong for AI-driven growth but fails to live up to its promises.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Plixi Pros and Cons</h2>
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mb-4 pros-and-cons">
+                <div className="w-full bg-white border-l-2 border-l-green-500  rounded-2xl shadow-(--shadow-pro-cons) p-5">
+                    <h3 className="text-xl font-semibold mb-3">Pros</h3>
+                    <ul className="list-none pros-list">
+                        <li className="flex items-center mb-3">AI-powered targeting for precise audience growth.</li>
+                        <li className="flex items-center mb-3">Real-time analytics and customizable reports.</li>
+                        <li className="flex items-center mb-3">No bots or fake followers; Instagram-compliant.</li>
+                        <li className="flex items-center mb-3">Scalable plans for personal brands to agencies.</li>
+                    </ul>
+                </div>
+                <div className="w-full bg-white border-l-2 border-l-red-500 rounded-2xl shadow-(--shadow-pro-cons) p-5">
+                    <h3 className="text-xl font-semibold mb-3">Cons</h3>
+                    <ul className="list-none cons-list">
+                        <li className="flex items-center mb-3">No free trial or money-back guarantee.</li>
+                        <li className="flex items-center mb-3"><span className="font-semibold">Some users report issues with billing and refunds.</span>
+                        </li>
+                        <li className="flex items-center mb-3">Mixed user reviews on follower retention and support responsiveness.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className='plans-pricing' id="plans-pricing">
+                <h2>Plixi Plans & Pricing - 2024</h2>
+                <p><span class="font-semibold">Growth Tiers</span></p>
+                <div
+                    className="w-full border border-gray-300 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-150 ease-in-out overflow-hidden my-3">
+                    <div className="overflow-x-auto">
+                        <table className="w-full ">
+                            <thead>
+                                <tr className="text-gray-500 border-b border-gray-200 text-left text-nowrap">
+                                    <th className="p-3 font-semibold text-gray-900">Plan</th>
+                                    <th className="p-3 font-semibold text-gray-900">Followers/Month</th>
+                                    <th className="p-3 font-semibold text-gray-900">Features</th>
+                                    <th className="p-3 font-semibold text-gray-900">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Basic</td>
+                                    <td className="p-4">1,000-1,500</td>
+                                    <td className="p-4">AI targeting, email support</td>
+                                    <td className="p-4">$29</td>
+                                </tr>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Pro</td>
+                                    <td className="p-4">2,500-3,500+</td>
+                                    <td className="p-4">Priority support, Reels/IGTV engagement</td>
+                                    <td className="p-4">$59</td>
+                                </tr>
+                                <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                    <td className="p-4 text-gray-900 font-medium">Experts™</td>
+                                    <td className="p-4">3,500-5,000+</td>
+                                    <td className="p-4">Dedicated manager, beta features</td>
+                                    <td className="p-4">$149</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div className="border-amber-400 border p-4 sm:p-6 my-6 rounded-xl relative">
+                <div className="flex items-center text-amber-400 gap-4 tip-container">
+                    <p className="font-medium text-xl tip-text">Tip</p>
+                </div>
+                <p className="text-lg text-black mt-3">
+                    <span className="font-semibold">Tip:</span> Opt for the Pro plan for cost-effective scaling. Experts™ is ideal
+                    for agencies needing white-label solutions.
+                </p>
+            </div>
+
+            <div class="Features-list my-2">
+                <h3>Plixi Features</h3>
+                <span className="text-xl text-gray-900 font-semibold">1. AI Targeting</span>
+                <p className='text-gray-costume'>Filters audiences by hashtags, locations, competitor accounts, and demographics.</p>
+                <span className="text-xl text-gray-900 font-semibold">2. Micro-Interactions</span>
+                <p className='text-gray-costume'>Automated likes, comments, and story views to boost engagement.</p>
+                <span className="text-xl text-gray-900 font-semibold">3. Real-Time Analytics</span>
+                <p className='text-gray-costume'>Track follower growth, engagement rates, and audience demographics.</p>
+                <span className="text-xl text-gray-900 font-semibold">4. Safety</span>
+                <p className='text-gray-costume'>Instagram-compliant growth with no bots or fake followers.</p>
+            </div>
+
+            <div className='features my-6'>
+                <h3>Unique Features</h3>
+                <ul className='space-y-4 text-gray-500'>
+                    <li><span className="font-semibold text-gray-900 mb-2">✱ AI-Match™: </span>Train Plixi’s AI to mimic your
+                        ideal audience, similar to Tinder swipes.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">✱ Audience Quality Score (AQS): </span>Rates follower
+                        authenticity using 25+ metrics.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">✱ Cloud Integration: </span>Syncs with Hootsuite,
+                        Shopify, and 120+ tools.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">✱ Engagement Pods: </span>Boost post visibility
+                        through group interactions.</li>
+                </ul>
+            </div>
+
+            <div className='performance-metrics my-6'>
+                <h3>Performance Metrics</h3>
+                <ul className='space-y-4 text-gray-500'>
+                    <li><span className="font-semibold text-gray-900 mb-2">➤ Follower Growth: </span>Plixi claims to deliver
+                        1,000 - 5,000+ followers per month, depending on the plan.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">➤ Engagement Rate: </span>E 15-20% increase in
+                        engagement within the first month.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">➤ Uptime: </span>Plixi’s AI engine operates 24/7,
+                        ensuring consistent growth.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">➤ Loading Time: </span>The dashboard loads in under 2
+                        seconds, providing a seamless user experience.</li>
+                </ul>
+            </div>
+
+            <div className='customer-support'>
+                <h3>Customer Support</h3>
+                <ul className='space-y-4 text-gray-500'>
+                    <li><span className="font-semibold text-gray-900 mb-2">1.Multiple ways to contact: </span>There's email, live
+                        chat, and also 'on-demand calls' with your Instagram Expert, giving multiple options for users to seek
+                        assistance.</li>
+                    <li><span className="font-semibold text-gray-900 mb-2">2.Instagram Experts: </span>A dedicated team of experts
+                        available with higher-tier plans.</li>
+                </ul>
+            </div>
+
+            <div
+                className="bg-[#f0f7fe] p-4 sm:p-6 my-3 rounded-xl border border-gray-200 transition-shadow duration-150 ease-in-out ">
+                <h3>Ease of Use</h3>
+                <p>Plixi’s platform is designed to be user-friendly, with a 2-minute setup process. The dashboard is intuitive, allowing users to monitor growth, adjust targeting settings, and view analytics with ease.</p>
+            </div>
+
+            <h3>Alternatives to Plixi</h3>
+            <div
+                className="w-full border border-gray-300 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-150 ease-in-out overflow-hidden my-3">
+                <div className="overflow-x-auto">
+                    <table className="w-full ">
+                        <thead>
+                            <tr className="text-gray-500 border-b border-gray-200 text-left text-nowrap">
+                                <th className="p-3 font-semibold text-gray-900">Service</th>
+                                <th className="p-3 font-semibold text-gray-900">Price</th>
+                                <th className="p-3 font-semibold text-gray-900">Key Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                <td className="p-4 text-gray-900 font-medium">Kicksta</td>
+                                <td className="p-4">$129/month</td>
+                                <td className="p-4">Follow/Unfollow Automation, Advanced Targeting</td>
+                            </tr>
+                            <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                <td className="p-4 text-gray-900 font-medium">Upgrow</td>
+                                <td className="p-4">$99/month</td>
+                                <td className="p-4">AI-Powered Growth, Live Analytics Dashboard</td>
+                            </tr>
+                            <tr className="text-gray-500 border-b border-gray-200 text-nowrap">
+                                <td className="p-4 text-gray-900 font-medium">AscendViral</td>
+                                <td className="p-4">$139/month</td>
+                                <td className="p-4">Content suggestions, Advanced targeting, Analytics Dashboard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div
+                className="max-w-7xl mx-auto md:px-6 px-4 py-10 bg-white border border-gray-300 rounded-2xl shadow-sm hover:shadow-lg my-4" id="user-reviews">
+                <h2>User Review</h2>
+                <div className="border-b border-gray-300 mb-6"></div>
+                <h3 className="md:text-2xl text-xl font-medium text-[#0b0c0f] mb-6">Excerpts from Trustpilot</h3>
+                <div className="md:space-y-6 space-y-4">
+                    <div className="flex items-start md:gap-2 gap-1 flex-row">
+                        <div className="border-l-4 border-blue-500 h-16 mr-4 flex-shrink-0 rounded-sm"></div>
+                        <div className='flex-1'>
+                            <p className="text-gray-700 md:text-lg italic mb-1 font-medium leading-relaxed">
+                                "Plixi’s analytics helped me double my engagement. Worth every penny!"
+                            </p>
+                            <p className="text-gray-500">
+                                - Marcus Haines
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start md:gap-2 gap-1 flex-row">
+                        <div className="border-l-4 border-blue-500 h-16 mr-4 flex-shrink-0 rounded-sm"></div>
+                        <div className='flex-1'>
+                            <p className="text-gray-700 md:text-lg italic mb-3 font-medium leading-relaxed">
+                                "Finally, real followers who engage! My boutique\'s sales doubled."
+                            </p>
+                            <p className="text-gray-500 text-sm">
+                                - Tamara\'s Treasures
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start md:gap-2 gap-1 flex-row">
+                        <div className="border-l-4 border-blue-500 h-16 mr-4 flex-shrink-0 rounded-sm"></div>
+                        <div className='flex-1'>
+                            <p className="text-gray-700 md:text-lg italic mb-3 font-medium leading-relaxed">
+                                "Consistent growth for my fitness brand. The pro plan delivers."
+                            </p>
+                            <p className="text-gray-500 text-sm">
+                                - Richard Wood
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Alternatives to Plixi</h2>
+            <p>Plixi offers an appealing suite of AI-powered tools for Instagram growth, promising organic results and targeted
+                reach. The platform boasts an intuitive interface and the potential for automated growth, attracting those seeking a
+                hands-off approach.</p>
+            <p>However, serious concerns regarding billing transparency, inconsistent growth delivery, and unreliable customer
+                support cannot be ignored. Many users report unauthorized charges, difficulty canceling subscriptions, and poor
+                support experiences.</p>
+            <p>While some experience positive growth, the high risk of billing issues and poor support make it a service we cannot
+                confidently recommend. Proceed with extreme caution and consider alternatives.</p>
+
+
+            <div className='faq' id="company-faq">
+                <h3>FAQ</h3>
+                <div className="space-y-2">
+                    <div className="flex flex-col">
+                        <span className="font-semibold text-gray-900 text-lg">1.Does Plixi require my Instagram password?</span>
+                        <span className='mb-4 text-gray-500'>No. Plixi uses API integration, ensuring compliance with Instagram’s terms.</span>
+                    </div>
+                    <div className="flex flex-col">
+                        <span className="font-semibold text-gray-900 text-lg">2.Can I target specific countries or age groups?</span>
+                        <span className='mb-4 text-gray-500'>Yes, but advanced geo/location filters require the Pro or Experts™ plan.</span>
+                    </div>
+                    <div className="flex flex-col">
+                        <span className="font-semibold text-gray-900 text-lg">3.Are followers real?</span>
+                        <span className='mb-4 text-gray-500'>Yes, but retention varies. Use AQS metrics to monitor quality.</span>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default Demo

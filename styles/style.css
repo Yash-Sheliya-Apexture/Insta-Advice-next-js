@@ -1,0 +1,146 @@
+.custom-gradient {
+    background: linear-gradient(90deg, rgba(71, 59, 240, 1) 0%, rgba(112, 54, 204, 1) 54%, rgba(233, 42, 98, 1) 100%);
+}
+
+.custom-gradient:hover {
+    background: #12141d;
+}
+
+.review-summary-wrap .pros-and-cons .cons-list li {
+    position: relative;
+    margin-left: 30px;
+}
+
+.review-summary-wrap .pros-and-cons .cons-list li:before {
+    width: 20px;
+    height: 20px;
+    background: #fb2c36;
+    mask-image: url('/images/face-frown.svg');
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
+
+.review-summary-wrap .pros-and-cons .pros-list li {
+    position: relative;
+    margin-left: 30px;
+}
+
+.review-summary-wrap .pros-and-cons .pros-list li:before {
+    width: 20px;
+    height: 20px;
+    background: #00c951;
+    mask-image: url('/images/face-smile.svg');
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
+
+.review-summary-wrap .tip-container .tip-text::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #fbbf24;
+    mask-image: url('/images/bulb.svg');
+    /* Path to your image */
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    margin-right: 10px;
+    /* Adjust spacing as needed */
+    position: relative;
+    top: 5px;
+}
+
+/* custom-scrollbar css start  */
+/* width */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f2f3f5;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #E2E5EA;
+}
+
+/* custom-scrollbar css end  */
+
+.bg-gradient-yellow{
+    background-image: radial-gradient(56.8% 50% at 50% 50%, #ffeccc 0%, hsla(0, 0%, 100%, 0) 100%);
+}
+.bg-gradient-pink{
+    background-image: radial-gradient(45.8% 50%, #ffccec 0, #fff0 100%);
+}
+
+
+.marquee-column {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.marquee-content {
+    display: flex;
+    flex-direction: column;
+    animation-timing-function: linear;
+    
+}
+
+.marquee-column-1 .marquee-content {
+   animation: marquee-vertical-1 25s linear infinite;
+}
+
+.marquee-column-2 .marquee-content {
+    animation: marquee-vertical-2 20s linear infinite;
+}
+
+.marquee-column-3 .marquee-content {
+    animation: marquee-vertical-3 30s linear infinite;
+}
+
+@keyframes marquee-vertical-1 {
+   from { transform: translateY(0); }
+   to { transform: translateY(-100%); }
+}
+
+@keyframes marquee-vertical-2 {
+   from { transform: translateY(0); }
+   to { transform: translateY(-100%); }
+}
+
+@keyframes marquee-vertical-3 {
+   from { transform: translateY(0); }
+   to { transform: translateY(-100%); }
+}
+
+.animate-slide {
+    display: inline-block;
+    animation: slide-down 5s infinite;
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }

@@ -1,0 +1,20 @@
+@import url(./style.css);
+@import url(./font.css);
+@import "tailwindcss";
+
+.my-shadow{
+  box-shadow: 0px 0px 30px 6px #3e3e3e12;
+}
+@theme {
+  --font-sans: "GT Walsheim Pro",ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "GT Walsheim Pro",ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "GT Walsheim Pro"ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --color-light-royal-blue: #473bf0; 
+  --color-purple-heart: #7036cc; 
+  --color-amaranth: #e92a62; 
+
+  --shadow-pro-cons:0px 0px 30px 6px #3e3e3e12;
+
+
+}

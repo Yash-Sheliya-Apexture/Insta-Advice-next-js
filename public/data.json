@@ -1,0 +1,124 @@
+{
+  "reviewGroups": [
+    {
+      "id": 1,
+      "reviews": [
+        {
+          "reviewerName": "Alice Johnson",
+          "avatarUrl": "https://randomuser.me/api/portraits/women/11.jpg",
+          "location": "Seattle, WA",
+          "rating": 5,
+          "comment": "Incredible product! It has truly streamlined our design process and helped us meet deadlines with ease. The interface is intuitive, and the features are exactly what we needed."
+        },
+        {
+          "reviewerName": "David Lee",
+          "avatarUrl": "https://randomuser.me/api/portraits/men/14.jpg",
+          "location": "San Francisco, CA",
+          "rating": 4,
+          "comment": "This software has really improved our productivity. The integration with other tools is seamless, and the support team is always helpful."
+        },
+        {
+          "reviewerName": "Emily Chen",
+          "avatarUrl": null,
+          "location": "Chicago, IL",
+          "rating": 4,
+          "comment": "I've been using the platform for a month now and have seen significant improvements in our workflows. The dashboard is user-friendly, and it's easy to track our progress."
+        },
+        {
+          "reviewerName": "Michael Davis",
+          "avatarUrl": "https://randomuser.me/api/portraits/men/2.jpg",
+          "location": "Denver, CO",
+          "rating": 5,
+          "comment": "The project management software has been a game changer for our business. Our whole team is able to be more collaborative and efficient."
+        },
+        {
+          "reviewerName": "Karen Smith",
+          "avatarUrl": "https://randomuser.me/api/portraits/women/16.jpg",
+          "location": "Phoenix, AZ",
+          "rating": 3,
+          "comment": "The software is easy to use and I can see great potential. It is lacking some features but overall a pretty good product."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "reviews": [
+        {
+          "reviewerName": "Grace Rodriguez",
+          "avatarUrl": "https://randomuser.me/api/portraits/women/22.jpg",
+          "location": "Austin, TX",
+          "rating": 5,
+          "comment": "This is the best platform I have ever used. The software works exactly as I need it to with no hiccups!"
+        },
+        {
+          "reviewerName": "Thomas Kim",
+          "avatarUrl": null,
+          "location": "New York, NY",
+          "rating": 3,
+          "comment": "I have experienced some minor setbacks but the overall experience has been satisfactory. Would recommend."
+        },
+        {
+          "reviewerName": "Olivia Green",
+          "avatarUrl": "https://randomuser.me/api/portraits/women/28.jpg",
+          "location": "Boston, MA",
+          "rating": 4,
+          "comment": "This product has changed the way we do business. It is a must-have for every company."
+        },
+        {
+          "reviewerName": "Benjamin Clark",
+          "avatarUrl": "https://randomuser.me/api/portraits/men/36.jpg",
+          "location": "Los Angeles, CA",
+          "rating": 5,
+          "comment": "I've tried many project management tools before, but this one stands out for its simplicity and effectiveness. Our team's productivity has improved immensely."
+        },
+        {
+          "reviewerName": "Ava Martinez",
+          "avatarUrl": null,
+          "location": "San Diego, CA",
+          "rating": 2,
+          "comment": "Unfortunately, I haven't had a good experience with this product. It is very buggy and unreliable and has made our project harder."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "reviews": [
+        {
+          "reviewerName": "Robert White",
+          "avatarUrl": "https://randomuser.me/api/portraits/men/31.jpg",
+          "location": null,
+          "rating": 2,
+          "comment": "The platform is not very user friendly and I would not recommend it to anyone."
+        },
+        {
+          "reviewerName": "Sophia Brown",
+          "avatarUrl": "https://randomuser.me/api/portraits/women/34.jpg",
+          "location": "Miami, FL",
+          "rating": 5,
+          "comment": "Excellent product and is very easy to use! Highly recommended to all users"
+        },
+        {
+          "reviewerName": "Ethan Taylor",
+          "avatarUrl": "https://randomuser.me/api/portraits/men/48.jpg",
+          "location": "Denver, CO",
+          "rating": 4,
+          "comment": "Great value for the money. Would recommend to anyone with a small business or startup."
+        },
+        {
+          "reviewerName": "Chloe Anderson",
+          "avatarUrl": "https://randomuser.me/api/portraits/women/41.jpg",
+          "location": "Dallas, TX",
+          "rating": 5,
+          "comment": "This platform has really made a difference in how we organize and track tasks. It's user-friendly and helps us stay on top of our projects."
+        },
+        {
+          "reviewerName": "Daniel Wilson",
+          "avatarUrl": "https://randomuser.me/api/portraits/men/45.jpg",
+          "location": null,
+          "rating": 3,
+          "comment": "I am on the fence about this product. It has some great features but also some clear drawbacks."
+        }
+      ]
+    }
+  ]
+}
