@@ -497,7 +497,7 @@ const Header = () => {
             ],
         },
         { label: "About Us", link: "/about-us" },
-        { label: "Blog", link: "/post" },
+        { label: "Blog", link: "/blog" },
 
     ];
 
@@ -632,7 +632,7 @@ const Header = () => {
                     </nav>
 
                     <div className="flex items-center gap-2">
-                        <SearchBar className="text-gray-500" />
+                        <SearchBar className="text-gray-500" specificIds={[206, 272, 276]} />
                         <button onClick={toggleMobileMenu} className="block lg:hidden">
                             <FiMenu className="size-6" />
                         </button>
