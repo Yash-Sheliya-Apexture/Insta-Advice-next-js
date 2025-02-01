@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         {/* Footer Content Columns */}
         <div className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Contact Column */}
             <div>
               <div className="flex items-center mb-5 md:mb-8">

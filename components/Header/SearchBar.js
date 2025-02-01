@@ -168,11 +168,11 @@ const SearchBar = ({ specificIds }) => {
         };
     }, []);
 
-     const fetchSearchResults = async (query = '', ids = []) => {
-         try {
+    const fetchSearchResults = async (query = '', ids = []) => {
+        try {
             let apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed`;
 
-             if (ids && ids.length > 0) {
+            if (ids && ids.length > 0) {
                 apiUrl += `&include=${ids.join(',')}`;
             } else if (query) {
                 apiUrl += `&search=${query}`;
@@ -181,13 +181,13 @@ const SearchBar = ({ specificIds }) => {
 
             const response = await fetch(apiUrl);
 
-            if(!response.ok){
-               throw new Error('Failed to fetch data');
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
             }
 
             const data = await response.json();
             const formattedData = data.map((item) => ({
-              id: item.id,
+                id: item.id,
                 title: item.title.rendered,
                 image: item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0]
                     ? item._embedded['wp:featuredmedia'][0].source_url
@@ -201,38 +201,38 @@ const SearchBar = ({ specificIds }) => {
             setSearchResults(formattedData);
 
             if (!query && !ids && data.length > 0) {
-               setInitialResults(formattedData);
-            } else if(!query && !ids && data.length === 0) {
-              setInitialResults([]);
+                setInitialResults(formattedData);
+            } else if (!query && !ids && data.length === 0) {
+                setInitialResults([]);
             }
-         } catch (error) {
+        } catch (error) {
             console.error('Error fetching search results:', error);
-             setSearchResults([]);
-            if(!query && !ids) {
-               setInitialResults([]);
+            setSearchResults([]);
+            if (!query && !ids) {
+                setInitialResults([]);
             }
-          }
+        }
     };
 
 
     useEffect(() => {
-       // Fetch initial results with specificIds or default
-       fetchSearchResults('', specificIds);
+        // Fetch initial results with specificIds or default
+        fetchSearchResults('', specificIds);
     }, [specificIds]);
 
 
     const handleSearchChange = (e) => {
-       const query = e.target.value;
-       setSearchQuery(query);
+        const query = e.target.value;
+        setSearchQuery(query);
 
         if (!query) {
-           setSearchResults(initialResults);
+            setSearchResults(initialResults);
         } else {
             fetchSearchResults(query);
-       }
-     };
+        }
+    };
 
-     const handleReadMoreClick = (link) => {
+    const handleReadMoreClick = (link) => {
         handleCloseSearch(); // Close the modal
         router.push(link); // Navigate to the link
 
@@ -240,12 +240,12 @@ const SearchBar = ({ specificIds }) => {
 
 
     const renderSearchResults = () => {
-         if (searchResults.length === 0) {
-             return <div className="py-16 text-center text-light-color">No results found</div>;
-         }
-          const resultsToShow = searchResults.slice(0, 6);
+        if (searchResults.length === 0) {
+            return <div className="py-16 text-center text-light-color">No results found</div>;
+        }
+        const resultsToShow = searchResults.slice(0, 6);
 
-       return (
+        return (
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
                 {resultsToShow.map((result) => (
                     <div key={result.id} className="p-6 border border-gray-300 rounded-xl shadow-lg flex flex-col justify-between items-center bg-white">
@@ -278,7 +278,7 @@ const SearchBar = ({ specificIds }) => {
                         </div>
                     </div>
                 ))}
-           </div>
+            </div>
         );
     };
 

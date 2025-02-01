@@ -144,3 +144,18 @@
       opacity: 0;
     }
   }
+
+
+
+  
+  /* Animation 2: Zoom In and Fade */
+.popup-zoom-in-container {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .popup-zoom-in-active {
+    transform: scale(1);
+    opacity: 1;
+  }
