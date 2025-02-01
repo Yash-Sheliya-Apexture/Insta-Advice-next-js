@@ -199,7 +199,7 @@ const NavDropdown = ({
       </button>
       <nav
         className={classNames(
-          "absolute top-[40px] lg:top-[56px] bg-white border border-gray-300 rounded-xl shadow-md z-10 transform transition-all duration-300 ease-in-out text-nowrap",
+          "absolute top-[40px] lg:top-[48px] z-10 transform transition-all duration-300 ease-in-out text-nowrap p-2.5",
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none",
@@ -210,12 +210,12 @@ const NavDropdown = ({
           }
         )}
       >
-        <ul> {/* Add space-y-2 for better spacing */}
+        <ul className="bg-white border border-gray-300 rounded-xl shadow-md"> {/* Add space-y-2 for better spacing */}
           {items.map((item) => (
             <li key={item.label}>
               <Link href={item.link} onClick={closeMobileMenu}
                 className={classNames(
-                  "px-5 py-2.5 relative flex items-center justify-between text-sm rounded-lg",
+                  "px-4 py-2.5 relative flex items-center justify-between text-sm rounded-lg",
                   {
                     "text-blue-600 font-medium hover:text-blue-800": item.bold,
                     "text-light-color hover:text-dark-color":
