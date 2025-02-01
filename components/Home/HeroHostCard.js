@@ -96,7 +96,7 @@ const HostCard = React.memo(({ logo, rating, features, reviews, visitSiteUrl, si
         {features.length > 0 ? (
           features.map((feature, index) => (
             <p key={index} className="text-gray-500 text-sm flex items-center mb-2">
-              <span className="flex items-center justify-center w-5 h-5 tablet:w-6 tablet:h-6 text-green-500 rounded-full mr-2 tablet:mr-3">
+              <span className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 text-green-500 rounded-full mr-2 md:mr-3">
                 <FaCheck />
               </span>
               {feature}

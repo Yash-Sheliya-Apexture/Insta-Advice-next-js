@@ -20,7 +20,7 @@ const InstagramAdviceCardMain = ({ data, id }) => {
 
     const signalPageUrl = `/company/${data.slug}`;
     return (
-        <div className="flex tablet:flex-row">
+        <div className="flex flex-col lg:flex-row">
             <div className="w-full lg:w-1/4 p-4 text-black flex flex-col items-center justify-center bg-white">
                 {imageUrl && (
                     <div className="relative w-full h-16">
@@ -35,12 +35,12 @@ const InstagramAdviceCardMain = ({ data, id }) => {
                 )}
             </div>
             <div className="w-full lg:w-1/2 p-4 bg-white flex flex-col justify-center">
-                <div className="flex justify-between items-center tablet:flex-row">
-                    <div className="w-full tablet:w-1/2 tablet:mb-0">
+                <div className="flex justify-between items-center flex-col sm:flex-row">
+                    <div className="w-full md:w-1/2 md:mb-0">
                         <ul>
                             {features.map((detail, index) => (
-                                <li key={index} className="flex items-center mb-1 tablet:mb-2">
-                                    <span className="flex items-center justify-center w-5 h-5 tablet:w-6 tablet:h-6 text-green-500 rounded-full mr-2 tablet:mr-3">
+                                <li key={index} className="flex items-center mb-1 md:mb-2">
+                                    <span className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 text-green-500 rounded-full mr-2 md:mr-3">
                                         <FaCheck />
                                     </span>
                                     <span   className='text-md text-gray-500'>{detail}</span>
@@ -48,14 +48,14 @@ const InstagramAdviceCardMain = ({ data, id }) => {
                             ))}
                         </ul>
                     </div>
-                    <div className="w-full h-full tablet:w-1/2 text-right">
+                    <div className="w-full h-full md:w-1/2 ">
                         <RatingDisplay ratingData={data.acf} reviews={reviews} StarRating={StarRating} />
                     </div>
                 </div>
             </div>
-            <div className="w-full lg:w-1/4 border-l-2 border-gray-300 p-4 flex flex-col justify-center items-center">
+            <div className="w-full lg:w-1/4 border-t-2 lg:border-l-2 border-gray-300 p-4 flex flex-col justify-center items-center">
                 <div className="text-gray-800 text-center">
-                    <p className="text-xl tablet:text-2xl font-extrabold">
+                    <p className="text-xl md:text-2xl font-extrabold">
                         <span className="text-sm font-medium text-gray-800"><span className="text-2xl">${data.acf?.price}</span>/mo</span>
                     </p>
                     {data.acf?.discount && (

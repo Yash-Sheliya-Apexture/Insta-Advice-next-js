@@ -239,7 +239,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <button onClick={handleSearchClick} className="flex items-center px-2 text-dark-color">
+      <button onClick={handleSearchClick} className="flex items-center bg-gray-200 p-2 rounded-full text-dark-color">
         <FaSearch className='text-gray-700' />
       </button>
 
