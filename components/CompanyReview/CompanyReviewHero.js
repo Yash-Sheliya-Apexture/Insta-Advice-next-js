@@ -36,7 +36,7 @@ const CompanyReviewHero = ({ data }) => {
                                             alt="Company Logo"
                                             fill
                                             className="object-contain p-3"
-                                            sizes="(max-width: 768px) 100vw, 300px"
+                                            sizes="(max-width: 768px) 100vw, 200px"
                                         />
                                     </div>
                                 )}

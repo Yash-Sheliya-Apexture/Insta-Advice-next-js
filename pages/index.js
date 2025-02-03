@@ -181,6 +181,9 @@
 // export default Home;
 
 
+
+
+
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Home/Hero";
 import ServiceSection from "../components/Home/ServiceSection";
@@ -223,7 +226,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <>
             <Hero />
             <div className="Comparison-list py-10">
                 <div className="container mx-auto px-4">
@@ -239,7 +242,7 @@ const Home = () => {
             </div>
             <ServiceSection />
             <OfferSection />
-        </div>
+        </>
     );
 };
 

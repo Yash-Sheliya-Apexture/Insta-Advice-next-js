@@ -486,18 +486,21 @@ const Header = () => {
             label: "Comparison",
             dropdownItems: [
                 { label: "AscendViral vs Plixi", link: "/comparison/ascendviral-vs-plixi" },
-                { label: "AscendViral vs Upleap", link: "/comparison-2" },
-                { label: "AscendViral vs Upgrow", link: "/comparison-3" },
-                { label: "Upgrow vs Upleap", link: "/comparison-3" },
-                { label: "Upgrow vs Plixi", link: "/comparison-3" },
-                { label: "Plixi vs Path social", link: "/comparison-3" },
-                { label: "Kicksta vs path social", link: "/comparison-3" },
-                { label: "AscendViral vs Path social ", link: "/comparison-3" },
+                { label: "AscendViral vs Upleap", link: "/comparison/ascendviral-vs-upleap" },
+                { label: "AscendViral vs Upgrow", link: "/comparison/ascendviral-vs-upgrow" },
+
+                { label: "Upgrow vs Upleap", link: "/comparison/upgrow-vs-upleap" },
+                { label: "Upgrow vs Plixi", link: "/comparison/upgrow-vs-plixi" },
+                { label: "Upleap vs Plixi", link: "/comparison/upleap-vs-plixi" },
+
+                { label: "Path Social vs Plixi", link: "/comparison/path-social-vs-plixi" },
+                { label: "Path Social vs Kicksta", link: "/comparison/path-social-vs-kicksta" },
+                { label: "AscendViral vs Path social", link: "/comparison/ascendviral-vs-path-social" },
                 { label: "See all Comparison", link: "/comparison", bold: true },
             ],
         },
         { label: "About Us", link: "/about-us" },
-        { label: "Blog", link: "/post" },
+        { label: "Blog", link: "/blog" },
         { label: "Contact", link: "/contact-us"}
 
     ];

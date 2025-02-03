@@ -284,7 +284,7 @@ const SearchBar = ({ specificIds }) => {
 
     return (
         <div>
-            <button onClick={handleSearchClick} className="flex items-center px-2 text-dark-color">
+            <button onClick={handleSearchClick} className="flex items-center px-2 text-dark-color cursor-pointer">
                 <FaSearch className='text-gray-700' />
             </button>
 
