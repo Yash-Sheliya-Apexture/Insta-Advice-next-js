@@ -571,6 +571,7 @@ const Header = () => {
                             width={100} // Explicit width for optimization
                             height={50} // Explicit height for optimization
                             className="w-10 h-auto mr-2"
+                            priority={false}
                         />
                         <Link href="/" className="text-xl font-bold text-dark-color" onClick={handleNavLinkClick} >
                             Insta Advice
@@ -594,6 +595,7 @@ const Header = () => {
                                         width={100} // Explicit width for optimization
                                         height={50} // Explicit height for optimization
                                         className="w-10 h-auto mr-2"
+                                        priority={false}
                                     />
                                     <Link href="/" className="text-xl font-bold text-dark-color" onClick={handleNavLinkClick}>
                                         Insta Advice

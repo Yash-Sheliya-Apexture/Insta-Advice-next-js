@@ -38,24 +38,35 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'api.rahulkumark13.sg-host.com',
-                port: '',
-                pathname: '/wp-content/uploads/**',
-            },
-            {
-                protocol: 'http',
-                hostname: 'api.rahulkumark13.sg-host.com',
-                port: '',
-                pathname: '/wp-content/uploads/**',
-            },
-
-        ],
-    },
+  async rewrites() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/api/robots'
+      },
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap.xml'
+      }
+    ];
+  },
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.rahulkumark13.sg-host.com',
+        port: '',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'api.rahulkumark13.sg-host.com',
+        port: '',
+        pathname: '/wp-content/uploads/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
