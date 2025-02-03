@@ -31,7 +31,7 @@ const ReviewModal = ({ onClose, onAddReview }) => {
         onClose();
     };
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50">
             <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
                 <h2 className="text-2xl font-bold mb-6">Write a Review</h2>
                 <form onSubmit={handleSubmit}>
@@ -64,10 +64,10 @@ const ReviewModal = ({ onClose, onAddReview }) => {
                     </div>
 
                     <div className="flex justify-end">
-                        <button type="button" onClick={onClose} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2">
+                        <button type="button" onClick={onClose} className="bg-gray-200 hover:bg-gray-300 text-gray-900 py-2 px-4 mr-2 text-lg rounded-full cursor-pointer">
                             Cancel
                         </button>
-                        <button type="submit" className="custom-gradient text-white font-bold py-2 px-4 rounded">
+                        <button type="submit" className="focus:outline-none custom-gradient text-white text-lg rounded-full text-center px-6 py-2 hover:bg-custom-dark transform cursor-pointer">
                             Submit Review
                         </button>
                     </div>

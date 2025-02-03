@@ -53,7 +53,7 @@ const InstagramAdviceCardMain = ({ data, id }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-full lg:w-1/4 border-t-2 lg:border-l-2 border-gray-300 p-4 flex flex-col justify-center items-center">
+            <div className="w-full lg:w-1/4 border-t-0 lg:border-l-2  border-gray-300 p-4 flex flex-col justify-center items-center">
                 <div className="text-gray-800 text-center">
                     <p className="text-xl md:text-2xl font-extrabold">
                         <span className="text-sm font-medium text-gray-800"><span className="text-2xl">${data.acf?.price}</span>/mo</span>

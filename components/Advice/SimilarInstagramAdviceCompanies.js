@@ -213,6 +213,7 @@ const SimilarInstagramAdviceCompanies = ({ currentCompanyCategories, currentComp
                                             alt={`${title?.rendered} Logo`}
                                             fill
                                             className="object-contain p-1"
+                                            sizes="(max-width: 768px) 100vw, 200px"
                                         />
                                     </div>
                                 )}

@@ -60,7 +60,7 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/post" className="text-gray-500">
+                  <Link href="/blog" className="text-gray-500">
                     blogs
                   </Link>
                 </li>
@@ -84,55 +84,55 @@ const Footer = () => {
 
 
 
-            {/* Hosting Types Column */}
+            {/* Comparisons Types Column */}
             <div>
               <h4 className="font-semibold text-sm tracking-wider text-dark-color mb-4 uppercase">
                 Comparisons
               </h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-plixi" className="text-gray-500">
                     AscendViral vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-upleap" className="text-gray-500">
                     AscendViral vs Upleap
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-upgrow" className="text-gray-500">
                     AscendViral vs Upgrow
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
-                    AscendViral vs Path social
+                  <Link href="/comparison/upgrow-vs-upleap" className="text-gray-500">
+                  Upgrow vs Upleap
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
-                    Upgrow vs Upleap
+                  <Link href="/comparison/upgrow-vs-plixi" className="text-gray-500">
+                  Upgrow vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
-                    Upgrow vs Plixi
+                  <Link href="/comparison/upleap-vs-plixi" className="text-gray-500">
+                  Upleap vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
-                    Upleap vs plixi
+                  <Link href="/comparison/path-social-vs-plixi" className="text-gray-500">
+                  Path Social vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
-                    Plixi vs Path social
+                  <Link href="/comparison/path-social-vs-kicksta" className="text-gray-500">
+                  Path Social vs Kicksta
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-500">
-                    Kicksta vs Path social
+                  <Link href="/comparison/ascendviral-vs-path-social" className="text-gray-500">
+                  AscendViral vs Path social
                   </Link>
                 </li>
               </ul>

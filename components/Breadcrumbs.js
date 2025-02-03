@@ -99,7 +99,7 @@ const Breadcrumbs = () => {
                                             {item.label}
                                         </span>
                                     ) : (
-                                        <Link href={`/${href}`} className="hover:text-blue-600">
+                                        <Link href={`/${href}`} className="hover:text-gray-900">
                                             {item.label}
                                         </Link>
                                     )}
