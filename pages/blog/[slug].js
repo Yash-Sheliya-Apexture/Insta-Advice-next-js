@@ -191,18 +191,24 @@ const SingleBlogPage = () => {
                 const fetchedPost = data[0];
 
                 // Use _embed media if available
-                 if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
+                if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
                     fetchedPost.featured_media_url = fetchedPost._embedded["wp:featuredmedia"][0]?.source_url;
-                  }
-                 //fetch rank math seo data from post api
-                const seoRes = await fetch(
-                    `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/rankmath/v1/getHead?id=${fetchedPost.id}&type=post`
-                );
+                }
+
+
+                //fetch rank math seo data from post api
+                 const seoRes = await fetch(
+                     `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/rankmath/v1/getHead?url=${encodeURIComponent(
+                        `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`
+                      )}`
+                  );
+
                 if(seoRes.ok){
                     const seoData = await seoRes.json();
                     fetchedPost.seoData = seoData;
 
                 }
+
 
                 // Fetch category names if categories exist
                 if (fetchedPost.categories && fetchedPost.categories.length > 0) {

@@ -38,7 +38,8 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+    output:'export',
+    reactStrictMode: true,
     images: {
         remotePatterns: [
             {
@@ -47,13 +48,13 @@ const nextConfig = {
                 port: '',
                 pathname: '/wp-content/uploads/**',
             },
-             {
+            {
                 protocol: 'http',
-                 hostname: 'api.rahulkumark13.sg-host.com',
+                hostname: 'api.rahulkumark13.sg-host.com',
                 port: '',
-               pathname: '/wp-content/uploads/**',
+                pathname: '/wp-content/uploads/**',
             },
-          
+
         ],
     },
 };
