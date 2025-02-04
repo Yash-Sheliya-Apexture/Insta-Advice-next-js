@@ -1113,8 +1113,6 @@ const CompanyPage = () => {
 
                 const data = await response.json();
                 setJwt(data.token);
-                console.log("JWT Token fetched and stored:", data.token);
-                localStorage.setItem('jwtToken', data.token);
 
 
             } catch (err) {
@@ -1158,7 +1156,6 @@ const CompanyPage = () => {
                     setNoData(true);
                     throw new Error("No data found for this company.");
                 }
-                console.log(data)
                 setAdvicePosts(data[0]);
 
                 // Load reviews from local storage or use initial data from WordPress Comments
