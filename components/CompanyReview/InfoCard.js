@@ -17,8 +17,8 @@ const InfoCard = ({ data }) => {
         return [line.trim(), ""]; // Return as a single line if no price pattern is found
     };
     return (
-        <div className="flex flex-col justify-between gap-4 md:flex-row bg-white md:p-10 p-5 border border-gray-300 shadow-md rounded-2xl -mt-28">
-            <div className="flex flex-col items-center justify-center md:p-4 p-0 md:border border-0 order-1 border-gray-300 rounded-xl md:w-1/4 space-y-2">
+        <div className="flex flex-col justify-between gap-4 lg:flex-row bg-white md:p-10 p-5 border border-gray-300 shadow-md rounded-2xl -mt-28">
+            <div className="w-full flex flex-col items-center justify-center md:p-4 p-0 lg:border border-0 order-1 border-gray-300 rounded-xl lg:w-1/4 space-y-2">
                 <span className="text-4xl font-bold text-gray-800">
                     {rating.toFixed(1)}{" "}
                 </span>
@@ -27,7 +27,7 @@ const InfoCard = ({ data }) => {
                     Based on expert ratings and {reviews} user reviews
                 </p>
             </div>
-            <div className="flex flex-col items-start justify-start flex-1 gap-6 md:p-4 p-0 md:border border-0 md:order-2 order-3 border-gray-300 rounded-xl md:flex-row">
+            <div className="w-full flex flex-col items-start justify-start flex-1 gap-6 md:p-4 p-0 lg:border border-0 md:order-2 order-3 border-gray-300 rounded-xl md:flex-row">
                 <div className="flex-1 w-full">
                     <h3 className="mb-2 text-lg font-semibold text-gray-800">
                         Pricing
@@ -46,7 +46,7 @@ const InfoCard = ({ data }) => {
                     </ul>
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center md:p-4 p-0 md:border border-0 md:order-3 order-2 border-gray-300 rounded-xl md:w-1/4">
+            <div className="w-full flex flex-col items-center justify-center md:p-4 p-0 lg:border border-0 md:order-3 order-2 border-gray-300 rounded-xl lg:w-1/4">
                 <a
                     href={acf?.visit_site_url}
                     target="_blank"

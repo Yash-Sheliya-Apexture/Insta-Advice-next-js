@@ -56,7 +56,7 @@ const CompanyReviewHero = ({ data }) => {
                     </div>
                      {hasAwards && (
                         <div className="lg:w-1/4 w-full badges-wrap md:block hidden">
-                            <div className="flex items-center justify-end">
+                            <div className="flex items-center justify-start lg:justify-end mt-6 lg:mt-0">
                                 {awardsImages.map((award, index) => (
                                       award.trim() && (
                                           <Image
@@ -70,7 +70,7 @@ const CompanyReviewHero = ({ data }) => {
                                       )
                                 ))}
                             </div>
-                            <div className="flex items-center justify-end mt-6 ">
+                            <div className="flex items-center justify-start lg:justify-end mt-6 ">
                                 <div className="order-1 text-gray-600 lg:order-2 lg:mt-24">
                                     <h1 className='text-[#16181d66] text-xl font-medium'>Shere</h1>
                                     <div className='flex mt-2 space-x-2'>

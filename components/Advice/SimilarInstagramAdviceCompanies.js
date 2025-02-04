@@ -192,7 +192,7 @@ const SimilarInstagramAdviceCompanies = ({ currentCompanyCategories, currentComp
     return (
         <>
             <h2 className="text-2xl font-bold mb-8">Check Similar Instagram Advice Companies:</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {displayedCompanies.map((company, index) => {
                     const { title, acf, _embedded, slug } = company;
                     const imageUrl = _embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
@@ -205,7 +205,7 @@ const SimilarInstagramAdviceCompanies = ({ currentCompanyCategories, currentComp
 
                     return (
                         <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-md p-6 flex flex-col justify-between">
-                            <div className="flex items-center justify-between gap-2 mb-4">
+                            <div className="flex flex-col lg:flex-row items-center justify-between gap-2 mb-4">
                                 {imageUrl && (
                                     <div className="relative w-42 h-12  mr-2">
                                         <Image
@@ -231,9 +231,9 @@ const SimilarInstagramAdviceCompanies = ({ currentCompanyCategories, currentComp
                                     </li>
                                 ))}
                             </ul>
-                            <div className='flex justify-between items-center'>
+                            <div className='flex flex-col justify-between items-center'>
                                 <span className="text-sm font-medium text-gray-800"><span className="text-2xl">{price}</span>/mo</span>
-                                <div className='flex gap-2'>
+                                <div className='flex flex-col lg:flex-row w-full lg:w-fit text-center gap-2'>
                                 <a
                                     href={acf?.visit_site_url}
                                     target="_blank"

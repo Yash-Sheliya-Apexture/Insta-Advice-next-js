@@ -55,13 +55,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.rahulkumark13.sg-host.com',
+        hostname: 'rahulkumark13.sg-host.com',
         port: '',
         pathname: '/wp-content/uploads/**',
       },
       {
         protocol: 'http',
-        hostname: 'api.rahulkumark13.sg-host.com',
+        hostname: 'rahulkumark13.sg-host.com',
         port: '',
         pathname: '/wp-content/uploads/**',
       },
