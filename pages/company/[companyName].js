@@ -1113,8 +1113,6 @@ const CompanyPage = () => {
 
                 const data = await response.json();
                 setJwt(data.token);
-                console.log("JWT Token fetched and stored:", data.token);
-                localStorage.setItem('jwtToken', data.token);
 
 
             } catch (err) {
@@ -1158,7 +1156,6 @@ const CompanyPage = () => {
                     setNoData(true);
                     throw new Error("No data found for this company.");
                 }
-                console.log(data)
                 setAdvicePosts(data[0]);
 
                 // Load reviews from local storage or use initial data from WordPress Comments
@@ -1308,7 +1305,7 @@ const CompanyPage = () => {
 
     if (loading || jwtLoading) {
         return (
-            <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75">
+            <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
                 <div className="flex space-x-2">
                     <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
                     <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>

@@ -469,7 +469,7 @@ const Header = () => {
         {
             label: "Service Reviews",
             dropdownItems: [
-                { label: "Ascend Viral", link: "/company/ascend-viral", tag: "Most Affordable" },
+                { label: "Ascend Viral", link: "/company/ascend-viral", tag: "Expert's Choice" },
                 { label: "Upgrow", link: "/company/upgrow" },
                 { label: "Upleap", link: "/company/upleap"},
                 { label: "Path Social", link: "/company/path-social" },
