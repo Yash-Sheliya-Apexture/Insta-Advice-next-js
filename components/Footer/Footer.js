@@ -25,7 +25,7 @@ const Footer = () => {
               </div>
               <p className="text-gray-500">We help you find tools that actually work, stop wasting money, and start getting results</p>
 
-             {/* <ul className="space-y-2 mt-4">
+             <ul className="space-y-2 mt-4">
                 <li>
                   <p className="flex items-center gap-1 group relative">
                     <FaEnvelope className="mr-1 text-dark-color h-4 w-4"/>
@@ -50,7 +50,7 @@ const Footer = () => {
                     </span>
                   </p>
                 </li>
-              </ul> */}
+              </ul>
             </div>
             {/* General Column */}
             <div>
