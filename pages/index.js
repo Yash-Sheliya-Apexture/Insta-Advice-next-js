@@ -319,6 +319,7 @@
 
 
 
+
 // pages/index.js
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Home/Hero";
@@ -330,7 +331,6 @@ import Seo from "@/components/Seo"; // Import the Seo component
 const Home = () => {
   const [adviceData, setAdviceData] = useState([]);
   const [loading, setLoading] = useState(true);
-    const [visibleCardCount, setVisibleCardCount] = useState(6);
     const [allDataLoaded, setAllDataLoaded] = useState(false);
 
   useEffect(() => {
@@ -378,7 +378,7 @@ const Home = () => {
         }
     };
 
-    const showViewMoreButton = !allDataLoaded;
+    // const showViewMoreButton = !allDataLoaded;
 
   return (
     <>
