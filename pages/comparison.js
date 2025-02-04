@@ -102,7 +102,7 @@ const ComparisonPage = () => {
                                 <div key={comparison.id} className="border border-gray-300 bg-white shadow-md rounded-xl p-4">
                                     <Link href={`/comparison/${comparison.slug}`} >
                                         <div className="flex justify-center items-center relative">
-                                            <div className='flex justify-center items-center gap-6'>
+                                            <div className='flex justify-center items-center sm:gap-6 gap-2'>
                                                 <div className="flex flex-col">
                                                     {comparison.logo1 && (
                                                         <div className='bg-white border border-gray-300 rounded-2xl w-32 h-32 flex justify-center items-center relative'>

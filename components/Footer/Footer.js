@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTwitter, FaGithub, FaFacebook, FaDribbble, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaTwitter, FaGithub, FaFacebook, FaDribbble, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,7 +36,7 @@ const Footer = () => {
                 </li>
                 <li>
                  <p className="flex items-center gap-1 group relative">
-                    <FaPhone className="mr-1 text-dark-color h-4 w-4"/>
+                    <FaPhoneAlt className="mr-1 text-dark-color h-4 w-4"/>
                     <a href="tel:+15551234567" className="text-gray-500 relative inline-block hover:text-gray-700 transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-gray-900 before:transition-all before:duration-500 before:ease-in-out group-hover:before:w-full">
                       +1 (555) 123-4567
                     </a>
@@ -60,7 +60,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <Link href="/blog" className="text-gray-500">
-                    blogs
+                    Blogs
                   </Link>
                 </li>
                 <li>

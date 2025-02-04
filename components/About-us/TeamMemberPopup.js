@@ -61,13 +61,25 @@ const TeamMemberPopup = ({ member, onClose }) => {
 
     useEffect(() => {
         const popupElement = popupRef.current;
-      if (popupElement) {
-           // Force a reflow to ensure the animation plays on initial render
-        void popupElement.offsetWidth; // This line is crucial to trigger animation on mounting
-        popupElement.classList.add('popup-zoom-in-active');
-       }
-    }, []);
-
+        if (popupElement) {
+             // Force a reflow to ensure the animation plays on initial render
+          void popupElement.offsetWidth; // This line is crucial to trigger animation on mounting
+          popupElement.classList.add('popup-zoom-in-active');
+         }
+  
+          const handleClickOutside = (event) => {
+              if (popupRef.current && !popupRef.current.contains(event.target)) {
+                  handleClose();
+              }
+          };
+  
+          document.addEventListener("mousedown", handleClickOutside);
+  
+          return () => {
+              document.removeEventListener("mousedown", handleClickOutside);
+          };
+      }, [onClose]);
+      
      const handleClose = () => {
         const popupElement = popupRef.current;
         if(popupElement) {
