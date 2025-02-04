@@ -10,7 +10,7 @@ import img3 from '../../public/images/3.png';
 
 const ServiceCard = ({ title, description, icon }) => {
   return (
-    <div className="rounded-xl p-6 flex flex-col items-start space-y-4 shadow-main-shadow bg-white">
+    <div className="rounded-xl p-6 flex flex-col items-start space-y-4 shadow-main-shadow bg-white hover:-translate-y-4 duration-300">
       <div className="flex items-center w-16 h-16 rounded-xl mb-4">
         <Image src={icon} alt="" className="w-14 h-14" width={56} height={56} />
       </div>
