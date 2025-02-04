@@ -793,7 +793,7 @@ const InstagramAdvice = ({
         },
         {
             name: "Sort",
-            options: ["Price High to Low", "Price Low to High", "Rating"],
+            options: ["Price High to Low", "Price Low to High"],
         },
         {
             name: "Category",

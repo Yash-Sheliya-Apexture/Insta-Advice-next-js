@@ -159,3 +159,10 @@
     transform: scale(1);
     opacity: 1;
   }
+
+  @property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+  }        
+  
