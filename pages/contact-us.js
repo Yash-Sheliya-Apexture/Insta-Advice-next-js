@@ -232,17 +232,17 @@ const ContactUs = () => {
                 <div className="container mx-auto px-4">
                     <div className="bg-gradient-yellow">
                         <div className="max-w-3xl mx-auto text-center">
-                            <h1 className="text-3xl text-gray-500 md:text-5xl font-gt font-bold mt-6">
+                            <h1 className="text-3xl text-gray-500 lg:text-5xl font-gt font-bold mt-6">
                                 <span className="bg-gradient-to-br from-yellow-400 to-orange-600 text-transparent bg-clip-text">
                                     Contact us
                                 </span>
                             </h1>
 
                             <div>
-                                <h6 className="text-xl text-gray-500 md:text-3xl font-gt font-bold mt-6">
+                                <h6 className="text-xl text-gray-500 lg:text-3xl font-gt font-bold lg:mt-6 mt-2">
                                     Your thoughts matter! We'd love to hear from you.
                                 </h6>
-                                <p className="text-lg md:text-xl text-light-color font-medium mt-6">
+                                <p className="text-lg md:text-xl text-light-color font-medium lg:mt-6 mt-2">
                                     Whether you have a specific question or are ready to accelerate your growth, our team is ready to help you. Send us a message to start your growth journey.
                                 </p>
                             </div>

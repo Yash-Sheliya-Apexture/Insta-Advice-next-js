@@ -231,9 +231,9 @@ const SimilarInstagramAdviceCompanies = ({ currentCompanyCategories, currentComp
                                     </li>
                                 ))}
                             </ul>
-                            <div className='flex flex-col justify-between items-center'>
+                            <div className='flex justify-between'>
                                 <span className="text-sm font-medium text-gray-800"><span className="text-2xl">{price}</span>/mo</span>
-                                <div className='flex flex-col lg:flex-row w-full lg:w-fit text-center gap-2'>
+                                <div className='flex w-fit text-center gap-2'>
                                 <a
                                     href={acf?.visit_site_url}
                                     target="_blank"

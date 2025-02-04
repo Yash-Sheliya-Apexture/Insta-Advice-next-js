@@ -275,7 +275,7 @@ const AboutUs = () => {
                                     </span>
                                 </h1>
                             </div>
-                            <p className="text-lg md:text-xl text-gray-500 mt-6">
+                            <p className="text-lg md:text-xl text-gray-500 lg:mt-6 mt-2">
                                 Instaadvice provides a first-of-its-kind service to help you navigate the complex world of Instagram growth tools. Easily compare features, prices, and user feedback. We empower you to make informed choices, ensuring your business receives trusted guidance.</p>
                         </div>
 

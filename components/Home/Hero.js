@@ -861,7 +861,7 @@ const Hero = () => {
               <span className="text-lg md:text-xl">
                 Updated on January 30, 2025
               </span>
-              <h1 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
+              <h1 className="text-3xl lg:text-5xl font-bold mt-4 leading-tight">
                 Plan Your Instagram Growth, Grow Your Audience, Build Your Brand
               </h1>
               <p className="text-lg md:text-xl font-medium mt-6">
@@ -870,7 +870,6 @@ const Hero = () => {
               </p>
               <Link
                 href="/company"
-                target="_blank"
                 rel="noopener noreferrer"
                 className="focus:outline-none inline-block custom-gradient text-white text-base font-medium rounded-full px-10 py-4 hover:bg-blue-600 transform text-center mt-2"
               >

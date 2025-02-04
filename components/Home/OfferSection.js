@@ -7,7 +7,7 @@ const OfferSection = () => {
         <div className="flex flex-col lg:flex-row rounded-xl">
           {/* Left Column (Text Content) */}
           <div className="lg:w-1/2 text-left p-12 bg-gradient-to-r from-light-royal-blue from-0% via-purple-heart via-54% to-amaranth to-100% rounded-tl-xl rounded-tr-xl lg:rounded-tr-none lg:rounded-bl-xl text-white">
-            <h2 className="text-3xl md:text-5xl font-bold text-dark-color">
+            <h2 className="text-3xl lg:text-5xl font-bold text-dark-color">
               Our Approach
             </h2>
             <p className=" mt-6 text-lg">

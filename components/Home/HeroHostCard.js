@@ -234,7 +234,7 @@ import Link from "next/link";
 
 const HostCard = React.memo(({ logo, rating, features, reviews, visitSiteUrl, signalPageUrl, isMiddleCard, ranking }) => {
   return (
-    <div className={`bg-white relative p-5 rounded-xl shadow-main-shadow transition-shadow duration-300 overflow-hidden flex flex-col justify-between min-h-[300px] ${isMiddleCard ? 'md:-mt-6 mt-0 md:mb-3 mb-0 lg:-mt-6 border-2 border-light-royal-blue' : ''}`}>
+    <div className={`bg-white relative p-5 rounded-xl shadow-main-shadow transition-shadow duration-300 overflow-hidden flex flex-col justify-between min-h-[300px] ${isMiddleCard ? 'lg:-mt-6 mt-0 lg:mb-3 mb-0 border-2 border-light-royal-blue' : ''}`}>
       {/* Logo */}
       <div className="flex justify-center my-2">
         <div className="relative w-62 h-14">
