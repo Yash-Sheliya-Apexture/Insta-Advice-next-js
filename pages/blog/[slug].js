@@ -282,7 +282,7 @@ const SingleBlogPage = () => {
         siteName="Instagram Advice"
       />
       <div className="single-blog-page">
-        <div className="max-w-5xl mx-auto py-10">
+        <div className="container max-w-5xl mx-auto py-10 px-4">
           <div className="single-blog-hero text-center">
             <h1 className="text-3xl text-gray-900 md:text-5xl font-gt font-bold mt-6">
               {post.title.rendered}

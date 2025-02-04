@@ -251,7 +251,7 @@ const ContactUs = () => {
                         <div className="mt-10">
                             <form
                                 onSubmit={handleSubmit}
-                                className="bg-white p-6 rounded-xl shadow-main-shadow max-w-3xl mx-auto space-y-6"
+                                className="bg-white p-8 rounded-xl shadow-main-shadow max-w-4xl mx-auto space-y-6"
                             >
                                 <div className="flex flex-col sm:flex-row items-center gap-6">
                                     {/* First Name */}
@@ -343,7 +343,7 @@ const ContactUs = () => {
                                 <div className="mt-6 text-center">
                                     <button
                                         type="submit"
-                                        className="px-4 cursor-pointer py-2 w-36 bg-gray-900 text-white font-medium rounded-md hover:bg-custom-dark"
+                                        className="px-4 cursor-pointer py-2 w-52 bg-gray-900 text-white font-medium rounded-md hover:bg-custom-dark"
                                     >
                                         Submit
                                     </button>
