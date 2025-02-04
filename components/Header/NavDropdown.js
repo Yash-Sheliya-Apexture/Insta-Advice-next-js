@@ -139,6 +139,7 @@ const tagStyles = {
   Popular: "bg-blue-100 text-blue-600",
   "Best Overall": "bg-purple-100 text-purple-600",
   "Most Affordable": "bg-yellow-100 text-yellow-600",
+  "Expert's Choice": "bg-pink-200 text-pink-900",
   "Best VPS Hosting": "bg-pink-100 text-pink-600",
   "Best Value": "bg-gray-100 text-gray-600",
   "Most searched": "bg-lime-100 text-lime-600",
@@ -199,7 +200,7 @@ const NavDropdown = ({
       </button>
       <nav
         className={classNames(
-          "absolute top-[40px] lg:top-[48px] z-10 transform transition-all duration-300 ease-in-out text-nowrap p-2.5",
+          "absolute top-[40px] lg:top-[47px] z-10 transform transition-all duration-300 ease-in-out text-nowrap p-2.5",
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none",
