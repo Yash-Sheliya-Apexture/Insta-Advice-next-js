@@ -203,7 +203,7 @@ const TeamMemberPopup = ({ member, onClose }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75" >
             <div
                 ref={popupRef}
-                className="bg-white rounded-xl shadow-lg overflow-hidden p-6 relative max-w-2xl popup-zoom-in-container h-screen sm:h-auto"
+                className="bg-white flex justify-center items-center sm:rounded-xl rounded-none shadow-lg overflow-hidden p-6 relative max-w-2xl popup-zoom-in-container h-screen sm:h-auto"
             >
                 <button
                     onClick={handleClose}

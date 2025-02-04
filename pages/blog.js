@@ -106,10 +106,10 @@ const BlogList = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto text-center ">
               <div className="flex justify-center items-center">
-                <h1 className="text-3xl text-dark-color md:text-5xl font-gt font-bold mt-6"><span className="bg-gradient-to-br from-yellow-400 to-orange-600 text-transparent bg-clip-text">Our Blog</span></h1>
+                <h1 className="text-3xl text-dark-color lg:text-5xl font-gt font-bold"><span className="bg-gradient-to-br from-yellow-400 to-orange-600 text-transparent bg-clip-text">Our Blog</span></h1>
               </div>
               <div>
-                <p className="text-lg md:text-xl text-gray-500 mt-6">Welcome to our blog! Explore our latest articles, insights, and industry updates.</p>
+                <p className="text-lg md:text-xl text-gray-500 lg:mt-6 mt-2">Welcome to our blog! Explore our latest articles, insights, and industry updates.</p>
               </div>
             </div>
           </div>
@@ -125,12 +125,12 @@ const BlogList = () => {
                   <div className="w-full aspect-h-9">
                     {
                       post.featured_media_url && (
-                        <div className='relative w-full h-72'>
+                        <div className='relative w-full xl:h-72 lg:h-56 h-52'>
                           <Link href={`/blog/${post.slug}`}>
                             <Image
                               src={post.featured_media_url}
                               alt={post.title.rendered}
-                              className="object-cover w-full h-full"
+                              className="object-center w-full h-auto"
                               fill
                             />
                           </Link>
