@@ -97,7 +97,7 @@ const ComparisonPage = () => {
                 </div>
                 <div className="Comparison-list mt-10">
                     <div className="container mx-auto px-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="comparison-grid gap-5">
                             {comparisons?.map((comparison) => (
                                 <div key={comparison.id} className="border border-gray-300 bg-white shadow-md rounded-xl p-4">
                                     <Link href={`/comparison/${comparison.slug}`} >
@@ -105,20 +105,20 @@ const ComparisonPage = () => {
                                             <div className='flex justify-center items-center sm:gap-6 gap-2'>
                                                 <div className="flex flex-col">
                                                     {comparison.logo1 && (
-                                                        <div className='bg-white border border-gray-300 rounded-2xl w-32 h-32 flex justify-center items-center relative'>
+                                                        <div className='bg-white border border-gray-300 rounded-lg w-28 sm:w-32 h-28 sm:h-32 flex justify-center items-center relative'>
                                                             <Image src={comparison.logo1} alt={comparison.text1} fill className="rounded object-contain p-3" sizes="(max-width: 768px) 100vw, 32px" />
                                                         </div>
                                                     )}
                                                 </div>
 
 
-                                                <div className="relative p-1 w-18 h-42 flex justify-center items-center">
+                                                <div className="relative p-1 w-14 sm:w-18 h-32 sm:h-42 flex justify-center items-center">
                                                     <Image src={VS} alt="VS" fill className="rounded object-contain mb-2 p-3" sizes="18px" />
                                                 </div>
 
                                                 <div className="flex flex-col">
                                                     {comparison.logo2 && (
-                                                        <div className='bg-white border border-gray-300 rounded-2xl w-32 h-32 flex justify-center items-center relative'>
+                                                        <div className='bg-white border border-gray-300 rounded-lg w-28 sm:w-32 h-28 sm:h-32 flex justify-center items-center relative'>
                                                             <Image src={comparison.logo2} alt={comparison.text2} fill className="rounded object-contain p-3" sizes="(max-width: 768px) 100vw, 32px" />
                                                         </div>
                                                     )}

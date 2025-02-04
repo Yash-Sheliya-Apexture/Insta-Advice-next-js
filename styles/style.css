@@ -165,4 +165,26 @@
     initial-value: 0deg;
     syntax: '<angle>';
   }        
-  
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: 1 column */
+}
+
+@media (min-width: 768px) { /* Tablet and up */
+    .comparison-grid {
+        grid-template-columns: repeat(1, 1fr); /* 2 columns */
+    }
+}
+
+@media (min-width: 1024px) { /* Laptop and up */
+    .comparison-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (min-width: 1280px) { /* Large screen and up */
+    .comparison-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}
