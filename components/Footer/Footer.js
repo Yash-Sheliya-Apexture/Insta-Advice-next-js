@@ -1,23 +1,22 @@
 import React from "react";
-import { FaTwitter, FaGithub, FaFacebook, FaDribbble } from "react-icons/fa";
-import Image from "next/image"; // Use Next.js Image component for optimized images
-import Link from "next/link"; // Use Next.js Link component for internal links
+import { FaTwitter, FaGithub, FaFacebook, FaDribbble, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-50 py-12 border-t border-gray-300">
       <div className="container mx-auto px-4">
-        {/* Footer Content Columns */}
         <div className="mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Contact Column */}
             <div>
               <div className="flex items-center mb-5 md:mb-8">
                 <Image
-                  src="/images/insta-logo.png" // Images should be in the public folder
+                  src="/images/insta-logo.png"
                   alt="Insta Advice Logo"
-                  width={48} // Width in pixels
-                  height={48} // Height in pixels
+                  width={48}
+                  height={48}
                   className="pr-2 md:w-12"
                 />
                 <Link href="/" className="text-xl font-bold md:text-2xl">
@@ -26,27 +25,27 @@ const Footer = () => {
               </div>
               <p className="text-gray-500">We help you find tools that actually work, stop wasting money, and start getting results</p>
 
-              <ul className="space-y-2 mt-4">
+             <ul className="space-y-2 mt-4">
                 <li>
-                  <p>
-                    <strong className="font-semibold mr-1 text-dark-color">Email:</strong>
-                    <a href="mailto:info@instaadvice.com" className="text-gray-500">
+                  <p className="flex items-center gap-1 group relative">
+                    <FaEnvelope className="mr-1 text-dark-color h-4 w-4"/>
+                    <a href="mailto:info@instaadvice.com" className="text-gray-500 relative inline-block hover:text-gray-700 transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-gray-900 before:transition-all before:duration-500 before:ease-in-out group-hover:before:w-full">
                       info@instaadvice.com
                     </a>
                   </p>
                 </li>
                 <li>
-                  <p>
-                    <strong className="font-semibold mr-1 text-dark-color">Phone:</strong>
-                    <a href="tel:+15551234567" className="text-gray-500">
+                 <p className="flex items-center gap-1 group relative">
+                    <FaPhone className="mr-1 text-dark-color h-4 w-4"/>
+                    <a href="tel:+15551234567" className="text-gray-500 relative inline-block hover:text-gray-700 transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-gray-900 before:transition-all before:duration-500 before:ease-in-out group-hover:before:w-full">
                       +1 (555) 123-4567
                     </a>
                   </p>
                 </li>
                 <li>
-                  <p>
-                    <strong className="font-semibold mr-1 text-dark-color">Address:</strong>
-                    <span className="text-gray-500">
+                <p className="flex items-center gap-1 group relative">
+                    <FaMapMarkerAlt className="mr-1 text-dark-color h-4 w-4"/>
+                    <span className="text-gray-500 relative inline-block hover:text-gray-700 transition-colors duration-300 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-gray-900 before:transition-all before:duration-500 before:ease-in-out group-hover:before:w-full">
                       123 Main Street, Anytown, USA
                     </span>
                   </p>
@@ -81,8 +80,6 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
-
 
             {/* Comparisons Types Column */}
             <div>
@@ -120,7 +117,7 @@ const Footer = () => {
                   Upleap vs Plixi
                   </Link>
                 </li>
-                <li>
+                 <li>
                   <Link href="/comparison/path-social-vs-plixi" className="text-gray-500">
                   Path Social vs Plixi
                   </Link>
@@ -137,8 +134,6 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
-
             {/* Social Media Column */}
             <div>
               <h4 className="font-semibold text-sm tracking-wider text-dark-color mb-4 uppercase">
@@ -166,10 +161,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Separator */}
         <hr className="my-6 border-gray-300" />
 
-        {/* Bottom Row - Copyright & Terms */}
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-500">
           <div className="text-sm mb-2 md:mb-0">
             <p>© 2025 Insta Advice. All rights reserved.</p>
