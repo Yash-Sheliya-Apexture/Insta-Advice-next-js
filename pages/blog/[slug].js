@@ -310,8 +310,8 @@ const SingleBlogPage = () => {
           <article className="mt-6">
             {/* Optionally display featured image if available */}
             {post.featured_media_url && (
-              <div className="w-full  relative" style={{ height: "300px" }}>
-                <Image
+              <div className="w-full relative">
+                <img
                   src={proxyImageUrl(post.featured_media_url)}
                   alt={post.title.rendered}
                   className="w-full h-full object-cover rounded-xl"

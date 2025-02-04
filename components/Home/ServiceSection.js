@@ -44,7 +44,7 @@ const ServiceSection = () => {
 
   return (
     <section className="Service py-12">
-      <div className="container mx-auto relative z-10 px-4">
+      <div className="container mx-auto relative px-4">
         <div className="bg-gradient-to-br from-[#833ab479] via-[#fd1d1d74] to-[#fcb045ac] rounded-3xl shadow-xl p-10">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-dark-color">Why Choose Insta advice?</h2>
