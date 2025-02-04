@@ -289,7 +289,7 @@ const SingleComparisonPage = () => {
                  />
             <div className='py-10 single-page-comparison'>
                 <div className="container mx-auto px-4">
-                    <div className='flex gap-11'>
+                    <div className='flex flex-col lg:flex-row gap-11'>
                         <div className='w-1/2'>
                             <div className="heading pt-10">
                                 <h1 className="text-5xl font-bold text-gray-900 "><span className='bg-gradient-to-r from-light-royal-blue from-0% via-purple-heart via-54% to-amaranth to-100% text-transparent bg-clip-text'>{comparison.title}</span> : {comparison.subheading}</h1>
