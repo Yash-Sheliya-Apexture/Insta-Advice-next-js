@@ -43,9 +43,9 @@ const AuthorBlock = ({ acf, modifiedDate, jwt }) => {
           <div className="bg-gray-200 rounded-full w-14 h-14 animate-pulse"></div>
         </div>
         <div>
-          <h3 className="font-medium">{acf?.author_name}</h3>
-          <p className="text-sm text-gray-500">{acf?.author_title}</p>
-          <p className="text-xs text-gray-500">Updated at {new Date(modifiedDate).toLocaleDateString()}</p>
+          <h3 className="font-semibold text-xl">{acf?.author_name}</h3>
+          <p className="text-gray-500">{acf?.author_title}</p>
+          <p className="text-lg text-gray-500">Updated at {new Date(modifiedDate).toLocaleDateString()}</p>
         </div>
       </div>
     )
