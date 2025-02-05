@@ -623,6 +623,8 @@
 // export default ContactUs;
 
 
+
+
 import React, { useState } from "react";
 import { db } from "../lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
@@ -751,6 +753,7 @@ const ContactUs = () => {
                 <div className="container mx-auto px-4">
                     <div className="bg-gradient-yellow">
                         <div className="max-w-3xl mx-auto text-center">
+                            {/* new heding  */}
                             <h1 className="text-3xl text-gray-500 lg:text-5xl font-gt font-bold mt-6">
                                 <span className="bg-gradient-to-br from-yellow-400 to-orange-600 text-transparent bg-clip-text">
                                     Contact us
