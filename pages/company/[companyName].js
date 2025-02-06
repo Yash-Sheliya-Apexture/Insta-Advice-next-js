@@ -1,122 +1,7 @@
-// import React, { useState, useEffect } from "react";
+// // pages/company/[companyName].js
+// import React, { useState, useEffect, useCallback } from "react";
 // import { useRouter } from "next/router";
-// import CompanyReviewHero from "@/components/CompanyReview/CompanyReviewHero";
-// import Breadcrumbs from "@/components/Breadcrumbs";
-// import AuthorBlock from "@/components/CompanyReview/AuthorBlock";
-// import ReviewSummary from "@/components/CompanyReview/ReviewSummary";
-// import UserReviewList from "@/components/CompanyReview/UserReviewList";
-// import InfoCard from "@/components/CompanyReview/InfoCard";
-// import Sidebar from "@/components/CompanyReview/Sidebar";
-// import SimilarInstagramAdviceCompanies from "@/components/Advice/SimilarInstagramAdviceCompanies";
-
-// const CompanyPage = () => {
-//     const router = useRouter();
-//     const { companyName } = router.query;
-//     const [advicePosts, setAdvicePosts] = useState(null);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-//     const [noData, setNoData] = useState(false);
-
-
-//    useEffect(() => {
-//         const fetchCompanyData = async () => {
-//             if (!companyName) return;
-//             setLoading(true);
-//             setError(null);
-//             setNoData(false);
-//             try {
-//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&slug=${companyName}`;
-//                 const response = await fetch(apiUrl);
-//                 if (!response.ok) {
-//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                     console.error("Response error:", message);
-//                     throw new Error(message);
-//                 }
-//                 const data = await response.json();
-//                 if (data.length === 0) {
-//                     console.error("No data found for this company slug:", companyName);
-//                     setNoData(true);
-//                     throw new Error("No data found for this company.");
-//                 }
-//                  setAdvicePosts(data[0]);
-//             } catch (err) {
-//                 setError(err.message);
-//                 console.error("Error fetching data:", err);
-//             } finally {
-//                setLoading(false);
-//            }
-//        };
-//        fetchCompanyData();
-//     }, [companyName]);
-
-
-//     if (loading) {
-//         return <div className="mt-10 text-center">Loading...</div>;
-//     }
-
-//     if (noData) {
-//         return (
-//             <div className="mt-10 text-center">
-//                 <p>No data found for this company.</p>
-//             </div>
-//         );
-//     }
-
-//     if (error) {
-//         return <div className="mt-10 text-center">Error: {error}</div>;
-//     }
-
-//     const { acf, content, modified, slug, categories } = advicePosts;
-
-
-//     return (
-//         <div className="page single-page-company">
-//             <section className="hero-wrap bg-gray-100">
-//                 <div className="container mx-auto px-4">
-//                     <Breadcrumbs />
-//                     <CompanyReviewHero data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="info-card-wrap">
-//                 <div className="container mx-auto px-4">
-//                     <InfoCard data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="py-12">
-//                 <div className="container mx-auto px-4">
-//                     <div className="xl:flex xl:gap-10">
-//                         <div className="xl:w-3/4 lg:full">
-//                             <AuthorBlock acf={acf} modifiedDate={modified} />
-//                             <ReviewSummary content={content.rendered} />
-//                         </div>
-//                          <div className={`xl:w-1/4 lg:full md:block hidden sticky top-10 h-full`}>
-//                             <Sidebar data={advicePosts} />
-//                         </div>
-//                     </div>
-//                 </div>
-//             </section>
-//             <section className="pb-12">
-//                 <div className="container mx-auto px-4">
-//                     <UserReviewList reviews={acf?.user_reviews} />
-//                 </div>
-//             </section>
-//              <section className="pb-12">
-//                 <div className="container mx-auto px-4">
-//                    <SimilarInstagramAdviceCompanies currentCompanyCategories={categories} currentCompanySlug={slug} />
-//                  </div>
-//             </section>
-//         </div>
-//     );
-// };
-
-// export default CompanyPage;
-
-
-
-
-// // CompanyPage.js
-// import React, { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
+// import Seo from "@/components/Seo";
 // import CompanyReviewHero from "@/components/CompanyReview/CompanyReviewHero";
 // import Breadcrumbs from "@/components/Breadcrumbs";
 // import AuthorBlock from "@/components/CompanyReview/AuthorBlock";
@@ -138,6 +23,14 @@
 //     const [reviews, setReviews] = useState([]);
 //     const [jwt, setJwt] = useState(null);
 //     const [jwtLoading, setJwtLoading] = useState(true);
+//     const [averageRatingForInfoCard, setAverageRatingForInfoCard,] = useState(0);
+//     const [totalReviewsForInfoCard, setTotalReviewsForInfoCard] = useState(0);
+
+
+//     const proxyImageUrl = (url) => {
+//         if (!url) return "";
+//         return `/api/proxy-image?imageUrl=${encodeURIComponent(url)}`;
+//     };
 
 //     // Fetch the JWT
 //     useEffect(() => {
@@ -172,314 +65,6 @@
 
 //                 const data = await response.json();
 //                 setJwt(data.token);
-//                 console.log("JWT Token fetched and stored:", data.token);
-//                 localStorage.setItem('jwtToken', data.token);
-
-
-//             } catch (err) {
-//                 setError(`Failed to fetch JWT Token. ${err.message}`);
-//                 console.error("Error fetching JWT", err);
-//             } finally {
-//                 setJwtLoading(false);
-//             }
-//         };
-
-
-//         const storedToken = localStorage.getItem('jwtToken');
-//         if (storedToken) {
-//             setJwt(storedToken);
-//             setJwtLoading(false);
-//             console.log("JWT Token loaded from storage");
-//         } else {
-//             fetchJWT();
-//         }
-
-//     }, [])
-
-
-
-//     useEffect(() => {
-//         const fetchCompanyData = async () => {
-//             if (!companyName || jwtLoading) return; // Wait for JWT or no company name
-//             setLoading(true);
-//             setError(null);
-//             setNoData(false);
-//             try {
-
-//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&slug=${companyName}`;
-//                 const response = await fetch(apiUrl);
-//                 if (!response.ok) {
-//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                     console.error("Response error:", message);
-//                     throw new Error(message);
-//                 }
-//                 const data = await response.json();
-//                 if (data.length === 0) {
-//                     console.error("No data found for this company slug:", companyName);
-//                     setNoData(true);
-//                     throw new Error("No data found for this company.");
-//                 }
-
-//                 setAdvicePosts(data[0]);
-
-//                 // Load reviews from local storage or use initial data from WordPress Comments
-//                 await fetchReviews(data[0].id);
-
-
-//             } catch (err) {
-//                 setError(err.message);
-//                 console.error("Error fetching data:", err);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-//         fetchCompanyData();
-//     }, [companyName, jwt, jwtLoading]);
-
-
-//     // Function to fetch the reviews from the comments
-//     const fetchReviews = async (postId) => {
-//         if (!jwt) return; // Do not run this if JWT is null
-//         try {
-//             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments?post=${postId}`;
-//             const response = await fetch(apiUrl, {
-//                 headers: {
-//                     "Authorization": `Bearer ${jwt}`,
-//                 },
-//             });
-//             if (!response.ok) {
-//                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                 console.error("Response error when fetching comments:", message);
-//                 try {
-//                     const responseBody = await response.json();
-//                     console.error("Response body:", responseBody);
-//                 } catch (e) {
-//                     console.error("Response body not available");
-//                 }
-//                 throw new Error(message);
-//             }
-//             console.log("Reviews API success");
-
-//             const comments = await response.json();
-//             const formattedReviews = comments.map(comment => {
-//                 try {
-//                     // Decode HTML entities
-//                     const tempElement = document.createElement('div');
-//                     tempElement.innerHTML = comment.content.rendered;
-//                     const decodedString = tempElement.textContent;
-
-//                     // Replace curly quotes with standard double quotes
-//                     const jsonString = decodedString.replace(/[“”]/g, '"');
-
-//                     // Remove <p> tags and any surrounding whitespace
-//                     const cleanedString = jsonString.replace(/<\/?p>/g, '').trim();
-
-//                     // Parse the JSON content
-//                     const content = JSON.parse(cleanedString);
-
-//                     return {
-//                         id: comment.id,
-//                         rating: content?.rating || 0,
-//                         userName: content?.userName || "",
-//                         title: content?.title || "",
-//                         text: content?.text || "",
-//                     };
-//                 } catch (e) {
-//                     console.error("Error parsing comment content:", comment.content.rendered, e);
-//                     return null;
-//                 }
-//             }).filter(Boolean);
-
-//             setReviews(formattedReviews);
-//         } catch (err) {
-//             setError(`Failed to fetch reviews. ${err.message}`);
-//             console.error("Error fetching review from WordPress", err);
-//         }
-//     };
-
-
-
-
-//     // Function to handle adding/updating reviews
-//     const handleAddReview = async (newReview) => {
-//         setLoading(true);
-//         try {
-//             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments`;
-
-//             const response = await fetch(apiUrl, {
-//                 method: "POST",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                     "Authorization": `Bearer ${jwt}`,
-//                 },
-//                 body: JSON.stringify({
-//                     post: advicePosts.id,
-//                     content: JSON.stringify(newReview),
-//                 }),
-//             });
-//             if (!response.ok) {
-//                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                 console.error("Response error when adding the comment:", message);
-//                 try {
-//                     const responseBody = await response.json();
-//                     console.error("Response body:", responseBody);
-//                 }
-//                 catch (e) {
-//                     console.error("Response body not available")
-//                 }
-
-//                 throw new Error(message);
-//             }
-//             console.log("Comments API success");
-//             await fetchReviews(advicePosts.id);
-//         } catch (err) {
-//             setError(`Failed to update review. ${err.message}`);
-//             console.error("Error updating review to WordPress", err);
-//         } finally {
-//             setLoading(false);
-//         }
-//     };
-
-
-//     const handleOpenModal = () => {
-//         setIsModalOpen(true);
-//     };
-
-
-//     const handleCloseModal = () => {
-//         setIsModalOpen(false);
-//     };
-
-
-//     if (loading || jwtLoading) {
-//         return (
-//             <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75">
-//                 <div className="flex space-x-2">
-//                     <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
-//                     <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
-//                     <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
-//                 </div>
-//             </div>
-//         );
-//     }
-
-
-//     if (noData) {
-//         return (
-//             <div className="mt-10 text-center">
-//                 <p>No data found for this company.</p>
-//             </div>
-//         );
-//     }
-
-//     if (error) {
-//         return <div className="mt-10 text-center">Error: {error}</div>;
-//     }
-
-//     const { acf, content, modified, slug, categories } = advicePosts;
-
-//     return (
-//         <div className="page single-page-company">
-//             <section className="hero-wrap bg-gray-100">
-//                 <div className="container mx-auto px-4">
-//                     <Breadcrumbs />
-//                     <CompanyReviewHero data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="info-card-wrap">
-//                 <div className="container mx-auto px-4">
-//                     <InfoCard data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="py-12">
-//                 <div className="container mx-auto px-4">
-//                     <div className="xl:flex xl:gap-10">
-//                         <div className="xl:w-3/4 lg:full">
-//                             <AuthorBlock acf={acf} modifiedDate={modified} />
-//                             <ReviewSummary content={content.rendered} />
-//                             <UserReviewList reviews={reviews} />
-//                         </div>
-//                         <div className={`xl:w-1/4 lg:full md:block hidden sticky top-10 h-full`}>
-//                         <Sidebar data={advicePosts} onOpenModal={handleOpenModal} reviews={reviews} />
-//                         </div>
-//                     </div>
-//                 </div>
-//             </section>
-//             <section className="pb-12">
-//                 <div className="container mx-auto px-4">
-//                     <SimilarInstagramAdviceCompanies currentCompanyCategories={categories} currentCompanySlug={slug} />
-//                 </div>
-//             </section>
-//             {/* Render the modal */}
-//             {isModalOpen && <ReviewModal onClose={handleCloseModal} onAddReview={handleAddReview} />}
-//         </div>
-//     );
-// };
-
-// export default CompanyPage;
-
-
-
-// // CompanyPage.js
-// import React, { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
-// import CompanyReviewHero from "@/components/CompanyReview/CompanyReviewHero";
-// import Breadcrumbs from "@/components/Breadcrumbs";
-// import AuthorBlock from "@/components/CompanyReview/AuthorBlock";
-// import ReviewSummary from "@/components/CompanyReview/ReviewSummary";
-// import UserReviewList from "@/components/CompanyReview/UserReviewList";
-// import InfoCard from "@/components/CompanyReview/InfoCard";
-// import Sidebar from "@/components/CompanyReview/Sidebar";
-// import SimilarInstagramAdviceCompanies from "@/components/Advice/SimilarInstagramAdviceCompanies";
-// import ReviewModal from "@/components/CompanyReview/ReviewModal";
-
-// const CompanyPage = () => {
-//     const router = useRouter();
-//     const { companyName } = router.query;
-//     const [advicePosts, setAdvicePosts] = useState(null);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-//     const [noData, setNoData] = useState(false);
-//     const [isModalOpen, setIsModalOpen] = useState(false);
-//     const [reviews, setReviews] = useState([]);
-//     const [jwt, setJwt] = useState(null);
-//     const [jwtLoading, setJwtLoading] = useState(true);
-
-//     // Fetch the JWT
-//     useEffect(() => {
-//         const fetchJWT = async () => {
-//             setJwtLoading(true);
-//             try {
-//                 const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/jwt-auth/v1/token`;
-//                 const username = process.env.NEXT_PUBLIC_WORDPRESS_USERNAME;
-//                 const password = process.env.NEXT_PUBLIC_WORDPRESS_PASSWORD;
-//                 const response = await fetch(authUrl, {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                     },
-//                     body: JSON.stringify({
-//                         username: username,
-//                         password: password,
-//                     })
-//                 });
-//                 if (!response.ok) {
-//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                     console.error("Response error when getting the token:", message);
-//                     try {
-//                         const responseBody = await response.json();
-//                         console.error("Response body:", responseBody);
-//                     }
-//                     catch (e) {
-//                         console.error("Response body not available")
-//                     }
-//                     throw new Error(message)
-//                 }
-
-//                 const data = await response.json();
-//                 setJwt(data.token);
-//                 console.log("JWT Token fetched and stored:", data.token);
-//                 localStorage.setItem('jwtToken', data.token);
 
 
 //             } catch (err) {
@@ -501,353 +86,7 @@
 
 //     }, [])
 
-
-
-//     useEffect(() => {
-//         const fetchCompanyData = async () => {
-//             if (!companyName || jwtLoading) return; // Wait for JWT or no company name
-//             setLoading(true);
-//             setError(null);
-//             setNoData(false);
-//             try {
-
-//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&slug=${companyName}`;
-//                 const response = await fetch(apiUrl);
-//                 if (!response.ok) {
-//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                     console.error("Response error:", message);
-//                     throw new Error(message);
-//                 }
-//                 const data = await response.json();
-//                 if (data.length === 0) {
-//                     console.error("No data found for this company slug:", companyName);
-//                     setNoData(true);
-//                     throw new Error("No data found for this company.");
-//                 }
-
-//                 setAdvicePosts(data[0]);
-
-//                 // Load reviews from local storage or use initial data from WordPress Comments
-//                 await fetchReviews(data[0].id);
-
-
-//             } catch (err) {
-//                 setError(err.message);
-//                 console.error("Error fetching data:", err);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-//         fetchCompanyData();
-//     }, [companyName, jwt, jwtLoading]);
-
-
-//     // Function to fetch the reviews from the comments
-//     const fetchReviews = async (postId) => {
-//         if (!jwt) return; // Do not run this if JWT is null
-//         try {
-//             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments?post=${postId}`;
-//             const response = await fetch(apiUrl, {
-//                 headers: {
-//                     "Authorization": `Bearer ${jwt}`,
-//                 },
-//             });
-//             if (!response.ok) {
-//                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                 console.error("Response error when fetching comments:", message);
-//                 try {
-//                     const responseBody = await response.json();
-//                     console.error("Response body:", responseBody);
-//                 } catch (e) {
-//                     console.error("Response body not available");
-//                 }
-//                 throw new Error(message);
-//             }
-
-//             const comments = await response.json();
-//             const formattedReviews = comments.map(comment => {
-//                 try {
-//                     // Decode HTML entities
-//                     const tempElement = document.createElement('div');
-//                     tempElement.innerHTML = comment.content.rendered;
-//                     const decodedString = tempElement.textContent;
-
-//                     // Replace curly quotes with standard double quotes
-//                     const jsonString = decodedString.replace(/[“”]/g, '"');
-
-//                     // Remove <p> tags and any surrounding whitespace
-//                     const cleanedString = jsonString.replace(/<\/?p>/g, '').trim();
-
-//                     // Parse the JSON content
-//                     const content = JSON.parse(cleanedString);
-
-//                     return {
-//                         id: comment.id,
-//                         rating: content?.rating || 0,
-//                         userName: content?.userName || "",
-//                         title: content?.title || "",
-//                         text: content?.text || "",
-//                     };
-//                 } catch (e) {
-//                     console.error("Error parsing comment content:", comment.content.rendered, e);
-//                     return null;
-//                 }
-//             }).filter(Boolean);
-
-//             setReviews(formattedReviews);
-//         } catch (err) {
-//             setError(`Failed to fetch reviews. ${err.message}`);
-//             console.error("Error fetching review from WordPress", err);
-//         }
-//     };
-
-
-
-
-//     // Function to handle adding/updating reviews
-//     const handleAddReview = async (newReview) => {
-//         setLoading(true);
-//         try {
-//             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments`;
-
-//             const response = await fetch(apiUrl, {
-//                 method: "POST",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                     "Authorization": `Bearer ${jwt}`,
-//                 },
-//                 body: JSON.stringify({
-//                     post: advicePosts.id,
-//                     content: JSON.stringify(newReview),
-//                 }),
-//             });
-//             if (!response.ok) {
-//                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                 console.error("Response error when adding the comment:", message);
-//                 try {
-//                     const responseBody = await response.json();
-//                     console.error("Response body:", responseBody);
-//                 }
-//                 catch (e) {
-//                     console.error("Response body not available")
-//                 }
-
-//                 throw new Error(message);
-//             }
-//             console.log("Comments API success");
-//             await fetchReviews(advicePosts.id);
-//         } catch (err) {
-//             setError(`Failed to update review. ${err.message}`);
-//             console.error("Error updating review to WordPress", err);
-//         } finally {
-//             setLoading(false);
-//         }
-//     };
-
-
-//     const handleOpenModal = () => {
-//         setIsModalOpen(true);
-//     };
-
-
-//     const handleCloseModal = () => {
-//         setIsModalOpen(false);
-//     };
-
-
-//     if (loading || jwtLoading) {
-//         return (
-//             <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75">
-//                 <div className="flex space-x-2">
-//                     <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
-//                     <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
-//                     <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
-//                 </div>
-//             </div>
-//         );
-//     }
-
-
-//     if (noData) {
-//         return (
-//             <div className="mt-10 text-center">
-//                 <p>No data found for this company.</p>
-//             </div>
-//         );
-//     }
-
-//     if (error) {
-//         return <div className="mt-10 text-center">Error: {error}</div>;
-//     }
-
-//     const { acf, content, modified, slug, categories } = advicePosts;
-
-//     return (
-//         <div className="page single-page-company">
-//             <section className="hero-wrap bg-gray-100">
-//                 <div className="container mx-auto px-4">
-//                     <Breadcrumbs />
-//                     <CompanyReviewHero data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="info-card-wrap">
-//                 <div className="container mx-auto px-4">
-//                     <InfoCard data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="py-12">
-//                 <div className="container mx-auto px-4">
-//                     <div className="xl:flex xl:gap-10">
-//                         <div className="xl:w-3/4 lg:full">
-//                             <AuthorBlock acf={acf} modifiedDate={modified} jwt={jwt} />
-//                             <ReviewSummary content={content.rendered} />
-//                             <UserReviewList reviews={reviews} />
-//                         </div>
-//                         <div className={`xl:w-1/4 lg:full md:block hidden sticky top-10 h-full`}>
-//                             <Sidebar data={advicePosts} onOpenModal={handleOpenModal} reviews={reviews} />
-//                         </div>
-//                     </div>
-//                 </div>
-//             </section>
-//             <section className="pb-12">
-//                 <div className="container mx-auto px-4">
-//                     <SimilarInstagramAdviceCompanies currentCompanyCategories={categories} currentCompanySlug={slug} />
-//                 </div>
-//             </section>
-//             {/* Render the modal */}
-//             {isModalOpen && <ReviewModal onClose={handleCloseModal} onAddReview={handleAddReview} />}
-//         </div>
-//     );
-// };
-
-// export default CompanyPage;
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
-// import CompanyReviewHero from "@/components/CompanyReview/CompanyReviewHero";
-// import Breadcrumbs from "@/components/Breadcrumbs";
-// import AuthorBlock from "@/components/CompanyReview/AuthorBlock";
-// import ReviewSummary from "@/components/CompanyReview/ReviewSummary";
-// import UserReviewList from "@/components/CompanyReview/UserReviewList";
-// import InfoCard from "@/components/CompanyReview/InfoCard";
-// import Sidebar from "@/components/CompanyReview/Sidebar";
-// import SimilarInstagramAdviceCompanies from "@/components/Advice/SimilarInstagramAdviceCompanies";
-// import ReviewModal from "@/components/CompanyReview/ReviewModal";
-
-// const CompanyPage = () => {
-//     const router = useRouter();
-//     const { companyName } = router.query;
-//     const [advicePosts, setAdvicePosts] = useState(null);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-//     const [noData, setNoData] = useState(false);
-//     const [isModalOpen, setIsModalOpen] = useState(false);
-//     const [reviews, setReviews] = useState([]);
-//     const [jwt, setJwt] = useState(null);
-//     const [jwtLoading, setJwtLoading] = useState(true);
-
-//     // Fetch the JWT
-//     useEffect(() => {
-//         const fetchJWT = async () => {
-//             setJwtLoading(true);
-//             try {
-//                 const authUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/jwt-auth/v1/token`;
-//                 const username = process.env.NEXT_PUBLIC_WORDPRESS_USERNAME;
-//                 const password = process.env.NEXT_PUBLIC_WORDPRESS_PASSWORD;
-//                 const response = await fetch(authUrl, {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                     },
-//                     body: JSON.stringify({
-//                         username: username,
-//                         password: password,
-//                     })
-//                 });
-//                 if (!response.ok) {
-//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                     console.error("Response error when getting the token:", message);
-//                     try {
-//                         const responseBody = await response.json();
-//                         console.error("Response body:", responseBody);
-//                     }
-//                     catch (e) {
-//                         console.error("Response body not available")
-//                     }
-//                     throw new Error(message)
-//                 }
-
-//                 const data = await response.json();
-//                 setJwt(data.token);
-//                 console.log("JWT Token fetched and stored:", data.token);
-//                 localStorage.setItem('jwtToken', data.token);
-
-
-//             } catch (err) {
-//                 setError(`Failed to fetch JWT Token. ${err.message}`);
-//                 console.error("Error fetching JWT", err);
-//             } finally {
-//                 setJwtLoading(false);
-//             }
-//         };
-
-
-//         const storedToken = localStorage.getItem('jwtToken');
-//         if (storedToken) {
-//             setJwt(storedToken);
-//             setJwtLoading(false);
-//         } else {
-//             fetchJWT();
-//         }
-
-//     }, [])
-
-
-
-//     useEffect(() => {
-//         const fetchCompanyData = async () => {
-//             if (!companyName || jwtLoading) return; // Wait for JWT or no company name
-//             setLoading(true);
-//             setError(null);
-//             setNoData(false);
-//             try {
-
-//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&slug=${companyName}`;
-//                 const response = await fetch(apiUrl);
-//                 if (!response.ok) {
-//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                     console.error("Response error:", message);
-//                     throw new Error(message);
-//                 }
-//                 const data = await response.json();
-//                 if (data.length === 0) {
-//                     console.error("No data found for this company slug:", companyName);
-//                     setNoData(true);
-//                     throw new Error("No data found for this company.");
-//                 }
-//                 console.log(data)
-//                 setAdvicePosts(data[0]);
-
-//                 // Load reviews from local storage or use initial data from WordPress Comments
-//                 await fetchReviews(data[0].id);
-
-
-//             } catch (err) {
-//                 setError(err.message);
-//                 console.error("Error fetching data:", err);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-//         fetchCompanyData();
-//     }, [companyName, jwt, jwtLoading]);
-
-
-//      const fetchReviews = async (postId) => {
+//     const fetchReviews = useCallback(async (postId) => {
 //         if (!jwt) return;
 //         try {
 //             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments?post=${postId}`;
@@ -857,16 +96,16 @@
 //                 },
 //             });
 
-//              if (!response.ok) {
+//             if (!response.ok) {
 //                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-//                  console.error("Response error when fetching comments:", message);
+//                 console.error("Response error when fetching comments:", message);
 //                 try {
 //                     const responseBody = await response.json();
-//                    console.error("Response body:", responseBody);
+//                     console.error("Response body:", responseBody);
 //                 } catch (e) {
 //                     console.error("Response body not available");
 //                 }
-//                  throw new Error(message);
+//                 throw new Error(message);
 //             }
 
 //             const comments = await response.json();
@@ -877,41 +116,52 @@
 //                     const tempElement = document.createElement('div');
 //                     tempElement.innerHTML = comment.content.rendered;
 
-//                    // Get the decoded text content
+//                     // Get the decoded text content
 //                     let decodedString = tempElement.textContent;
 
-//                    // Use a regex that replaces leading and trailing <p> and <br> tags with nothing
-//                     decodedString = decodedString.replace(/^(<p>|<br\/?>)*|<\/?p>|<\/?br\s*\/?>$/g, '').trim();
 
-//                      // Replace curly quotes with standard double quotes
-//                     decodedString = decodedString.replace(/[“”]/g, '"');
+//                     // Helper function to safely parse JSON.
+//                     const safeJsonParse = (str) => {
+//                         try {
+//                             // Trim whitespace and control characters aggressively
+//                             str = str.trim();
 
+//                             // Find the start and end of the JSON object (if possible)
+//                             let start = str.indexOf('{');
+//                             let end = str.lastIndexOf('}');
 
-//                     // Replace specific unicode characters that might cause issues
-//                    decodedString = decodedString.replace(/[\u2018\u2019]/g, "'"); // Replace smart single quotes
-//                    decodedString = decodedString.replace(/[\u201C\u201D]/g, '"'); // Replace smart double quotes
+//                             if (start !== -1 && end !== -1 && start < end) {
+//                                 str = str.substring(start, end + 1);
+//                             }
 
+//                             // Clean potentially problematic characters
+//                             str = str
+//                                 .replace(/[“”]/g, '"') // Replace curly quotes with straight quotes
+//                                 .replace(/[\r\n]+/g, "\\n"); // Replace line breaks with escaped newlines
 
-//                     // Ensure the string is wrapped in curly braces
-//                     if(!decodedString.startsWith('{') && !decodedString.endsWith('}')){
-//                       decodedString = `{${decodedString}}`
-//                     }
-
-//                     // Parse the JSON content
-//                     try {
-//                       const content = JSON.parse(decodedString);
-//                       return {
-//                         id: comment.id,
-//                         rating: content?.rating || 0,
-//                         userName: content?.userName || "",
-//                          title: content?.title || "",
-//                        text: content?.text || "",
+//                             return JSON.parse(str);
+//                         } catch (e) {
+//                             console.error("Error parsing JSON:", str, e);
+//                             return null;
+//                         }
 //                     };
-//                     }catch(parseError){
-//                       console.error("Error parsing content after cleanup: ", decodedString, parseError);
+
+//                     // Attempt to parse the content
+//                     let content = safeJsonParse(decodedString);
+
+//                     // If the content is null return null for the whole review
+//                     if (!content) {
 //                         return null;
 //                     }
 
+//                     return {
+//                         id: comment.id,
+//                         rating: content?.rating || 0,
+//                         userName: content?.userName || "",
+//                         title: content?.title || "",
+//                         text: content?.text || "",
+//                         rawText: content?.text,
+//                     };
 //                 } catch (e) {
 //                     console.error("Error parsing comment content:", comment.content.rendered, e);
 //                     return null;
@@ -921,17 +171,69 @@
 //             setReviews(formattedReviews);
 
 //         } catch (err) {
-//              setError(`Failed to fetch reviews. ${err.message}`);
+//             setError(`Failed to fetch reviews. ${err.message}`);
 //             console.error("Error fetching review from WordPress", err);
 //         }
-//     };
+//     }, [jwt]);
 
 
+
+//     useEffect(() => {
+//         const fetchCompanyData = async () => {
+//             if (!companyName || jwtLoading) return; // Wait for JWT or no company name
+//             setLoading(true);
+//             setError(null);
+//             setNoData(false);
+//             try {
+
+//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&slug=${companyName}`;
+//                 const response = await fetch(apiUrl);
+//                 if (!response.ok) {
+//                     const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
+//                     console.error("Response error:", message);
+//                     throw new Error(message);
+//                 }
+//                 const data = await response.json();
+//                 if (data.length === 0) {
+//                     console.error("No data found for this company slug:", companyName);
+//                     setNoData(true);
+//                     throw new Error("No data found for this company.");
+//                 }
+//                 setAdvicePosts(data[0]);
+
+//                 // Load reviews from local storage or use initial data from WordPress Comments
+//                 await fetchReviews(data[0].id);
+
+
+//             } catch (err) {
+//                 setError(err.message);
+//                 console.error("Error fetching data:", err);
+//             } finally {
+//                 setLoading(false);
+//             }
+//         };
+//         fetchCompanyData();
+//     }, [companyName, jwt, jwtLoading, fetchReviews]);
+
+//     // Update averageRatingForInfoCard and totalReviewsForInfoCard whenever reviews change
+//     useEffect(() => {
+//         if (reviews && reviews.length > 0) {
+//             const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+//             const avg = totalRating / reviews.length;
+//             setAverageRatingForInfoCard(avg);
+//             setTotalReviewsForInfoCard(reviews.length);
+//         } else {
+//             setAverageRatingForInfoCard(0);
+//             setTotalReviewsForInfoCard(0);
+//         }
+//     }, [reviews]);
 
 
 //     // Function to handle adding/updating reviews
 //     const handleAddReview = async (newReview) => {
 //         setLoading(true);
+//         setError(null); // Clear existing errors
+
 //         try {
 //             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments`;
 
@@ -949,20 +251,34 @@
 //             if (!response.ok) {
 //                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
 //                 console.error("Response error when adding the comment:", message);
+
+//                 let responseBody = null;
+
 //                 try {
-//                     const responseBody = await response.json();
+//                     responseBody = await response.json();
 //                     console.error("Response body:", responseBody);
+//                     // Check for a specific error message in the response body
+//                     if (responseBody.code === 'comment_duplicate') {
+//                         setError("Duplicate comment detected. Please try again later."); // Specific error for duplicate comment
+//                     }
+//                     else {
+//                         setError(`Failed to add review. Status: ${response.status}. ${responseBody?.message || message}`); // Generic message
+//                     }
+
 //                 }
 //                 catch (e) {
 //                     console.error("Response body not available")
+//                     setError(`Failed to add review. Status: ${response.status}. ${message}`); // Generic message when response body is unavailable
 //                 }
-
-//                 throw new Error(message);
+//                 throw new Error(message); // Re-throw the error to be caught in the catch block
 //             }
 //             console.log("Comments API success");
 //             await fetchReviews(advicePosts.id);
 //         } catch (err) {
-//             setError(`Failed to update review. ${err.message}`);
+//             // If the error was not already set from response body
+//             if (!error) {
+//                 setError(`Failed to update review. ${err.message}`);
+//             }
 //             console.error("Error updating review to WordPress", err);
 //         } finally {
 //             setLoading(false);
@@ -974,7 +290,6 @@
 //         setIsModalOpen(true);
 //     };
 
-
 //     const handleCloseModal = () => {
 //         setIsModalOpen(false);
 //     };
@@ -982,7 +297,7 @@
 
 //     if (loading || jwtLoading) {
 //         return (
-//             <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75">
+//             <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
 //                 <div className="flex space-x-2">
 //                     <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
 //                     <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
@@ -1005,54 +320,95 @@
 //         return <div className="mt-10 text-center">Error: {error}</div>;
 //     }
 
-//     const { acf, content, modified, slug, categories } = advicePosts;
+//     const { acf, content, modified, slug, categories, title, yoast_head_json } = advicePosts;
+
+//     let seoTitle = title.rendered;
+//     let seoDescription = content.rendered.replace(/<[^>]*>/g, '');
+//     let seoImage = null;
+//     let siteName = "Instagram Advice"
+
+//     if (yoast_head_json) {
+//         seoTitle = yoast_head_json.title || seoTitle;
+//         seoDescription = yoast_head_json.og_description || seoDescription;
+//         seoImage = yoast_head_json.og_image?.[0]?.url;
+//         siteName = yoast_head_json.og_site_name || siteName
+//     }
 
 //     return (
-//         <div className="page single-page-company">
-//             <section className="hero-wrap bg-gray-100">
-//                 <div className="container mx-auto px-4">
-//                     <Breadcrumbs />
-//                     <CompanyReviewHero data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="info-card-wrap">
-//                 <div className="container mx-auto px-4">
-//                     <InfoCard data={advicePosts} />
-//                 </div>
-//             </section>
-//             <section className="py-12">
-//                 <div className="container mx-auto px-4">
-//                     <div className="xl:flex xl:gap-10">
-//                         <div className="xl:w-3/4 lg:full">
-//                             <AuthorBlock acf={acf} modifiedDate={modified} jwt={jwt} />
-//                             <ReviewSummary content={content.rendered} />
-//                             <UserReviewList reviews={reviews} />
-//                         </div>
-//                         <div className={`xl:w-1/4 lg:full md:block hidden sticky top-10 h-full`}>
-//                             <Sidebar data={advicePosts} onOpenModal={handleOpenModal} reviews={reviews} />
+//         <>
+//             <Seo
+//                 title={seoTitle}
+//                 description={seoDescription}
+//                 image={proxyImageUrl(seoImage)}
+//                 path={`/company/${slug}`}
+//                 ogType="article"
+//                 modifiedTime={modified}
+//                 siteName={siteName}
+//             />
+//             <div className="page single-page-company">
+//                 <section className="hero-wrap bg-gray-100">
+//                     <div className="container mx-auto px-4">
+//                         <Breadcrumbs />
+//                         <CompanyReviewHero data={advicePosts} />
+//                     </div>
+//                 </section>
+//                 <section className="info-card-wrap">
+//                     <div className="container mx-auto px-4">
+//                         <InfoCard
+//                             data={advicePosts}
+//                             averageRating={averageRatingForInfoCard}
+//                             totalReviews={totalReviewsForInfoCard}
+//                         />
+//                     </div>
+//                 </section>
+//                 <section className="py-12">
+//                     <div className="container mx-auto px-4">
+//                         <div className="xl:flex xl:gap-10">
+//                             <div className="xl:w-3/4 lg:full">
+//                                 <AuthorBlock acf={acf} modifiedDate={modified} jwt={jwt} />
+//                                 <ReviewSummary content={content.rendered} />
+//                                 <UserReviewList
+//                                     reviews={reviews}
+//                                     setAverageRatingForInfoCard={setAverageRatingForInfoCard}
+//                                     setTotalReviewsForInfoCard={setTotalReviewsForInfoCard}
+//                                 />
+//                             </div>
+//                             <div
+//                                 className={`xl:w-1/4 lg:full md:block hidden sticky top-10 h-full`}
+//                             >
+//                                 <Sidebar
+//                                     data={advicePosts}
+//                                     onOpenModal={handleOpenModal}
+//                                     reviews={reviews}
+//                                 />
+//                             </div>
 //                         </div>
 //                     </div>
-//                 </div>
-//             </section>
-//             <section className="pb-12">
-//                 <div className="container mx-auto px-4">
-//                     <SimilarInstagramAdviceCompanies currentCompanyCategories={categories} currentCompanySlug={slug} />
-//                 </div>
-//             </section>
-//             {/* Render the modal */}
-//             {isModalOpen && <ReviewModal onClose={handleCloseModal} onAddReview={handleAddReview} />}
-//         </div>
+//                 </section>
+//                 <section className="pb-12">
+//                     <div className="container mx-auto px-4">
+//                         <SimilarInstagramAdviceCompanies
+//                             currentCompanyCategories={categories}
+//                             currentCompanySlug={slug}
+//                         />
+//                     </div>
+//                 </section>
+//                 {/* Render the modal */}
+//                 {isModalOpen && (
+//                     <ReviewModal onClose={handleCloseModal} onAddReview={handleAddReview} />
+//                 )}
+//             </div>
+//         </>
 //     );
 // };
 
 // export default CompanyPage;
 
 
-
 // pages/company/[companyName].js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import Seo from "@/components/Seo"; // Import the Seo component
+import Seo from "@/components/Seo";
 import CompanyReviewHero from "@/components/CompanyReview/CompanyReviewHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import AuthorBlock from "@/components/CompanyReview/AuthorBlock";
@@ -1074,6 +430,9 @@ const CompanyPage = () => {
     const [reviews, setReviews] = useState([]);
     const [jwt, setJwt] = useState(null);
     const [jwtLoading, setJwtLoading] = useState(true);
+    const [averageRatingForInfoCard, setAverageRatingForInfoCard,] = useState(0);
+    const [totalReviewsForInfoCard, setTotalReviewsForInfoCard] = useState(0);
+
 
     const proxyImageUrl = (url) => {
         if (!url) return "";
@@ -1134,6 +493,104 @@ const CompanyPage = () => {
 
     }, [])
 
+     const fetchReviews = useCallback(async (postId) => {
+        if (!jwt) return;
+        try {
+            let allReviews = [];
+            let page = 1;
+            let totalPages = 1; // Assume at least one page initially
+
+            while (page <= totalPages) {
+                const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments?post=${postId}&page=${page}`;
+                const response = await fetch(apiUrl, {
+                    headers: {
+                        "Authorization": `Bearer ${jwt}`,
+                    },
+                });
+
+                if (!response.ok) {
+                    const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
+                    console.error("Response error when fetching comments:", message);
+                    try {
+                        const responseBody = await response.json();
+                        console.error("Response body:", responseBody);
+                    } catch (e) {
+                        console.error("Response body not available");
+                    }
+                    throw new Error(message);
+                }
+
+                const comments = await response.json();
+                allReviews = allReviews.concat(comments);  // Accumulate comments
+                totalPages = parseInt(response.headers.get('X-WP-TotalPages'), 10) || 1; // Get total pages from headers
+                page++;
+            }
+
+            const formattedReviews = allReviews.map(comment => {
+                try {
+                    // Decode HTML entities
+                    const tempElement = document.createElement('div');
+                    tempElement.innerHTML = comment.content.rendered;
+
+                    // Get the decoded text content
+                    let decodedString = tempElement.textContent;
+
+
+                    // Helper function to safely parse JSON.
+                    const safeJsonParse = (str) => {
+                        try {
+                            // Trim whitespace and control characters aggressively
+                            str = str.trim();
+
+                            // Find the start and end of the JSON object (if possible)
+                            let start = str.indexOf('{');
+                            let end = str.lastIndexOf('}');
+
+                            if (start !== -1 && end !== -1 && start < end) {
+                                str = str.substring(start, end + 1);
+                            }
+
+                            // Clean potentially problematic characters
+                            str = str
+                                .replace(/[“”]/g, '"') // Replace curly quotes with straight quotes
+                                .replace(/[\r\n]+/g, "\\n"); // Replace line breaks with escaped newlines
+
+                            return JSON.parse(str);
+                        } catch (e) {
+                            console.error("Error parsing JSON:", str, e);
+                            return null;
+                        }
+                    };
+
+                    // Attempt to parse the content
+                    let content = safeJsonParse(decodedString);
+
+                    // If the content is null return null for the whole review
+                    if (!content) {
+                        return null;
+                    }
+
+                    return {
+                        id: comment.id,
+                        rating: content?.rating || 0,
+                        userName: content?.userName || "",
+                        title: content?.title || "",
+                        text: content?.text || "",
+                        rawText: content?.text,
+                    };
+                } catch (e) {
+                    console.error("Error parsing comment content:", comment.content.rendered, e);
+                    return null;
+                }
+            }).filter(Boolean);
+
+            setReviews(formattedReviews);
+
+        } catch (err) {
+            setError(`Failed to fetch reviews. ${err.message}`);
+            console.error("Error fetching review from WordPress", err);
+        }
+    }, [jwt]);
 
     useEffect(() => {
         const fetchCompanyData = async () => {
@@ -1170,92 +627,27 @@ const CompanyPage = () => {
             }
         };
         fetchCompanyData();
-    }, [companyName, jwt, jwtLoading]);
+    }, [companyName, jwt, jwtLoading, fetchReviews]);
 
-
-    const fetchReviews = async (postId) => {
-        if (!jwt) return;
-        try {
-            const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments?post=${postId}`;
-            const response = await fetch(apiUrl, {
-                headers: {
-                    "Authorization": `Bearer ${jwt}`,
-                },
-            });
-
-            if (!response.ok) {
-                const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
-                console.error("Response error when fetching comments:", message);
-                try {
-                    const responseBody = await response.json();
-                    console.error("Response body:", responseBody);
-                } catch (e) {
-                    console.error("Response body not available");
-                }
-                throw new Error(message);
-            }
-
-            const comments = await response.json();
-
-            const formattedReviews = comments.map(comment => {
-                try {
-                    // Decode HTML entities
-                    const tempElement = document.createElement('div');
-                    tempElement.innerHTML = comment.content.rendered;
-
-                    // Get the decoded text content
-                    let decodedString = tempElement.textContent;
-
-                    // Use a regex that replaces leading and trailing <p> and <br> tags with nothing
-                    decodedString = decodedString.replace(/^(<p>|<br\/?>)*|<\/?p>|<\/?br\s*\/?>$/g, '').trim();
-
-                    // Replace curly quotes with standard double quotes
-                    decodedString = decodedString.replace(/[“”]/g, '"');
-
-
-                    // Replace specific unicode characters that might cause issues
-                    decodedString = decodedString.replace(/[\u2018\u2019]/g, "'"); // Replace smart single quotes
-                    decodedString = decodedString.replace(/[\u201C\u201D]/g, '"'); // Replace smart double quotes
-
-
-                    // Ensure the string is wrapped in curly braces
-                    if (!decodedString.startsWith('{') && !decodedString.endsWith('}')) {
-                        decodedString = `{${decodedString}}`
-                    }
-
-                    // Parse the JSON content
-                    try {
-                        const content = JSON.parse(decodedString);
-                        return {
-                            id: comment.id,
-                            rating: content?.rating || 0,
-                            userName: content?.userName || "",
-                            title: content?.title || "",
-                            text: content?.text || "",
-                        };
-                    } catch (parseError) {
-                        console.error("Error parsing content after cleanup: ", decodedString, parseError);
-                        return null;
-                    }
-
-                } catch (e) {
-                    console.error("Error parsing comment content:", comment.content.rendered, e);
-                    return null;
-                }
-            }).filter(Boolean);
-
-            setReviews(formattedReviews);
-
-        } catch (err) {
-            setError(`Failed to fetch reviews. ${err.message}`);
-            console.error("Error fetching review from WordPress", err);
+    // Update averageRatingForInfoCard and totalReviewsForInfoCard whenever reviews change
+    useEffect(() => {
+        if (reviews && reviews.length > 0) {
+            const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+            const avg = totalRating / reviews.length;
+            setAverageRatingForInfoCard(avg);
+            setTotalReviewsForInfoCard(reviews.length);
+        } else {
+            setAverageRatingForInfoCard(0);
+            setTotalReviewsForInfoCard(0);
         }
-    };
+    }, [reviews]);
 
 
     // Function to handle adding/updating reviews
     const handleAddReview = async (newReview) => {
         setLoading(true);
+        setError(null); // Clear existing errors
+
         try {
             const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/comments`;
 
@@ -1273,20 +665,34 @@ const CompanyPage = () => {
             if (!response.ok) {
                 const message = `HTTP error! Status: ${response.status} - ${response.statusText}`;
                 console.error("Response error when adding the comment:", message);
+
+                let responseBody = null;
+
                 try {
-                    const responseBody = await response.json();
+                    responseBody = await response.json();
                     console.error("Response body:", responseBody);
+                    // Check for a specific error message in the response body
+                    if (responseBody.code === 'comment_duplicate') {
+                        setError("Duplicate comment detected. Please try again later."); // Specific error for duplicate comment
+                    }
+                    else {
+                        setError(`Failed to add review. Status: ${response.status}. ${responseBody?.message || message}`); // Generic message
+                    }
+
                 }
                 catch (e) {
                     console.error("Response body not available")
+                    setError(`Failed to add review. Status: ${response.status}. ${message}`); // Generic message when response body is unavailable
                 }
-
-                throw new Error(message);
+                throw new Error(message); // Re-throw the error to be caught in the catch block
             }
             console.log("Comments API success");
             await fetchReviews(advicePosts.id);
         } catch (err) {
-            setError(`Failed to update review. ${err.message}`);
+            // If the error was not already set from response body
+            if (!error) {
+                setError(`Failed to update review. ${err.message}`);
+            }
             console.error("Error updating review to WordPress", err);
         } finally {
             setLoading(false);
@@ -1362,7 +768,11 @@ const CompanyPage = () => {
                 </section>
                 <section className="info-card-wrap">
                     <div className="container mx-auto px-4">
-                        <InfoCard data={advicePosts} />
+                        <InfoCard
+                            data={advicePosts}
+                            averageRating={averageRatingForInfoCard}
+                            totalReviews={totalReviewsForInfoCard}
+                        />
                     </div>
                 </section>
                 <section className="py-12">
@@ -1371,7 +781,11 @@ const CompanyPage = () => {
                             <div className="xl:w-3/4 lg:full">
                                 <AuthorBlock acf={acf} modifiedDate={modified} jwt={jwt} />
                                 <ReviewSummary content={content.rendered} />
-                                <UserReviewList reviews={reviews} />
+                                <UserReviewList
+                                    reviews={reviews}
+                                    setAverageRatingForInfoCard={setAverageRatingForInfoCard}
+                                    setTotalReviewsForInfoCard={setTotalReviewsForInfoCard}
+                                />
                             </div>
                             <div
                                 className={`xl:w-1/4 lg:full md:block hidden sticky top-10 h-full`}

@@ -1,247 +1,91 @@
 // // pages/index.js
-// import React from 'react';
-
-// const Home = () => {
-
-
-//   return (
-//     <>
-
-//     </>
-//   );
-// };
-
-// export default Home;
-
-
-
-
-// // pages/index.js
-// import React, { useEffect, useState } from "react";
+// import React, { useState, useEffect, useCallback } from "react";
 // import Hero from "../components/Home/Hero";
 // import ServiceSection from "../components/Home/ServiceSection";
 // import InstagramAdvice from "@/components/Advice/InstagramAdvice";
 // import OfferSection from "@/components/Home/OfferSection";
-
-
-// const Home = () => {
-//   const [adviceData, setAdviceData] = useState([]);
-
-//   useEffect(() => {
-//     const fetchAdvice = async () => {
-//       const response = await fetch(
-//         `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed`
-//       );
-//       const data = await response.json();
-//       setAdviceData(data);
-//     };
-
-//     fetchAdvice();
-//   }, []);
-
-//   // Assuming you want to pass only the first 10 ids to Home
-//   const filteredAdviceData = adviceData.slice(5, 6);
-
-//   return (
-//     <div>
-//       <Hero />
-//       <div className="Comparison-list py-10">
-//         <div className="container mx-auto px-4">
-//           <InstagramAdvice adviceData={filteredAdviceData} />
-//         </div>
-//       </div>
-//       <ServiceSection />
-//       <OfferSection />
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-
-// import React, { useEffect, useState } from "react";
-// import Hero from "../components/Home/Hero";
-// import ServiceSection from "../components/Home/ServiceSection";
-// import InstagramAdvice from "@/components/Advice/InstagramAdvice";
-// import OfferSection from "@/components/Home/OfferSection";
-
-
-// const Home = () => {
-//   const [adviceData, setAdviceData] = useState([]);
-//   const [visibleCardCount, setVisibleCardCount] = useState(6);
-//     const [loading, setLoading] = useState(true)
-
-
-//   useEffect(() => {
-//     const fetchAdvice = async () => {
-//       setLoading(true)
-//       const response = await fetch(
-//         `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed`
-//       );
-//       const data = await response.json();
-//       setAdviceData(data);
-//      setLoading(false)
-//     };
-
-//     fetchAdvice();
-//   }, []);
-
-//   const handleViewMore = () => {
-//     setVisibleCardCount((prevCount) => prevCount + 6);
-//   };
-
-
-//   return (
-//     <div>
-//       <Hero />
-//       <div className="Comparison-list py-10">
-//         <div className="container mx-auto px-4">
-//           {
-//               !loading && <InstagramAdvice
-//               adviceData={adviceData.slice(0, 6)}
-//                 showViewMoreButton={false}
-//                 handleViewMore={handleViewMore}
-//             />
-//           }
-
-//         </div>
-//       </div>
-//       <ServiceSection />
-//       <OfferSection />
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-// import React, { useEffect, useState } from "react";
-// import Hero from "../components/Home/Hero";
-// import ServiceSection from "../components/Home/ServiceSection";
-// import InstagramAdvice from "@/components/Advice/InstagramAdvice";
-// import OfferSection from "@/components/Home/OfferSection";
+// import Seo from "@/components/Seo";
 
 // const Home = () => {
 //     const [adviceData, setAdviceData] = useState([]);
 //     const [loading, setLoading] = useState(true);
-//     const [visibleCardCount, setVisibleCardCount] = useState(6);
+//     const [allDataLoaded, setAllDataLoaded] = useState(false);
 
-
-//     useEffect(() => {
-//         const fetchAdvice = async () => {
-//             setLoading(true);
-//             try {
-//                 const response = await fetch(
-//                     `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed`
-//                 );
-//                 if (!response.ok) {
-//                     throw new Error(`HTTP error! Status: ${response.status}`);
-//                 }
-//                 const data = await response.json();
-//                 setAdviceData(data);
-//             } catch (error) {
-//                 console.error("Error fetching advice data:", error);
-//             } finally {
-//                 setLoading(false);
+//     const fetchAdvice = useCallback(async () => {  // Use useCallback
+//         setLoading(true);
+//         try {
+//             const response = await fetch(
+//                 `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&per_page=20`
+//             );
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! Status: ${response.status}`);
 //             }
-//         };
-
-//         fetchAdvice();
+//             const data = await response.json();
+//             setAdviceData(data);
+//             if (data.length < 20) {
+//                 setAllDataLoaded(true);
+//             }
+//         } catch (error) {
+//             console.error("Error fetching advice data:", error);
+//         } finally {
+//             setLoading(false);
+//         }
 //     }, []);
 
-
-//     const handleViewMore = () => {
-//         setVisibleCardCount((prevCount) => prevCount + 6);
-//     };
-
-
-
-//     return (
-//         <div>
-//             <Hero />
-//             <div className="Comparison-list py-10">
-//                 <div className="container mx-auto px-4">
-//                     {
-//                         !loading && <InstagramAdvice
-//                             adviceData={adviceData} // Pass the FULL data here
-//                             showViewMoreButton={adviceData.length > visibleCardCount}
-//                             handleViewMore={handleViewMore}
-//                             visibleCardCount={visibleCardCount}
-//                         />
-//                     }
-//                 </div>
-//             </div>
-//             <ServiceSection />
-//             <OfferSection />
-//         </div>
-//     );
-// };
-
-// export default Home;
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import Hero from "../components/Home/Hero";
-// import ServiceSection from "../components/Home/ServiceSection";
-// import InstagramAdvice from "@/components/Advice/InstagramAdvice";
-// import OfferSection from "@/components/Home/OfferSection";
-
-// const Home = () => {
-//     const [adviceData, setAdviceData] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [visibleCardCount, setVisibleCardCount] = useState(6);
-
-
 //     useEffect(() => {
-//         const fetchAdvice = async () => {
-//             setLoading(true);
-//             try {
-//                 const response = await fetch(
-//                     `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed`
-//                 );
-//                 if (!response.ok) {
-//                     throw new Error(`HTTP error! Status: ${response.status}`);
-//                 }
-//                 const data = await response.json();
-//                 setAdviceData(data);
-//             } catch (error) {
-//                 console.error("Error fetching advice data:", error);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-
 //         fetchAdvice();
-//     }, []);
+//     }, [fetchAdvice]);  // Add fetchAdvice to the dependency array
 
+//     const handleViewMore = async () => {
+//         const response = await fetch(
+//             `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&offset=${adviceData.length}&per_page=6`
+//         );
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         const newData = await response.json();
 
-//     const handleViewMore = () => {
-//         setVisibleCardCount((prevCount) => prevCount + 6);
+//         if (newData.length === 0) {
+//             setAllDataLoaded(true);
+//             return;
+//         }
+//         setAdviceData((prevData) => [...prevData, ...newData]);
+//         if (newData.length < 6) {
+//             setAllDataLoaded(true);
+//         }
 //     };
-
-
 
 //     return (
 //         <>
-//             <Hero />
+//             <Seo
+//                 title="Instagram Growth Advice & Comparison Tool"
+//                 description="Get reliable advice and compare Instagram growth tools to make informed choices and boost your Instagram presence. Trusted by influencers and businesses."
+//                 ogType="website"
+//                 path="/"
+//             />
+//             <Hero adviceData={adviceData} loading={loading} />
 //             <div className="Comparison-list py-10">
 //                 <div className="container mx-auto px-4">
-//                     {
-//                         !loading && <InstagramAdvice
-//                             adviceData={adviceData} // Pass the FULL data here
-//                             showViewMoreButton={adviceData.length > visibleCardCount}
+//                     {!loading && (
+//                         <InstagramAdvice
+//                             adviceData={adviceData}
+//                             initialVisibleCardCount={6}
 //                             handleViewMore={handleViewMore}
-//                             visibleCardCount={visibleCardCount}
 //                         />
-//                     }
+//                     )}
 //                 </div>
 //             </div>
 //             <ServiceSection />
 //             <OfferSection />
+//             {loading && (
+//                 <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+//                     <div className="flex space-x-2">
+//                         <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
+//                         <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
+//                         <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
+//                     </div>
+//                 </div>
+//             )}
 //         </>
 //     );
 // };
@@ -249,136 +93,66 @@
 // export default Home;
 
 
-// // pages/index.js
-// import React, { useEffect, useState } from "react";
-// import Hero from "../components/Home/Hero";
-// import ServiceSection from "../components/Home/ServiceSection";
-// import InstagramAdvice from "@/components/Advice/InstagramAdvice";
-// import OfferSection from "@/components/Home/OfferSection";
-// import Seo from "@/components/Seo"; // Import the Seo component
-
-// const Home = () => {
-//   const [adviceData, setAdviceData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [visibleCardCount, setVisibleCardCount] = useState(6);
-
-//   useEffect(() => {
-//     const fetchAdvice = async () => {
-//       setLoading(true);
-//       try {
-//         const response = await fetch(
-//           `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed`
-//         );
-//         if (!response.ok) {
-//           throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//         const data = await response.json();
-//         setAdviceData(data);
-//       } catch (error) {
-//         console.error("Error fetching advice data:", error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchAdvice();
-//   }, []);
-
-//   const handleViewMore = () => {
-//     setVisibleCardCount((prevCount) => prevCount + 6);
-//   };
-
-//   return (
-//     <>
-//       <Seo
-//         title="Instagram Growth Advice & Comparison Tool"
-//         description="Get reliable advice and compare Instagram growth tools to make informed choices and boost your Instagram presence. Trusted by influencers and businesses."
-//         ogType="website"
-//           path="/"
-//       />
-//       <Hero />
-//       <div className="Comparison-list py-10">
-//         <div className="container mx-auto px-4">
-//           {!loading && (
-//             <InstagramAdvice
-//               adviceData={adviceData} // Pass the FULL data here
-//               showViewMoreButton={adviceData.length > visibleCardCount}
-//               handleViewMore={handleViewMore}
-//               visibleCardCount={visibleCardCount}
-//             />
-//           )}
-//         </div>
-//       </div>
-//       <ServiceSection />
-//       <OfferSection />
-//     </>
-//   );
-// };
-
-// export default Home;
 
 
 
 
-// pages/index.js
-import React, { useEffect, useState } from "react";
+// pages/index.js (No Changes)
+import React, { useState, useEffect, useCallback } from "react";
 import Hero from "../components/Home/Hero";
 import ServiceSection from "../components/Home/ServiceSection";
 import InstagramAdvice from "@/components/Advice/InstagramAdvice";
 import OfferSection from "@/components/Home/OfferSection";
-import Seo from "@/components/Seo"; // Import the Seo component
+import Seo from "@/components/Seo";
 
 const Home = () => {
   const [adviceData, setAdviceData] = useState([]);
   const [loading, setLoading] = useState(true);
-    const [allDataLoaded, setAllDataLoaded] = useState(false);
+  const [allDataLoaded, setAllDataLoaded] = useState(false);
 
-  useEffect(() => {
-    const fetchAdvice = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&per_page=20` // Fetch more initial data
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setAdviceData(data);
-          if (data.length < 20) {
-              setAllDataLoaded(true); // Set the flag if less than 20 items are fetched initially
-          }
-      } catch (error) {
-        console.error("Error fetching advice data:", error);
-      } finally {
-        setLoading(false);
+  const fetchAdvice = useCallback(async () => {  // Use useCallback
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&per_page=20`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-    };
-
-    fetchAdvice();
+      const data = await response.json();
+      setAdviceData(data);
+      if (data.length < 20) {
+        setAllDataLoaded(true);
+      }
+    } catch (error) {
+      console.error("Error fetching advice data:", error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-    const handleViewMore = async () => {
-        const response = await fetch(
-            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&offset=${adviceData.length}&per_page=6`
-        );
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const newData = await response.json();
+  useEffect(() => {
+    fetchAdvice();
+  }, [fetchAdvice]);  // Add fetchAdvice to the dependency array
 
-        if (newData.length === 0) {
-            // No more data to load
-            setAllDataLoaded(true);
-            return;
-        }
-        setAdviceData((prevData) => [...prevData, ...newData]);
-        if (newData.length < 6) {
-            setAllDataLoaded(true); // Set the flag if less than 6 items are fetched
-        }
-    };
+  const handleViewMore = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/instagram_advice?_embed&offset=${adviceData.length}&per_page=6`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const newData = await response.json();
 
-    // const showViewMoreButton = !allDataLoaded;
+    if (newData.length === 0) {
+      setAllDataLoaded(true);
+      return;
+    }
+    setAdviceData((prevData) => [...prevData, ...newData]);
+    if (newData.length < 6) {
+      setAllDataLoaded(true);
+    }
+  };
 
   return (
     <>
@@ -386,15 +160,15 @@ const Home = () => {
         title="Instagram Growth Advice & Comparison Tool"
         description="Get reliable advice and compare Instagram growth tools to make informed choices and boost your Instagram presence. Trusted by influencers and businesses."
         ogType="website"
-          path="/"
+        path="/"
       />
-      <Hero />
+      <Hero adviceData={adviceData} loading={loading} />
       <div className="Comparison-list py-10">
         <div className="container mx-auto px-4">
           {!loading && (
             <InstagramAdvice
-              adviceData={adviceData} // Pass the FULL data here
-              initialVisibleCardCount={6} // Use initialVisibleCardCount prop
+              adviceData={adviceData}
+              initialVisibleCardCount={6}
               handleViewMore={handleViewMore}
             />
           )}
@@ -402,6 +176,15 @@ const Home = () => {
       </div>
       <ServiceSection />
       <OfferSection />
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+          <div className="flex space-x-2">
+            <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
+            <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
+            <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
+          </div>
+        </div>
+      )}
     </>
   );
 };

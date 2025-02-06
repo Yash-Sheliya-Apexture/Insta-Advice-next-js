@@ -71,12 +71,14 @@
 
 
 
-// components/UserReview.js
+// components/CompanyReview/UserReview.js
 import React from 'react';
 import Image from 'next/image';
 import StarRating from '../StarRating/StarRating'; // Import the StarRating component
 
 const UserReview = ({ review }) => {
+    const formattedText = review.rawText.replace(/\n/g, '<br />');
+
     return (
         <div className='border border-gray-300 rounded-xl shadow-md p-4 mb-4'>
             <div className='flex gap-2'>
@@ -93,7 +95,7 @@ const UserReview = ({ review }) => {
                     <div className="text-gray-900 font-medium text-lg">{review.userName}</div>
                     <div className="text-gray-500 text-sm mt-1">
                         <span>
-                            {new Date().toLocaleDateString()} | {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        {new Date().toLocaleDateString()} | {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </span>
                     </div>
                 </div>
@@ -105,7 +107,7 @@ const UserReview = ({ review }) => {
                     <StarRating rating={review.rating} size="text-sm" />
                 </div>
                 <p className="text-gray-900 text-lg font-bold mb-2">{review.title}</p>
-                <p className="text-gray-500">{review.text}</p>
+                <p className="text-gray-500" dangerouslySetInnerHTML={{ __html: formattedText }} />
             </div>
         </div>
     );
