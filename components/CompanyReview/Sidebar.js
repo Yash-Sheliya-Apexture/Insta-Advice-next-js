@@ -474,7 +474,7 @@ const Sidebar = ({ data, onOpenModal, reviews }) => {
                 {/* See all reviews button */}
                <button className='w-full px-6 py-4 duration-300 ease-in-out hover:bg-gray-200/50'>
                     <div className='flex items-center justify-center gap-2 cursor-pointer'>
-                        <a className='text-[#0d80f2] hover:text-blue-500 font-medium text-medium'>See all reviews ({reviews?.length || 0})</a>
+                        <a href='#user-reviews' className='text-[#0d80f2] hover:text-blue-500 font-medium text-medium'>See all reviews ({reviews?.length || 0})</a>
                     </div>
                 </button>
             </div>
