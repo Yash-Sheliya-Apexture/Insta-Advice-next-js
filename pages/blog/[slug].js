@@ -159,7 +159,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Seo from "@/components/Seo";
-import Image from "next/image";
 
 const SingleBlogPage = () => {
   const router = useRouter();

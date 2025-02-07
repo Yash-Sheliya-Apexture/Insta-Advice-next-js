@@ -344,6 +344,11 @@
 // export default FilterBar;
 
 
+
+
+
+
+
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from "react-icons/io";
@@ -594,12 +599,7 @@ const FilterBar = ({
                         <div key={filter.name} className="relative">
                             <button
                                 onClick={() => handleDropdownToggle(filter.name)}
-                                className={`flex items-center gap-1 py-1 px-2 rounded-md  focus:outline-none whitespace-nowrap
-                                ${isFilterSelected
-                                        ? "bg-blue-100 text-blue-800"
-                                        : "border border-gray-300 hover:border-gray-400"
-                                    }
-                                `}
+                                className={`flex items-center gap-1 py-1 px-2 rounded-md cursor-pointer focus:outline-none whitespace-nowrap ${isFilterSelected ? "bg-blue-100 text-blue-800" : "border border-gray-300 hover:border-gray-400"}`}
                             >
                                 {renderButtonContent(filter)}
                             </button>
@@ -661,7 +661,7 @@ const FilterBar = ({
                             {openDropdown === filter.name && filter.name !== 'Price' && filter.name !== "Sort" && (
                                 <div
                                     ref={dropdownRef}
-                                    className="absolute top-full left-0 mt-1 w-auto min-w-72 bg-white border border-gray-300 rounded-md shadow-md z-10 overflow-hidden"
+                                    className="absolute top-full left-0 mt-1 w-auto min-w-64 bg-white border border-gray-300 rounded-md shadow-md z-10 overflow-hidden"
                                 >
                                     {filter.options.map((option, index) => (
                                         <div

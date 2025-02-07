@@ -5,6 +5,7 @@
     font-weight: 100;
     /* UltraLight */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     src: url('../assets/fonts/GTWalsheimPro-UltraLightOblique.woff') format('woff');
     font-weight: 100;
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -20,6 +22,7 @@
     font-weight: 200;
     /* Thin */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -28,6 +31,7 @@
     font-weight: 200;
     /* Thin */
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -36,6 +40,7 @@
     font-weight: 300;
     /* Light */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -44,6 +49,7 @@
     font-weight: 300;
     /* Light */
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -52,6 +58,7 @@
     font-weight: 400;
     /* Regular */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -60,6 +67,7 @@
     font-weight: 400;
     /* Regular */
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 
@@ -69,6 +77,7 @@
     font-weight: 500;
     /* Medium */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -77,6 +86,7 @@
     font-weight: 500;
     /* Medium */
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 
@@ -86,6 +96,7 @@
     font-weight: 700;
     /* Bold */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -94,6 +105,7 @@
     font-weight: 700;
     /* Bold */
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -102,6 +114,7 @@
     font-weight: 900;
     /* Black */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -110,6 +123,7 @@
     font-weight: 900;
     /* Black */
     font-style: italic;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -118,6 +132,7 @@
     font-weight: 800;
     /* UltraBold */
     font-style: normal;
+    font-display: swap; /* Important! */
 }
 
 @font-face {
@@ -126,4 +141,5 @@
     font-weight: 800;
     /* UltraBold */
     font-style: italic;
+    font-display: swap; /* Important! */
 }

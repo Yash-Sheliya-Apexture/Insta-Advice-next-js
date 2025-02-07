@@ -508,7 +508,6 @@ const SearchBar = ({ specificIds }) => {
     const fetchSearchResults = useCallback(async (query = '', ids = []) => {
         if (jwtLoading) {
           // If JWT is still loading, prevent fetching data
-          console.log("JWT is loading, skipping fetchSearchResults.");
           return;
         }
         try {
@@ -655,7 +654,7 @@ const SearchBar = ({ specificIds }) => {
                                 placeholder="Search by post title"
                                 className="border border-gray-300 rounded-3xl py-2 px-3 focus:outline-none focus:border-black w-full pr-10"
                             />
-                            <button onClick={handleCloseSearch} className="absolute inset-y-0 right-2 flex items-center px-2 text-dark-color">
+                            <button onClick={handleCloseSearch} className="absolute cursor-pointer inset-y-0 right-2 flex items-center px-2 text-dark-color">
                                 <FaTimes />
                             </button>
                         </div>

@@ -265,7 +265,6 @@
 
 
 
-// ReviewModal.js
 import React, { useState } from 'react';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
@@ -290,20 +289,30 @@ const ReviewModal = ({ onClose, onAddReview }) => {
         let isValid = true;
         const newErrors = {};
 
+        const checkForCurlyQuotes = (text) => {
+            return text.includes('“') || text.includes('”');
+        };
+
         if (!userName.trim()) {
             newErrors.userName = "Please enter your name.";
             isValid = false;
+        } else if (checkForCurlyQuotes(userName)) {
+            newErrors.userName = 'Name cannot contain curly quotes (“ or ”). Please use regular double quotes (").';
+            isValid = false;
         }
+
         if (!reviewTitle.trim()) {
             newErrors.reviewTitle = "Please enter a review title.";
             isValid = false;
+        } else if (checkForCurlyQuotes(reviewTitle)) {
+            newErrors.reviewTitle = 'Review title cannot contain curly quotes (“ or ”). Please use regular double quotes (").';
+            isValid = false;
         }
+
         if (!reviewText.trim()) {
             newErrors.reviewText = "Please enter your review text.";
             isValid = false;
-        }
-        // Check if the text includes curly quotes
-        if (reviewText.includes('“') || reviewText.includes('”')) {
+        } else if (checkForCurlyQuotes(reviewText)) {
             newErrors.reviewText = 'Review text cannot contain curly quotes (“ or ”). Please use regular double quotes (").';
             isValid = false;
         }

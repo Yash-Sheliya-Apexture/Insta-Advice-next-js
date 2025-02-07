@@ -93,6 +93,8 @@
 // export default HostCard;
 
 
+
+
 import React from "react";
 import Image from "next/image";
 import StarRating from "../StarRating/StarRating";
@@ -102,9 +104,9 @@ import Link from "next/link";
 const HostCard = React.memo(({ logo, averageRating, totalReviews, features, visitSiteUrl, signalPageUrl, isMiddleCard, ranking }) => {
   const rating = parseFloat(averageRating) || 0;
   return (
+
     <div
-      className={`bg-white relative p-5 rounded-xl shadow-main-shadow transition-shadow duration-300 overflow-hidden flex flex-col justify-between min-h-[300px] ${isMiddleCard ? "lg:-mt-6 mt-0 lg:mb-3 mb-0 border-2 border-light-royal-blue" : ""
-        }`}
+      className={`bg-white relative p-5 rounded-xl shadow-main-shadow transition-shadow duration-300 overflow-hidden flex flex-col justify-between min-h-[300px] ${isMiddleCard ? 'lg:-mt-6 mt-0 lg:mb-3 mb-0 bg-custum-gradient-background rounded-2xl border-4 border-transparent animate-border' : ''}`}
     >
       {/* Logo */}
       <div className="flex justify-center my-2">
