@@ -737,7 +737,7 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
-import HostCard from "./HostCard";
+import InstaCard from "./InstaCard";
 import Link from "next/link";
 
 const Hero = () => {
@@ -1019,7 +1019,7 @@ const Hero = () => {
 
         <div className="mt-8 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3">
           {hostData.map((host, index) => (
-            <HostCard key={host.id} {...host} isMiddleCard={index === 1} />
+            <InstaCard key={host.id} {...host} isMiddleCard={index === 1} />
           ))}
         </div>
       </div>
