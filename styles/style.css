@@ -145,7 +145,25 @@
     }
   }
 
-
+  .bg-custum-gradient-background {
+    background: linear-gradient(45deg, #fff, oklch(1 0 0) 50%, #fff) padding-box, conic-gradient(from var(--border-angle), color-mix(in oklab, oklch(1 0 0) 0%, transparent) 80%, oklch(.55 .27 312.37) 86%, oklch(.67 .24 1.43) 88%, oklch(.58 .23 25.81) 94%, color-mix(in oklab, oklch(.84 .2 81.02) 90%, transparent), oklch(.84 .2 81.02) 98%, transparent) border-box;
+    }
+    
+    .animate-border {
+    animation: border 4s linear infinite
+    }
+    
+    @keyframes border {
+    to {
+    --border-angle: 360deg
+    }
+    }
+    
+    @property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+    }
 
   
   /* Animation 2: Zoom In and Fade */
