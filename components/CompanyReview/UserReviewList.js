@@ -214,7 +214,7 @@ const UserReviewList = ({ reviews, setAverageRatingForInfoCard, setTotalReviewsF
             ) : (
                 <p>No reviews available</p>
             )}
-             <div className="mb-4">
+             <div className="mb-4 mt-2">
                 <span className="text-lg font-bold">Total Reviews: </span>
                 <span className="text-lg">{reviewCount}</span>
             </div>

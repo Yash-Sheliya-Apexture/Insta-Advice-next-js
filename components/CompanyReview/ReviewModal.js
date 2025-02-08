@@ -265,25 +265,208 @@
 
 
 
+
+
+
+// import React, { useState } from 'react';
+// import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+
+// const ReviewModal = ({ onClose, onAddReview }) => {
+//     const [rating, setRating] = useState(0);
+//     const [hoveredStar, setHoveredStar] = useState(0);
+//     const [userName, setUserName] = useState('');
+//     const [reviewTitle, setReviewTitle] = useState('');
+//     const [reviewText, setReviewText] = useState('');
+//     const [errors, setErrors] = useState({});
+//     const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+
+//     const handleStarClick = (starValue) => {
+//         setRating(starValue);
+//     };
+
+//     const handleHalfStarClick = (starValue) => {
+//         setRating(starValue - 0.5);
+//     };
+
+//     const validateForm = () => {
+//         let isValid = true;
+//         const newErrors = {};
+
+//         const checkForCurlyQuotes = (text) => {
+//             return text.includes('“') || text.includes('”');
+//         };
+
+//         if (!userName.trim()) {
+//             newErrors.userName = "Please enter your name.";
+//             isValid = false;
+//         } else if (checkForCurlyQuotes(userName)) {
+//             newErrors.userName = 'Name cannot contain curly quotes (“ or ”). Please use regular double quotes (").';
+//             isValid = false;
+//         }
+
+//         if (!reviewTitle.trim()) {
+//             newErrors.reviewTitle = "Please enter a review title.";
+//             isValid = false;
+//         } else if (checkForCurlyQuotes(reviewTitle)) {
+//             newErrors.reviewTitle = 'Review title cannot contain curly quotes (“ or ”). Please use regular double quotes (").';
+//             isValid = false;
+//         }
+
+//         if (!reviewText.trim()) {
+//             newErrors.reviewText = "Please enter your review text.";
+//             isValid = false;
+//         } else if (checkForCurlyQuotes(reviewText)) {
+//             newErrors.reviewText = 'Review text cannot contain curly quotes (“ or ”). Please use regular double quotes (").';
+//             isValid = false;
+//         }
+
+//         if (rating === 0) {
+//             newErrors.rating = "Please select a rating.";
+//             isValid = false;
+//         }
+
+//         setErrors(newErrors);
+//         return isValid;
+//     };
+
+//     const handleSubmit = async (event) => {
+//         event.preventDefault();
+
+//         if (!validateForm()) {
+//             return;
+//         }
+
+//         setIsSubmitting(true); // Disable the submit button during submission
+
+//         const newReview = {
+//             rating,
+//             userName,
+//             title: reviewTitle,
+//             text: reviewText
+//         };
+
+//         try {
+//             await onAddReview(newReview);
+//             onClose(); // Close the modal only on successful submission
+//         } catch (err) {
+//             setErrors({ general: `Failed to submit review: ${err.message || 'Unknown error'}` }); // Set a general error
+//             console.error("Error submitting review:", err);
+//         } finally {
+//             setIsSubmitting(false); // Re-enable the submit button
+//         }
+//     };
+
+//     const handleReviewTextChange = (e) => {
+//         const text = e.target.value;
+//         setReviewText(text);
+//     }
+
+
+//     return (
+//         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50">
+//             <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+//                 <h2 className="text-2xl font-bold mb-6">Write a Review</h2>
+//                 {errors.general && <div className="text-red-500 mb-4">{errors.general}</div>} {/* Display general error */}
+//                 <form onSubmit={handleSubmit}>
+//                     <div className="mb-4">
+//                         <label htmlFor="userName" className="block text-gray-700 text-sm font-bold mb-2">Name</label>
+//                         <input
+//                             type="text"
+//                             id="userName"
+//                             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.userName ? 'border-red-500' : ''}`}
+//                             placeholder="Enter your Name"
+//                             value={userName}
+//                             onChange={e => setUserName(e.target.value)}
+//                             onFocus={() => setErrors({ ...errors, userName: null })}
+
+//                         />
+//                         {errors.userName && <p className="text-red-500 text-xs italic">{errors.userName}</p>}
+//                     </div>
+//                     <div className="mb-4">
+//                         <label htmlFor="reviewTitle" className="block text-gray-700 text-sm font-bold mb-2">Review Title</label>
+//                         <input
+//                             type="text"
+//                             id="reviewTitle"
+//                             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.reviewTitle ? 'border-red-500' : ''}`}
+//                             placeholder="Enter review title"
+//                             value={reviewTitle}
+//                             onChange={e => setReviewTitle(e.target.value)}
+//                             onFocus={() => setErrors({ ...errors, reviewTitle: null })}
+//                         />
+//                         {errors.reviewTitle && <p className="text-red-500 text-xs italic">{errors.reviewTitle}</p>}
+//                     </div>
+//                     <div className="mb-4">
+//                         <label htmlFor="reviewText" className="block text-gray-700 text-sm font-bold mb-2">Your Review</label>
+//                         <textarea
+//                             id="reviewText"
+//                             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.reviewText ? 'border-red-500' : ''}`}
+//                             placeholder="Write your review"
+//                             value={reviewText}
+//                             onChange={handleReviewTextChange}
+//                             rows="4"
+//                             onFocus={() => setErrors({ ...errors, reviewText: null })}
+//                         />
+//                         {errors.reviewText && <p className="text-red-500 text-xs italic">{errors.reviewText}</p>}
+//                     </div>
+//                     <div className="mb-6">
+//                         <label htmlFor="rating" className="block text-gray-700 text-sm font-bold mb-2">Rating</label>
+//                         <div className="flex items-center">
+//                             {[...Array(5)].map((_, index) => (
+//                                 <React.Fragment key={index}>
+//                                     <FaStar
+//                                         className={`cursor-pointer ${index + 1 <= (hoveredStar || rating) ? 'text-yellow-500' : 'text-gray-300'}`}
+//                                         onMouseEnter={() => setHoveredStar(index + 1)}
+//                                         onMouseLeave={() => setHoveredStar(0)}
+//                                         onClick={() => handleStarClick(index + 1)}
+//                                     />
+//                                     {index + 1 > rating && (
+//                                         <FaStarHalfAlt
+//                                             className={`cursor-pointer ${rating > index && rating < index + 1 ? 'text-yellow-500' : 'text-gray-300'}`}
+//                                             onMouseEnter={() => setHoveredStar(index + 0.5)}
+//                                             onMouseLeave={() => setHoveredStar(0)}
+//                                             onClick={() => handleHalfStarClick(index + 1)}
+//                                         />
+//                                     )}
+//                                 </React.Fragment>
+//                             ))}
+//                         </div>
+//                         {errors.rating && <p className="text-red-500 text-xs italic">{errors.rating}</p>}
+//                     </div>
+
+//                     <div className="flex justify-end">
+//                         <button type="button" onClick={onClose} className="bg-gray-200 hover:bg-gray-300 text-gray-900 py-2 px-4 mr-2 text-lg rounded-full cursor-pointer">
+//                             Cancel
+//                         </button>
+//                         <button
+//                             type="submit"
+//                             className={`focus:outline-none custom-gradient text-white text-lg rounded-full text-center px-6 py-2 hover:bg-custom-dark transform cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+//                             disabled={isSubmitting} // Disable the button while submitting
+//                         >
+//                             {isSubmitting ? 'Submitting...' : 'Submit Review'}
+//                         </button>
+//                     </div>
+//                 </form>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default ReviewModal;
+
+
+
 import React, { useState } from 'react';
-import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import { Rating } from '@mui/material';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa'; // Keep icons for visual consistency
+import { FaStar as MuiStar, FaStarHalfAlt as MuiStarHalfAlt } from "react-icons/fa";  // Use MUI icons for stars, if you want
 
 const ReviewModal = ({ onClose, onAddReview }) => {
     const [rating, setRating] = useState(0);
-    const [hoveredStar, setHoveredStar] = useState(0);
     const [userName, setUserName] = useState('');
     const [reviewTitle, setReviewTitle] = useState('');
     const [reviewText, setReviewText] = useState('');
     const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
-
-    const handleStarClick = (starValue) => {
-        setRating(starValue);
-    };
-
-    const handleHalfStarClick = (starValue) => {
-        setRating(starValue - 0.5);
-    };
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const validateForm = () => {
         let isValid = true;
@@ -333,7 +516,7 @@ const ReviewModal = ({ onClose, onAddReview }) => {
             return;
         }
 
-        setIsSubmitting(true); // Disable the submit button during submission
+        setIsSubmitting(true);
 
         const newReview = {
             rating,
@@ -344,26 +527,25 @@ const ReviewModal = ({ onClose, onAddReview }) => {
 
         try {
             await onAddReview(newReview);
-            onClose(); // Close the modal only on successful submission
+            onClose();
         } catch (err) {
-            setErrors({ general: `Failed to submit review: ${err.message || 'Unknown error'}` }); // Set a general error
+            setErrors({ general: `Failed to submit review: ${err.message || 'Unknown error'}` });
             console.error("Error submitting review:", err);
         } finally {
-            setIsSubmitting(false); // Re-enable the submit button
+            setIsSubmitting(false);
         }
     };
 
     const handleReviewTextChange = (e) => {
         const text = e.target.value;
         setReviewText(text);
-    }
-
+    };
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50">
             <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
                 <h2 className="text-2xl font-bold mb-6">Write a Review</h2>
-                {errors.general && <div className="text-red-500 mb-4">{errors.general}</div>} {/* Display general error */}
+                {errors.general && <div className="text-red-500 mb-4">{errors.general}</div>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="userName" className="block text-gray-700 text-sm font-bold mb-2">Name</label>
@@ -375,7 +557,6 @@ const ReviewModal = ({ onClose, onAddReview }) => {
                             value={userName}
                             onChange={e => setUserName(e.target.value)}
                             onFocus={() => setErrors({ ...errors, userName: null })}
-
                         />
                         {errors.userName && <p className="text-red-500 text-xs italic">{errors.userName}</p>}
                     </div>
@@ -407,26 +588,16 @@ const ReviewModal = ({ onClose, onAddReview }) => {
                     </div>
                     <div className="mb-6">
                         <label htmlFor="rating" className="block text-gray-700 text-sm font-bold mb-2">Rating</label>
-                        <div className="flex items-center">
-                            {[...Array(5)].map((_, index) => (
-                                <React.Fragment key={index}>
-                                    <FaStar
-                                        className={`cursor-pointer ${index + 1 <= (hoveredStar || rating) ? 'text-yellow-500' : 'text-gray-300'}`}
-                                        onMouseEnter={() => setHoveredStar(index + 1)}
-                                        onMouseLeave={() => setHoveredStar(0)}
-                                        onClick={() => handleStarClick(index + 1)}
-                                    />
-                                    {index + 1 > rating && (
-                                        <FaStarHalfAlt
-                                            className={`cursor-pointer ${rating > index && rating < index + 1 ? 'text-yellow-500' : 'text-gray-300'}`}
-                                            onMouseEnter={() => setHoveredStar(index + 0.5)}
-                                            onMouseLeave={() => setHoveredStar(0)}
-                                            onClick={() => handleHalfStarClick(index + 1)}
-                                        />
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </div>
+                        <Rating
+                            name="half-rating"
+                            defaultValue={0}
+                            precision={0.5}
+                            value={rating}
+                            onChange={(event, newValue) => {
+                                setRating(newValue);
+                            }}
+                            size="large"  // Adjust size as needed
+                        />
                         {errors.rating && <p className="text-red-500 text-xs italic">{errors.rating}</p>}
                     </div>
 
@@ -437,7 +608,7 @@ const ReviewModal = ({ onClose, onAddReview }) => {
                         <button
                             type="submit"
                             className={`focus:outline-none custom-gradient text-white text-lg rounded-full text-center px-6 py-2 hover:bg-custom-dark transform cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            disabled={isSubmitting} // Disable the button while submitting
+                            disabled={isSubmitting}
                         >
                             {isSubmitting ? 'Submitting...' : 'Submit Review'}
                         </button>
