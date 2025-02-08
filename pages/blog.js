@@ -178,10 +178,19 @@
 
 // export default BlogList;
 
+
+
+
+
+
+
+
+
 // import Image from 'next/image';
 // import Link from 'next/link';
 // import React, { useEffect, useState } from 'react';
 // import { motion } from 'framer-motion'; // Import motion from framer-motion
+
 
 // const fetchMediaUrl = async (mediaId) => {
 //   try {
@@ -249,6 +258,8 @@
 //     },
 //   };
 
+
+
 //   useEffect(() => {
 //     const fetchPosts = async () => {
 //       try {
@@ -294,6 +305,7 @@
 //       setAllPostsLoaded(true); // Set flag when all posts are loaded
 //     }
 //   };
+
 
 //   if (loading)
 //     return (
@@ -346,19 +358,22 @@
 //                   <div className="w-full aspect-h-9">
 //                     {
 //                       post.featured_media_url && (
-//                         <div className='relative w-full 2xl:h-72 xl:h-56  h-52'>
+//                         <div className='relative'>
 //                           <Link href={`/blog/${post.slug}`}>
 //                             <Image
 //                               src={post.featured_media_url}
 //                               alt={post.title.rendered}
 //                               className="object-center w-full h-auto"
-//                               fill
+//                               width={1000}
+//                               height={1000}
+//                               priority={posts.indexOf(post) < 3}
 //                             />
 //                           </Link>
 //                         </div>
 //                       )
 //                     }
 //                   </div>
+
 
 //                   <div className="p-4">
 //                     <div className="flex items-center gap-4">
@@ -410,7 +425,10 @@
 //   );
 // };
 
-// export default BlogList;
+// export default BlogList;  
+
+
+
 
 import Image from "next/image";
 import Link from "next/link";
