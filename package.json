@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@firebase/app": "^0.10.18",
     "@firebase/firestore": "^4.7.6",
+    "@mui/material": "^6.4.3",
     "@tailwindcss/postcss": "^4.0.0",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
