@@ -2028,7 +2028,7 @@ const InstagramAdvice = React.memo(({
                         <div className="text-center mt-6">
                             <button
                                 onClick={handleViewMoreClick}
-                                className="focus:outline-none inline-block custom-gradient text-white text-base font-medium rounded-full px-8 py-3 hover:bg-blue-600 transform text-center"
+                                className="focus:outline-none cursor-pointer inline-block custom-gradient text-white text-base font-medium rounded-full px-8 py-3 hover:bg-blue-600 transform text-center"
                             >
                                 View More
                             </button>
