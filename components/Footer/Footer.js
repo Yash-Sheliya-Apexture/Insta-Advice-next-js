@@ -59,22 +59,22 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/blog" className="text-gray-500">
+                  <Link href="/blog" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     Blogs
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about-us" className="text-gray-500">
+                  <Link href="/about-us" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     About us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact-us" className="text-gray-500">
+                  <Link href="/contact-us" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     Contact us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/company" className="text-gray-500">
+                  <Link href="/company" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     Reviews
                   </Link>
                 </li>
@@ -88,47 +88,47 @@ const Footer = () => {
               </h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/comparison/ascendviral-vs-plixi" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-plixi" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     AscendViral vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/ascendviral-vs-upleap" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-upleap" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     AscendViral vs Upleap
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/ascendviral-vs-upgrow" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-upgrow" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                     AscendViral vs Upgrow
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/upgrow-vs-upleap" className="text-gray-500">
+                  <Link href="/comparison/upgrow-vs-upleap" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   Upgrow vs Upleap
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/upgrow-vs-plixi" className="text-gray-500">
+                  <Link href="/comparison/upgrow-vs-plixi" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   Upgrow vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/upleap-vs-plixi" className="text-gray-500">
+                  <Link href="/comparison/upleap-vs-plixi" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   Upleap vs Plixi
                   </Link>
                 </li>
                  <li>
-                  <Link href="/comparison/path-social-vs-plixi" className="text-gray-500">
+                  <Link href="/comparison/path-social-vs-plixi" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   Path Social vs Plixi
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/path-social-vs-kicksta" className="text-gray-500">
+                  <Link href="/comparison/path-social-vs-kicksta" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   Path Social vs Kicksta
                   </Link>
                 </li>
                 <li>
-                  <Link href="/comparison/ascendviral-vs-path-social" className="text-gray-500">
+                  <Link href="/comparison/ascendviral-vs-path-social" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   AscendViral vs Path social
                   </Link>
                 </li>
@@ -144,16 +144,16 @@ const Footer = () => {
                 progress.
               </p>
               <div className="flex space-x-4">
-                <Link href="#" className="text-gray-500">
+                <Link href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   <FaTwitter className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="text-gray-500">
+                <Link href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   <FaGithub className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="text-gray-500">
+                <Link href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   <FaFacebook className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="text-gray-500">
+                <Link href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-300">
                   <FaDribbble className="h-5 w-5" />
                 </Link>
               </div>
@@ -165,11 +165,11 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-500">
           <div className="text-sm mb-2 md:mb-0">
-            <p>© 2025 Insta Advice. All rights reserved.</p>
+            <p>© 2025 Instaadvice. All rights reserved.</p>
           </div>
           <div className="text-sm flex items-center gap-6 md:flex-row">
-            <Link href="/terms-and-service" className="underline">Terms & Service</Link>
-            <Link href="/privacy-policy" className="underline">Privacy Policy</Link>
+            <Link href="/terms-and-service" className="underline hover:text-gray-700 transition-colors duration-300">Terms & Service</Link>
+            <Link href="/privacy-policy" className="underline hover:text-gray-700 transition-colors duration-300">Privacy Policy</Link>
           </div>
         </div>
       </div>

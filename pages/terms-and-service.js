@@ -6,12 +6,12 @@
 //     {
 //       title: "Your Agreement",
 //       content:
-//         "By accessing or using Insta Advice, you're agreeing to these terms. Think of it as a digital handshake – a confirmation that we're all on the same page. If you don’t agree with any part of these terms, please don’t use our site. We want this to be a positive experience for everyone.",
+//         "By accessing or using Instaadvice, you're agreeing to these terms. Think of it as a digital handshake – a confirmation that we're all on the same page. If you don’t agree with any part of these terms, please don’t use our site. We want this to be a positive experience for everyone.",
 //     },
 //     {
 //       title: "What We Do",
 //       content:
-//         "Insta Advice is a platform that provides reviews, analyses, and insights into various Instagram growth tools. We personally test and analyze these tools to offer our perspective and help you make informed decisions. We aim to cut through the noise and provide clear, honest assessments to guide your choices. We’re your reliable source for Instagram growth tool reviews!",
+//         "Instaadvice is a platform that provides reviews, analyses, and insights into various Instagram growth tools. We personally test and analyze these tools to offer our perspective and help you make informed decisions. We aim to cut through the noise and provide clear, honest assessments to guide your choices. We’re your reliable source for Instagram growth tool reviews!",
 //     },
 //     {
 //       title: "Our Content",
@@ -21,12 +21,12 @@
 //     {
 //       title: "Your Responsibility",
 //       content:
-//         "You are responsible for how you use the information and tool recommendations provided by Insta Advice. Please do not use our site or recommendations for any illegal, harmful, or unethical practices. We value a respectful and positive community for all. Respect other users and their perspectives, and be thoughtful about your engagement. Be a responsible digital citizen!",
+//         "You are responsible for how you use the information and tool recommendations provided by Instaadvice. Please do not use our site or recommendations for any illegal, harmful, or unethical practices. We value a respectful and positive community for all. Respect other users and their perspectives, and be thoughtful about your engagement. Be a responsible digital citizen!",
 //     },
 //     {
 //       title: "Intellectual Property",
 //       content:
-//         "The content on Insta Advice, including reviews, analyses, text, graphics, logos, and our unique assessments, is owned by us or our partners and is protected by copyright laws. You may use our content for your personal research to inform your tool choices but do not copy, reproduce, or distribute it without our explicit permission. We've poured our expertise into creating this, please respect our intellectual property.",
+//         "The content on Instaadvice, including reviews, analyses, text, graphics, logos, and our unique assessments, is owned by us or our partners and is protected by copyright laws. You may use our content for your personal research to inform your tool choices but do not copy, reproduce, or distribute it without our explicit permission. We've poured our expertise into creating this, please respect our intellectual property.",
 //     },
 //     {
 //       title: "Third-Party Links",
@@ -36,17 +36,17 @@
 //     {
 //       title: "Limitations of Liability",
 //       content:
-//         "We are not liable for any indirect, incidental, or consequential damages that may arise from your use of Insta Advice or any tools we recommend. We are committed to providing thorough, honest reviews, but the world of Instagram tools can be unpredictable. Consider our advice as a well-informed opinion, not a guaranteed path to success. We are not responsible for your decisions and experiences with third-party tools.",
+//         "We are not liable for any indirect, incidental, or consequential damages that may arise from your use of Instaadvice or any tools we recommend. We are committed to providing thorough, honest reviews, but the world of Instagram tools can be unpredictable. Consider our advice as a well-informed opinion, not a guaranteed path to success. We are not responsible for your decisions and experiences with third-party tools.",
 //     },
 //     {
 //       title: "Governing Law and Jurisdiction",
 //       content:
-//         "These Terms of Service and your use of Insta Advice are governed by the laws. Any legal actions related to this agreement will be brought exclusively in the courts. We believe in clarity and want to ensure that both parties are aware of the legal framework governing this relationship.",
+//         "These Terms of Service and your use of Instaadvice are governed by the laws. Any legal actions related to this agreement will be brought exclusively in the courts. We believe in clarity and want to ensure that both parties are aware of the legal framework governing this relationship.",
 //     },
 //     {
 //       title: "Changes and Termination",
 //       content:
-//         "We may update these Terms of Service periodically. We’ll aim to notify you about any significant changes. We also reserve the right to terminate your access to our site if you violate these terms. We’re always looking to improve and aim to make Insta Advice as useful as possible.",
+//         "We may update these Terms of Service periodically. We’ll aim to notify you about any significant changes. We also reserve the right to terminate your access to our site if you violate these terms. We’re always looking to improve and aim to make Instaadvice as useful as possible.",
 //     },
 //   ];
 
@@ -84,8 +84,8 @@
 //   return (
 //     <>
 //       <Head>
-//         <title>Terms of Service | Insta Advice</title>
-//         <meta name="description" content="Read our Terms of Service for using Insta Advice." />
+//         <title>Terms of Service | Instaadvice</title>
+//         <meta name="description" content="Read our Terms of Service for using Instaadvice." />
 //       </Head>
 //        <section className="trems-conditions bg-gray-50 py-12">
 //       <div className="container mx-auto">
@@ -94,7 +94,7 @@
 //             Terms of Service
 //           </h2>
 //           <p className="text-center mt-6 text-xl text-gray-500">
-//             Welcome to (Insta Advice)! We’re excited to have you explore our
+//             Welcome to (Instaadvice)! We’re excited to have you explore our
 //             platform and discover insights into the best Instagram growth tools.
 //             Before you dive in, please take a few moments to read through our
 //             straightforward terms of service. It’s important info, but we’ve
@@ -139,12 +139,12 @@ const TermsOfService = () => {
     {
       title: "Your Agreement",
       content:
-        "By accessing or using Insta Advice, you're agreeing to these terms. Think of it as a digital handshake – a confirmation that we're all on the same page. If you don’t agree with any part of these terms, please don’t use our site. We want this to be a positive experience for everyone.",
+        "By accessing or using Instaadvice, you're agreeing to these terms. Think of it as a digital handshake – a confirmation that we're all on the same page. If you don’t agree with any part of these terms, please don’t use our site. We want this to be a positive experience for everyone.",
     },
     {
       title: "What We Do",
       content:
-        "Insta Advice is a platform that provides reviews, analyses, and insights into various Instagram growth tools. We personally test and analyze these tools to offer our perspective and help you make informed decisions. We aim to cut through the noise and provide clear, honest assessments to guide your choices. We’re your reliable source for Instagram growth tool reviews!",
+        "Instaadvice is a platform that provides reviews, analyses, and insights into various Instagram growth tools. We personally test and analyze these tools to offer our perspective and help you make informed decisions. We aim to cut through the noise and provide clear, honest assessments to guide your choices. We’re your reliable source for Instagram growth tool reviews!",
     },
     {
       title: "Our Content",
@@ -154,12 +154,12 @@ const TermsOfService = () => {
     {
       title: "Your Responsibility",
       content:
-        "You are responsible for how you use the information and tool recommendations provided by Insta Advice. Please do not use our site or recommendations for any illegal, harmful, or unethical practices. We value a respectful and positive community for all. Respect other users and their perspectives, and be thoughtful about your engagement. Be a responsible digital citizen!",
+        "You are responsible for how you use the information and tool recommendations provided by Instaadvice. Please do not use our site or recommendations for any illegal, harmful, or unethical practices. We value a respectful and positive community for all. Respect other users and their perspectives, and be thoughtful about your engagement. Be a responsible digital citizen!",
     },
     {
       title: "Intellectual Property",
       content:
-        "The content on Insta Advice, including reviews, analyses, text, graphics, logos, and our unique assessments, is owned by us or our partners and is protected by copyright laws. You may use our content for your personal research to inform your tool choices but do not copy, reproduce, or distribute it without our explicit permission. We've poured our expertise into creating this, please respect our intellectual property.",
+        "The content on Instaadvice, including reviews, analyses, text, graphics, logos, and our unique assessments, is owned by us or our partners and is protected by copyright laws. You may use our content for your personal research to inform your tool choices but do not copy, reproduce, or distribute it without our explicit permission. We've poured our expertise into creating this, please respect our intellectual property.",
     },
     {
       title: "Third-Party Links",
@@ -169,17 +169,17 @@ const TermsOfService = () => {
     {
       title: "Limitations of Liability",
       content:
-        "We are not liable for any indirect, incidental, or consequential damages that may arise from your use of Insta Advice or any tools we recommend. We are committed to providing thorough, honest reviews, but the world of Instagram tools can be unpredictable. Consider our advice as a well-informed opinion, not a guaranteed path to success. We are not responsible for your decisions and experiences with third-party tools.",
+        "We are not liable for any indirect, incidental, or consequential damages that may arise from your use of Instaadvice or any tools we recommend. We are committed to providing thorough, honest reviews, but the world of Instagram tools can be unpredictable. Consider our advice as a well-informed opinion, not a guaranteed path to success. We are not responsible for your decisions and experiences with third-party tools.",
     },
     {
       title: "Governing Law and Jurisdiction",
       content:
-        "These Terms of Service and your use of Insta Advice are governed by the laws. Any legal actions related to this agreement will be brought exclusively in the courts. We believe in clarity and want to ensure that both parties are aware of the legal framework governing this relationship.",
+        "These Terms of Service and your use of Instaadvice are governed by the laws. Any legal actions related to this agreement will be brought exclusively in the courts. We believe in clarity and want to ensure that both parties are aware of the legal framework governing this relationship.",
     },
     {
       title: "Changes and Termination",
       content:
-        "We may update these Terms of Service periodically. We’ll aim to notify you about any significant changes. We also reserve the right to terminate your access to our site if you violate these terms. We’re always looking to improve and aim to make Insta Advice as useful as possible.",
+        "We may update these Terms of Service periodically. We’ll aim to notify you about any significant changes. We also reserve the right to terminate your access to our site if you violate these terms. We’re always looking to improve and aim to make Instaadvice as useful as possible.",
     },
   ];
 
@@ -187,8 +187,8 @@ const TermsOfService = () => {
   return (
     <>
       <Head>
-        <title>Terms of Service | Insta Advice</title>
-        <meta name="description" content="Read our Terms of Service for using Insta Advice." />
+        <title>Terms of Service | Instaadvice</title>
+        <meta name="description" content="Read our Terms of Service for using Instaadvice." />
       </Head>
        <section className="trems-conditions bg-gray-50 py-12">
       <div className="container mx-auto px-4">
@@ -198,7 +198,7 @@ const TermsOfService = () => {
             Terms of Service
           </h2>
           <p className="text-center mt-6 text-xl text-gray-500">
-            Welcome to (Insta Advice)! We’re excited to have you explore our
+            Welcome to Instaadvice! We’re excited to have you explore our
             platform and discover insights into the best Instagram growth tools.
             Before you dive in, please take a few moments to read through our
             straightforward terms of service. It’s important info, but we’ve

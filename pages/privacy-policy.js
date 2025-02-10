@@ -8,7 +8,7 @@
 //             content: (
 //                 <>
 //                     <p>
-//                         We collect limited information when you interact with Insta Advice:
+//                         We collect limited information when you interact with Instaadvice:
 //                     </p>
 //                     <ul className="list-disc list-inside mt-2">
 //                         <li>
@@ -52,7 +52,7 @@
 //                         <li>
 //                             <span className="font-semibold">Analyze Trends:</span> We may use
 //                             anonymized, aggregated data to analyze overall website usage
-//                             patterns. This helps us make Insta Advice better for everyone.
+//                             patterns. This helps us make Instaadvice better for everyone.
 //                         </li>
 //                     </ul>
 //                     <p className="mt-2">
@@ -80,7 +80,7 @@
 //         {
 //             title: "Children's Privacy:",
 //             content:
-//                 "Insta Advice is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have collected personal information from a child under 13, we will immediately take steps to delete that information. We are strongly committed to protecting children's privacy.",
+//                 "Instaadvice is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have collected personal information from a child under 13, we will immediately take steps to delete that information. We are strongly committed to protecting children's privacy.",
 //         },
 //         {
 //             title: "Changes to This Policy:",
@@ -90,7 +90,7 @@
 //         {
 //             title: "Contact Us:",
 //             content:
-//                 "If you have any questions about our privacy policy or how we handle your data, please don't hesitate to contact us via our contact form or email. We are here to assist you and address your concerns as quickly as possible. Thank you for trusting Insta Advice with your privacy. We're committed to providing you with valuable advice while protecting your information.",
+//                 "If you have any questions about our privacy policy or how we handle your data, please don't hesitate to contact us via our contact form or email. We are here to assist you and address your concerns as quickly as possible. Thank you for trusting Instaadvice with your privacy. We're committed to providing you with valuable advice while protecting your information.",
 //         },
 //     ];
 //     const getGeometricBackground = (index) => {
@@ -127,10 +127,10 @@
 //     return (
 //         <>
 //             <Head>
-//                 <title>Privacy Policy | Insta Advice</title>
+//                 <title>Privacy Policy | Instaadvice</title>
 //                 <meta
 //                     name="description"
-//                     content="Read our Privacy Policy to understand how we handle your data at Insta Advice."
+//                     content="Read our Privacy Policy to understand how we handle your data at Instaadvice."
 //                 />
 //             </Head>
 //             <section className="privacy-policy bg-gray-50 py-12">
@@ -140,7 +140,7 @@
 //                             Privacy Policy
 //                         </h1>
 //                         <p className="text-center mt-6 text-xl text-gray-500">
-//                             At Insta Advice, we highly value your privacy and are dedicated to
+//                             At Instaadvice, we highly value your privacy and are dedicated to
 //                             protecting your personal information. This policy outlines how we
 //                             collect, use, and safeguard your data when you visit our website.
 //                             We've kept it simple and clear because transparency is important to
@@ -186,7 +186,7 @@ const PrivacyPolicy = () => {
       content: (
         <>
           <p>
-            We collect limited information when you interact with Insta Advice:
+            We collect limited information when you interact with Instaadvice:
           </p>
           <ul className="list-disc list-inside mt-2">
             <li>
@@ -230,7 +230,7 @@ const PrivacyPolicy = () => {
             <li>
               <span className="font-semibold">Analyze Trends:</span> We may use
               anonymized, aggregated data to analyze overall website usage
-              patterns. This helps us make Insta Advice better for everyone.
+              patterns. This helps us make Instaadvice better for everyone.
             </li>
           </ul>
           <p className="mt-2">
@@ -258,7 +258,7 @@ const PrivacyPolicy = () => {
     {
       title: "Children's Privacy:",
       content:
-        "Insta Advice is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have collected personal information from a child under 13, we will immediately take steps to delete that information. We are strongly committed to protecting children's privacy.",
+        "Instaadvice is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have collected personal information from a child under 13, we will immediately take steps to delete that information. We are strongly committed to protecting children's privacy.",
     },
     {
       title: "Changes to This Policy:",
@@ -268,17 +268,17 @@ const PrivacyPolicy = () => {
     {
       title: "Contact Us:",
       content:
-        "If you have any questions about our privacy policy or how we handle your data, please don't hesitate to contact us via our contact form or email. We are here to assist you and address your concerns as quickly as possible. Thank you for trusting Insta Advice with your privacy. We're committed to providing you with valuable advice while protecting your information.",
+        "If you have any questions about our privacy policy or how we handle your data, please don't hesitate to contact us via our contact form or email. We are here to assist you and address your concerns as quickly as possible. Thank you for trusting Instaadvice with your privacy. We're committed to providing you with valuable advice while protecting your information.",
     },
   ];
 
   return (
     <>
       <Head>
-        <title>Privacy Policy | Insta Advice</title>
+        <title>Privacy Policy | Instaadvice</title>
         <meta
           name="description"
-          content="Read our Privacy Policy to understand how we handle your data at Insta Advice."
+          content="Read our Privacy Policy to understand how we handle your data at Instaadvice."
         />
       </Head>
       <section className="privacy-policy bg-gray-50 py-12">
@@ -288,7 +288,7 @@ const PrivacyPolicy = () => {
               Privacy Policy
             </h1>
             <p className="text-center mt-6 text-xl text-gray-500">
-              At Insta Advice, we highly value your privacy and are dedicated to
+              At Instaadvice, we highly value your privacy and are dedicated to
               protecting your personal information. This policy outlines how we
               collect, use, and safeguard your data when you visit our website.
               We've kept it simple and clear because transparency is important to
