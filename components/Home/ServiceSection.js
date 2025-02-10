@@ -47,7 +47,7 @@ const ServiceSection = () => {
       <div className="container mx-auto relative px-4">
         <div className="bg-gradient-to-br from-[#833ab479] via-[#fd1d1d74] to-[#fcb045ac] rounded-3xl shadow-xl p-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-bold text-dark-color">Why Choose Insta advice?</h2>
+            <h2 className="text-3xl lg:text-5xl font-bold text-dark-color">Why Choose Instaadvice?</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:mt-10 mt-16">
             {services.map((service, index) => (

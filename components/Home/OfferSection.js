@@ -93,7 +93,7 @@ const OfferSection = () => {
           <div className="lg:w-1/2 w-full">
             <h2 className="text-3xl lg:text-5xl font-bold">Our Approach</h2>
             <p className=" mt-6 text-lg">
-              [ Website Name]'s reviews come from a dedicated team of Instagram
+              Instaadvice's reviews come from a dedicated team of Instagram
               growth fanatics: strategists, marketers, and tech experts. We
               exactly test and analyze the latest tools and techniques, going
               deep into each feature and its real-world value, as well as user

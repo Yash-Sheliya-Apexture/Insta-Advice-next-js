@@ -2,7 +2,6 @@
 // import Link from 'next/link';
 // import React, { useEffect, useState } from 'react';
 
-
 // const fetchMediaUrl = async (mediaId) => {
 //   try {
 //     const mediaResponse = await fetch(
@@ -44,7 +43,6 @@
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
 
-
 //   useEffect(() => {
 //     const fetchPosts = async () => {
 //       try {
@@ -78,7 +76,6 @@
 //     };
 //     fetchPosts();
 //   }, []);
-
 
 //   if (loading)
 //     return (
@@ -138,7 +135,6 @@
 //                       )
 //                     }
 //                   </div>
-
 
 //                   <div className="p-4">
 //                     <div className="flex items-center gap-4">

@@ -516,14 +516,14 @@ const AboutUs = () => {
                 </h2>
 
                 <p className="text-gray-500 text-lg md:text-xl mt-4">
-                  (NAME) is the internet's go-to information hub for Instagram
+                  Instaadvice is the internet's go-to information hub for Instagram
                   growth services, covering a wide array of tools and providers
                   worldwide.
                 </p>
                 <p className="text-gray-500 text-lg md:text-xl mt-4">
                   Every writer on Instaadvice is either a social media marketing
                   expert or an experienced user of Instagram growth services.
-                  The (NAME) community will help you find reliable services,
+                  The Instaadvice community will help you find reliable services,
                   trusted providers, and more to boost your Instagram presence.
                 </p>
                 <p className="text-gray-500 text-lg md:text-xl mt-4">
@@ -535,7 +535,7 @@ const AboutUs = () => {
                 <p className="text-gray-500 text-lg md:text-xl mt-4">
                   Whether you're a seasoned influencer, a business looking to
                   grow, a passionate content creator, or just starting your
-                  Instagram journey – start with (NAME).
+                  Instagram journey – start with Instaadvice.
                 </p>
               </div>
               {/* Image Section */}
@@ -561,7 +561,7 @@ const AboutUs = () => {
               <h2 className="text-3xl text-dark-color md:text-5xl font-gt font-bold">
                 Meet Our Best{" "}
                 <span className="bg-gradient-to-br from-yellow-400 to-orange-600 text-transparent bg-clip-text">
-                  Team Behind (name)
+                  Team Behind Instaadvice
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-gray-500 mt-6">
@@ -587,22 +587,6 @@ const AboutUs = () => {
                 </motion.div>
               ))}
             </motion.div>
-            {/* Call to Action */}
-            <div className="text-center mt-6">
-              <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-                Ready to Elevate Your Instagram?
-              </h2>
-              <p className="text-lg lg:text-xl text-gray-500 mb-6">
-                Explore our reviews and find the perfect growth service for your
-                needs.
-              </p>
-              <a
-                href="/"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300"
-              >
-                Start Exploring Now
-              </a>
-            </div>
           </div>
           {selectedMember && (
             <TeamMemberPopup
