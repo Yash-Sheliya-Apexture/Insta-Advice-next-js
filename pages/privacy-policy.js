@@ -176,7 +176,6 @@
 
 import React from "react";
 import Head from "next/head";
-import { FcDownRight  } from "react-icons/fc";
 
 
 const PrivacyPolicy = () => {
@@ -284,10 +283,10 @@ const PrivacyPolicy = () => {
       <section className="privacy-policy bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-800 text-center">
+            <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 text-center">
               Privacy Policy
             </h1>
-            <p className="text-center mt-6 text-xl text-gray-500">
+            <p className="text-center mt-6 text-lg lg:text-xl text-gray-500">
               At Instaadvice, we highly value your privacy and are dedicated to
               protecting your personal information. This policy outlines how we
               collect, use, and safeguard your data when you visit our website.
@@ -298,10 +297,10 @@ const PrivacyPolicy = () => {
           <div className="space-y-6">
             {policyContent.map((item, index) => (
               <div key={index}>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-3 flex items-center gap-4">
-                  <FcDownRight /> {item.title}
+                <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+                  {item.title}
                 </h2>
-                <div className="text-gray-700 leading-relaxed px-10">
+                <div className="text-gray-700 leading-relaxed">
                   {item.content}
                 </div>
               </div>
