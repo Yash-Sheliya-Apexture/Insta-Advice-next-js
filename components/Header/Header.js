@@ -454,6 +454,210 @@
 
 
 
+// import React, { useState, useCallback, useEffect } from "react";
+// import NavDropdown from "./NavDropdown";
+// import SearchBar from "./SearchBar";
+// import { FiMenu, FiX } from "react-icons/fi";
+// import Link from "next/link";
+// import Image from 'next/image';
+// import logo from "../../public/images/insta-logo.png";
+// import classNames from "classnames";
+
+// const Header = () => {
+//     const navLinks = [
+//         { label: "Home", link: "/" },
+//         {
+//             label: "Service Reviews",
+//             dropdownItems: [
+//                 { label: "Ascend Viral", link: "/company/ascend-viral", tag: "Expert's Choice" },
+//                 { label: "Upgrow", link: "/company/upgrow" },
+//                 { label: "Upleap", link: "/company/upleap"},
+//                 { label: "Path Social", link: "/company/path-social" },
+//                 { label: "Flock Social", link: "/company/flock-social" },
+//                 { label: "Nitreo", link: "/company/nitreo" },
+//                 { label: "kicksta", link: "/company/kicksta" },
+//                 { label: "SocialPilot", link: "/company/socialpilot" },
+//                 { label: "GRAMiety", link: "/company/gramiety" },
+//                 { label: "Plixi", link: "/company/plixi", },
+//                 { label: "See all Reviews", link: "/company", bold: true },
+//             ],
+//         },
+//         {
+//             label: "Comparison",
+//             dropdownItems: [
+//                 { label: "AscendViral vs Plixi", link: "/comparison/ascendviral-vs-plixi" },
+//                 { label: "AscendViral vs Upleap", link: "/comparison/ascendviral-vs-upleap" },
+//                 { label: "AscendViral vs Upgrow", link: "/comparison/ascendviral-vs-upgrow" },
+
+//                 { label: "Upgrow vs Upleap", link: "/comparison/upgrow-vs-upleap" },
+//                 { label: "Upgrow vs Plixi", link: "/comparison/upgrow-vs-plixi" },
+//                 { label: "Upleap vs Plixi", link: "/comparison/upleap-vs-plixi" },
+
+//                 { label: "Path Social vs Plixi", link: "/comparison/path-social-vs-plixi" },
+//                 { label: "Path Social vs Kicksta", link: "/comparison/path-social-vs-kicksta" },
+//                 { label: "AscendViral vs Path social", link: "/comparison/ascendviral-vs-path-social" },
+//                 { label: "See all Comparison", link: "/comparison", bold: true },
+//             ],
+//         },
+//         { label: "About Us", link: "/about-us" },
+//         { label: "Blog", link: "/blog" },
+//         { label: "Contact", link: "/contact-us"}
+
+//     ];
+
+//     const [openDropdown, setOpenDropdown] = useState(null);
+//     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+//     const closeMobileMenu = useCallback(() => {
+//         setIsMobileMenuOpen(false);
+//         document.body.style.overflow = "auto";
+//         setOpenDropdown(null);
+//     }, [setOpenDropdown]);
+
+
+//     const handleNavLinkClick = useCallback(() => {
+//         if (isMobileMenuOpen) {
+//             closeMobileMenu();
+//         }
+//         setOpenDropdown(null)
+//     }, [isMobileMenuOpen, closeMobileMenu, setOpenDropdown]);
+
+//     const toggleMobileMenu = useCallback(() => {
+//         setIsMobileMenuOpen((prev) => {
+//             const newMobileMenuOpen = !prev;
+//             if (newMobileMenuOpen) {
+//                 document.body.style.overflow = "hidden";
+//             } else {
+//                 document.body.style.overflow = "auto";
+//             }
+//             return newMobileMenuOpen;
+//         });
+//     }, []);
+
+
+
+//     useEffect(() => {
+//         const handleResize = () => {
+//             if (window.innerWidth >= 1025 && isMobileMenuOpen) {
+//                 setIsMobileMenuOpen(false);
+//                 document.body.style.overflow = "auto";
+//                 setOpenDropdown(null);
+//             }
+//         };
+
+//         window.addEventListener("resize", handleResize);
+//         handleResize();
+
+//         return () => {
+//             window.removeEventListener("resize", handleResize);
+//         };
+//     }, [isMobileMenuOpen, setOpenDropdown, setIsMobileMenuOpen]);
+
+
+//     return (
+//         <header className="sticky top-0 bg-white py-4 shadow-md z-50">
+//             {isMobileMenuOpen && (
+//                 <div
+//                     className="fixed top-0 left-0 w-full h-full bg-black opacity-60 z-40  lg:hidden"
+//                     onClick={closeMobileMenu}
+//                 />
+//             )}
+//             <div className="container mx-auto px-4">
+//                 <div className="flex items-center justify-between">
+//                     <div className="flex items-center">
+//                         <Image
+//                             src={logo}
+//                             alt="Insta Advice Logo"
+//                             width={100} // Explicit width for optimization
+//                             height={50} // Explicit height for optimization
+//                             className="w-10 h-auto mr-2"
+//                             priority={false}
+//                         />
+//                         <Link href="/" className="text-xl font-bold text-dark-color" onClick={handleNavLinkClick} >
+//                             Insta Advice
+//                         </Link>
+//                     </div>
+
+//                     <nav
+//                         className={classNames(
+//                             "lg:flex fixed top-0 right-0 bg-white transition-transform duration-700 ease-in-out transform z-50",
+//                             isMobileMenuOpen
+//                                 ? "translate-x-0 flex flex-col h-screen overflow-y-auto w-[350px] max-w-[80%] shadow-lg"
+//                                 : "translate-x-full w-0 lg:translate-x-0 lg:w-auto lg:static lg:flex"
+//                         )}
+//                     >
+//                         {isMobileMenuOpen && (
+//                             <div className="flex items-center justify-between p-4 border-b border-gray-300">
+//                                 <div className="flex items-center">
+//                                     <Image
+//                                         src={logo}
+//                                         alt="Insta Advice Logo"
+//                                         width={100} // Explicit width for optimization
+//                                         height={50} // Explicit height for optimization
+//                                         className="w-10 h-auto mr-2"
+//                                         priority={false}
+//                                     />
+//                                     <Link href="/" className="text-xl font-bold text-dark-color" onClick={handleNavLinkClick}>
+//                                         Insta Advice
+//                                     </Link>
+//                                 </div>
+//                                 <button
+//                                     onClick={closeMobileMenu}
+//                                     className="focus:outline-none ml-auto"
+//                                 >
+//                                     <FiX className="size-6" />
+//                                 </button>
+//                             </div>
+//                         )}
+
+//                         <div className="lg:flex lg:items-center">
+//                             {navLinks.map((link, index) =>
+//                                 link.dropdownItems ? (
+//                                     <NavDropdown
+//                                         key={index}
+//                                         label={link.label}
+//                                         items={link.dropdownItems}
+//                                         isOpen={openDropdown === link.label}
+//                                         setOpenDropdown={setOpenDropdown}
+//                                         isMobileMenuOpen={isMobileMenuOpen}
+//                                         closeMobileMenu={closeMobileMenu}
+//                                     />
+//                                 ) : (
+//                                     <Link href={link.link} key={index} className="px-3 py-2 cursor-pointer text-dark-color font-medium block" onClick={handleNavLinkClick}>
+//                                         {link.label}
+//                                     </Link>
+//                                 )
+//                             )}
+//                         </div>
+
+//                         {isMobileMenuOpen && (
+//                             <div className="mt-auto border-t border-gray-300 p-4 flex flex-col gap-4">
+//                                 <Link href="/contact-us" className="bg-gray-900 text-center text-white py-1.5 px-4 rounded-md ">Contact Us</Link>
+//                             </div>
+//                         )}
+//                     </nav>
+
+//                     <div className="flex items-center gap-2">
+//                         <SearchBar className="text-gray-500" specificIds={[206, 272, 276]} />
+//                         <button onClick={toggleMobileMenu} className="block lg:hidden">
+//                             <FiMenu className="size-6" />
+//                         </button>
+
+//                         {/* <div className="hidden lg:flex gap-4 border-l border-gray-300 pl-4">
+//                             <Link href="/contact-us" className="bg-gray-900 text-white py-1.5 px-4 rounded-md ">Contact Us</Link>
+//                         </div> */}
+//                     </div>
+//                 </div>
+//             </div>
+//         </header>
+//     );
+// };
+
+// export default Header;
+
+
+
+
 import React, { useState, useCallback, useEffect } from "react";
 import NavDropdown from "./NavDropdown";
 import SearchBar from "./SearchBar";
@@ -507,11 +711,17 @@ const Header = () => {
 
     const [openDropdown, setOpenDropdown] = useState(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [transitioning, setTransitioning] = useState(false); // Added state
 
     const closeMobileMenu = useCallback(() => {
-        setIsMobileMenuOpen(false);
-        document.body.style.overflow = "auto";
-        setOpenDropdown(null);
+        setTransitioning(true); // Start transition
+
+        setTimeout(() => {
+            setIsMobileMenuOpen(false);
+            document.body.style.overflow = "auto";
+            setOpenDropdown(null);
+            setTransitioning(false); // Reset transitioning state
+        }, 300); // Match the transition duration (adjust if needed)
     }, [setOpenDropdown]);
 
 
@@ -534,7 +744,9 @@ const Header = () => {
         });
     }, []);
 
-
+    const handleContactClick = useCallback(() => {
+        closeMobileMenu();
+    }, [closeMobileMenu]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -580,10 +792,13 @@ const Header = () => {
 
                     <nav
                         className={classNames(
-                            "lg:flex fixed top-0 right-0 bg-white transition-transform duration-700 ease-in-out transform z-50",
+                            "lg:flex fixed top-0 right-0 bg-white transition-transform duration-500 ease-in-out transform z-50", // Transition Added
                             isMobileMenuOpen
                                 ? "translate-x-0 flex flex-col h-screen overflow-y-auto w-[350px] max-w-[80%] shadow-lg"
-                                : "translate-x-full w-0 lg:translate-x-0 lg:w-auto lg:static lg:flex"
+                                : "translate-x-full w-0 lg:translate-x-0 lg:w-auto lg:static lg:flex",
+                            {
+                                "translate-x-full": transitioning // Apply translate only during transition
+                            }
                         )}
                     >
                         {isMobileMenuOpen && (
@@ -632,7 +847,7 @@ const Header = () => {
 
                         {isMobileMenuOpen && (
                             <div className="mt-auto border-t border-gray-300 p-4 flex flex-col gap-4">
-                                <Link href="/contact-us" className="bg-gray-900 text-center text-white py-1.5 px-4 rounded-md ">Contact Us</Link>
+                                <Link href="/contact-us" className="bg-gray-900 text-center text-white py-1.5 px-4 rounded-md " onClick={handleContactClick}>Contact Us</Link>
                             </div>
                         )}
                     </nav>

@@ -131,7 +131,6 @@
 
 import React from "react";
 import Head from 'next/head';
-import { FcDownRight  } from "react-icons/fc";
 
 
 const TermsOfService = () => {
@@ -194,10 +193,10 @@ const TermsOfService = () => {
       <div className="container mx-auto px-4">
         <div className="">
         <div className="mb-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center">
             Terms of Service
           </h2>
-          <p className="text-center mt-6 text-xl text-gray-500">
+          <p className="text-center mt-6 text-lg lg:text-xl text-gray-500">
             Welcome to Instaadvice! We’re excited to have you explore our
             platform and discover insights into the best Instagram growth tools.
             Before you dive in, please take a few moments to read through our
@@ -208,8 +207,8 @@ const TermsOfService = () => {
         <div className="space-y-6">
           {termsContent.map((term, index) => (
             <div key={index}>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3 flex items-center gap-4">
-              <FcDownRight /> {term.title}
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+               {term.title}
               </h3>
               <p className="text-gray-500 leading-relaxed">{term.content}</p>
             </div>
