@@ -36,17 +36,56 @@
 // module.exports = nextConfig;
 
 
+
+
+
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   async rewrites() {
+//     return [
+//       {
+//         source: '/robots.txt',
+//         destination: '/api/robots'
+//       },
+//       {
+//         source: '/sitemap.xml',
+//         destination: '/api/sitemap.xml'
+//       }
+//     ];
+//   },
+//   reactStrictMode: true,
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: 'rahulkumark13.sg-host.com',
+//         port: '',
+//         pathname: '/wp-content/uploads/**',
+//       },
+//       {
+//         protocol: 'http',
+//         hostname: 'rahulkumark13.sg-host.com',
+//         port: '',
+//         pathname: '/wp-content/uploads/**',
+//       },
+//     ],
+//   },
+// };
+
+// module.exports = nextConfig;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
     return [
       {
         source: '/robots.txt',
-        destination: '/api/robots'
+        destination: '/robots.txt.js' //  Page route for robots.txt
       },
       {
         source: '/sitemap.xml',
-        destination: '/api/sitemap.xml'
+        destination: '/sitemap.xml.js' // Page route for sitemap.xml
       }
     ];
   },
