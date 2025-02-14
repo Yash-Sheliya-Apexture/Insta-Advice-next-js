@@ -473,8 +473,8 @@ const Home = () => {
   return (
     <>
       <Seo
-        title="Instagram Growth Advice & Comparison Tool"
-        description="Get reliable advice and compare Instagram growth tools to make informed choices and boost your Instagram presence. Trusted by influencers and businesses."
+        title="InstaAdvice|Expert Tips & Advice for Instagram Success"
+        description="Get expert Instagram tips & advice to grow your profile faster! Visit InstaAdvice for actionable strategies, success, and proven methods. Start improving today!"
         ogType="website"
         path="/"
       />

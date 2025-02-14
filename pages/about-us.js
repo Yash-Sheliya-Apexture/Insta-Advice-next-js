@@ -465,8 +465,8 @@ const AboutUs = () => {
   return (
     <>
       <Seo
-        title="About Us - Instagram Advice Team"
-        description="Meet our team of social media experts, analysts, and experienced Instagram users. Learn about our mission to provide clear, unbiased reviews of Instagram growth services."
+        title="About InstaAdvice | Find the Right Instagram Growth Services"
+        description="Learn about the Instaadvice team! We offer unbiased reviews of Instagram growth tools, helping you make informed decisions. Start growing smarter today!"
         ogType="website"
         path="/about"
       />

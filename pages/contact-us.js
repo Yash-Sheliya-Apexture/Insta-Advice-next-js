@@ -900,6 +900,7 @@
 import React, { useState } from "react";
 import { db } from "../lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import Seo from "@/components/Seo";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -1044,27 +1045,31 @@ const ContactUs = () => {
   };
 
   const getInputStyle = (fieldName) => {
-    return `mt-1 p-2 pl-4 w-full border rounded-md text-gray-700 ${
-      fieldErrors[fieldName]
+    return `mt-1 p-2 pl-4 w-full border rounded-md text-gray-700 ${fieldErrors[fieldName]
         ? "border-2 border-red-500"
         : formData[fieldName]
-        ? "border-2 border-gray-900"
-        : "border-gray-300"
-    }`;
+          ? "border-2 border-gray-900"
+          : "border-gray-300"
+      }`;
   };
 
   const getTextAreaStyle = () => {
-    return `mt-1 p-2 pl-4 w-full border rounded-md text-gray-700 ${
-      fieldErrors.message
+    return `mt-1 p-2 pl-4 w-full border rounded-md text-gray-700 ${fieldErrors.message
         ? "border-2 border-red-500"
         : formData.message
-        ? "border-2 border-gray-900"
-        : "border-gray-300"
-    } relative`; // Added relative positioning
+          ? "border-2 border-gray-900"
+          : "border-gray-300"
+      } relative`; // Added relative positioning
   };
 
   return (
     <>
+      <Seo
+        title="Contact InstaAdvice - We're Here to Help!"
+        description="Need help? Contact InstaAdvice! Reach our support team via phone, email, or form. We're here to answer your questions. Contact us today!"
+        ogType="website"
+        path="/contact-us"
+      />
       <section className="ContactUs py-12 relative">
         <div className="container mx-auto px-4">
           <div className="bg-gradient-yellow">

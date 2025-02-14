@@ -155,179 +155,667 @@
 
 
 
+// // pages/blog/[slug].js
+// import React, { useEffect, useState } from "react";
+// import { useRouter } from "next/router";
+// import Seo from "@/components/Seo";
+
+// const SingleBlogPage = () => {
+//   const router = useRouter();
+//   const { slug } = router.query;
+
+//   // State for the post data
+//   const [post, setPost] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   const proxyImageUrl = (url) => {
+//     if (!url) return "";
+//     return `/api/proxy-image?imageUrl=${encodeURIComponent(url)}`;
+//   };
+
+
+//   // Fetch blog post data based on the slug,
+//   // then fetch the featured media URL and categories
+//   useEffect(() => {
+//     const fetchPostData = async () => {
+//       if (!slug) return;
+//       setLoading(true);
+//       setError(null);
+//       try {
+//         // Fetch post data by slug
+//         const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`;
+//         const response = await fetch(apiUrl);
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         const data = await response.json();
+//         if (data.length === 0) {
+//           throw new Error("Post not found");
+//         }
+
+//         // Use the first (and should be the only) post in the result array
+//         const fetchedPost = data[0];
+
+//         // Use _embed media if available
+//         if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
+//           fetchedPost.featured_media_url = fetchedPost._embedded["wp:featuredmedia"][0]?.source_url;
+//         }
+
+
+//         // Extract SEO data from yoast_head_json
+//         if (fetchedPost.yoast_head_json) {
+//           const yoastData = fetchedPost.yoast_head_json;
+//           fetchedPost.seoData = {
+//             title: yoastData.title || fetchedPost.title.rendered,
+//             description: yoastData.description || fetchedPost.excerpt.rendered.replace(/<[^>]*>/g, ''),
+//             og_image: yoastData.og_image?.[0]?.url || fetchedPost.featured_media_url
+//           };
+//         }
+
+
+//         // Fetch category names if categories exist
+//         if (fetchedPost.categories && fetchedPost.categories.length > 0) {
+//           try {
+//             const categoriesNames = await Promise.all(
+//               fetchedPost.categories.map(async (catId) => {
+//                 const catRes = await fetch(
+//                   `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/categories/${catId}`
+//                 );
+//                 if (catRes.ok) {
+//                   const catData = await catRes.json();
+//                   return catData.name;
+//                 }
+//                 return null;
+//               })
+//             );
+//             fetchedPost.categories_names = categoriesNames.filter(Boolean);
+//           } catch (catErr) {
+//             console.error("Error fetching categories:", catErr);
+//           }
+//         }
+
+//         setPost(fetchedPost);
+//       } catch (err) {
+//         console.error("Error fetching post data:", err);
+//         setError(err.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchPostData();
+//   }, [slug]);
+
+//   if (loading) {
+//     return (
+//       <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+//         <div className="flex space-x-2">
+//           <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
+//           <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
+//           <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   if (error) {
+//     return <div className="mt-10 text-center">Error: {error}</div>;
+//   }
+
+//   if (!post) {
+//     return <div className="mt-10 text-center">No post found.</div>;
+//   }
+
+
+//   return (
+//     <>
+//       <Seo
+//         title={post.seoData?.title || post.title.rendered}
+//         description={post.seoData?.description || post.excerpt.rendered.replace(/<[^>]*>/g, '')}
+//         image={proxyImageUrl(post.seoData?.og_image || post.featured_media_url)}
+//         path={`/blog/${post.slug}`}
+//         ogType="article"
+//         publishedTime={post.date}
+//         modifiedTime={post.modified}
+//         siteName="Instagram Advice"
+//       />
+//       <div className="single-blog-page">
+//         <div className="container max-w-5xl mx-auto py-10 px-4">
+//           <div className="single-blog-hero text-center">
+//             <h1 className="text-3xl text-gray-900 md:text-5xl font-gt font-bold mt-6">
+//               {post.title.rendered}
+//             </h1>
+//             <div className="flex justify-center items-center gap-4 mt-4">
+//               <span className="text-gray-500 text-base">{post.date && (
+//                 <p className="text-gray-500">
+//                   {new Date(post.date).toLocaleDateString("en-US", {
+//                     year: "numeric",
+//                     month: "long",
+//                     day: "numeric",
+//                   })}
+//                 </p>
+//               )}</span>
+//               <span className="bg-violet-500 text-white text-xs font-medium px-2.5 py-1 rounded-xl">
+//                 {post.categories_names.map((cat, index) => (
+//                   <span key={cat}>
+//                     {cat}
+//                     {index < post.categories_names.length - 1 ? ", " : ""}
+//                   </span>
+//                 ))}
+//               </span>
+//             </div>
+//           </div>
+//           <article className="mt-6">
+//             {/* Optionally display featured image if available */}
+//             {post.featured_media_url && (
+//               <div className="w-full relative">
+//                 <img
+//                   src={proxyImageUrl(post.featured_media_url)}
+//                   alt={post.title.rendered}
+//                   className="w-full h-full object-cover rounded-xl"
+//                   sizes='100vw'
+//                 />
+//               </div>
+//             )}
+//             {/* Render post content */}
+//             <div
+//               className="prose"
+//               dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+//             />
+//           </article>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default SingleBlogPage;
+
+
+
+
+
+// // pages/blog/[slug].js
+// import React, { useEffect, useState } from "react";
+// import { useRouter } from "next/router";
+// import Seo from "@/components/Seo";
+
+// const SingleBlogPage = () => {
+//     const router = useRouter();
+//     const { slug } = router.query;
+
+//     // State for the post data
+//     const [post, setPost] = useState(null);
+//     const [loading, setLoading] = useState(true);
+//     const [error, setError] = useState(null);
+
+//     // Fetch blog post data based on the slug,
+//     // then fetch the featured media URL and categories
+//     useEffect(() => {
+//         const fetchPostData = async () => {
+//             if (!slug) return;
+//             setLoading(true);
+//             setError(null);
+//             try {
+//                 // Fetch post data by slug
+//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`;
+//                 const response = await fetch(apiUrl);
+//                 if (!response.ok) {
+//                     throw new Error(`HTTP error! Status: ${response.status}`);
+//                 }
+//                 const data = await response.json();
+//                 if (data.length === 0) {
+//                     throw new Error("Post not found");
+//                 }
+
+//                 // Use the first (and should be the only) post in the result array
+//                 const fetchedPost = data[0];
+
+//                 // Use _embed media if available
+//                 if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
+//                     fetchedPost.featured_media_url = fetchedPost._embedded["wp:featuredmedia"][0]?.source_url;
+//                 }
+
+//                  // Extract SEO data from yoast_head_json
+//                  if (fetchedPost.yoast_head_json) {
+//                     const yoastData = fetchedPost.yoast_head_json;
+//                     fetchedPost.seoData = {
+//                         title: yoastData.title || fetchedPost.title.rendered,
+//                         description: yoastData.description || fetchedPost.excerpt.rendered.replace(/<[^>]*>/g, ''),
+//                         og_image: yoastData.og_image?.[0]?.url || fetchedPost.featured_media_url,
+//                         focusKeyphrase: yoastData.focuskw || null // Extract focus keyphrase
+//                     };
+//                 }
+
+
+//                 // Fetch category names if categories exist
+//                 if (fetchedPost.categories && fetchedPost.categories.length > 0) {
+//                     try {
+//                         const categoriesNames = await Promise.all(
+//                             fetchedPost.categories.map(async (catId) => {
+//                                 const catRes = await fetch(
+//                                     `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/categories/${catId}`
+//                                 );
+//                                 if (catRes.ok) {
+//                                     const catData = await catRes.json();
+//                                     return catData.name;
+//                                 }
+//                                 return null;
+//                             })
+//                         );
+//                         fetchedPost.categories_names = categoriesNames.filter(Boolean);
+//                     } catch (catErr) {
+//                         console.error("Error fetching categories:", catErr);
+//                     }
+//                 }
+
+//                 setPost(fetchedPost);
+//             } catch (err) {
+//                 console.error("Error fetching post data:", err);
+//                 setError(err.message);
+//             } finally {
+//                 setLoading(false);
+//             }
+//         };
+
+//         fetchPostData();
+//     }, [slug]);
+
+//     if (loading) {
+//         return (
+//             <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+//                 <div className="flex space-x-2">
+//                     <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
+//                     <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
+//                     <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
+//                 </div>
+//             </div>
+//         );
+//     }
+
+//     if (error) {
+//         return <div className="mt-10 text-center">Error: {error}</div>;
+//     }
+
+//     if (!post) {
+//         return <div className="mt-10 text-center">No post found.</div>;
+//     }
+
+
+//     return (
+//         <>
+//             <Seo
+//                 title={post.seoData?.title || post.title.rendered}
+//                 description={post.seoData?.description || post.excerpt.rendered.replace(/<[^>]*>/g, '')}
+//                 image={post.seoData?.og_image || post.featured_media_url}
+//                 path={`/blog/${post.slug}`}
+//                 ogType="article"
+//                 publishedTime={post.date}
+//                 modifiedTime={post.modified}
+//                 siteName="Instagram Advice"
+//             />
+//             <div className="single-blog-page">
+//                 <div className="container max-w-5xl mx-auto py-10 px-4">
+//                     <div className="single-blog-hero text-center">
+//                         <h1 className="text-3xl text-gray-900 md:text-5xl font-gt font-bold mt-6">
+//                             {post.title.rendered}
+//                         </h1>
+//                         <div className="flex justify-center items-center gap-4 mt-4">
+//                             <span className="text-gray-500 text-base">{post.date && (
+//                                 <p className="text-gray-500">
+//                                     {new Date(post.date).toLocaleDateString("en-US", {
+//                                         year: "numeric",
+//                                         month: "long",
+//                                         day: "numeric",
+//                                     })}
+//                                 </p>
+//                             )}</span>
+//                             <span className="bg-violet-500 text-white text-xs font-medium px-2.5 py-1 rounded-xl">
+//                                 {post.categories_names.map((cat, index) => (
+//                                     <span key={cat}>
+//                                         {cat}
+//                                         {index < post.categories_names.length - 1 ? ", " : ""}
+//                                     </span>
+//                                 ))}
+//                             </span>
+//                         </div>
+//                     </div>
+//                     <article className="mt-6">
+//                         {/* Optionally display featured image if available */}
+//                         {post.featured_media_url && (
+//                             <div className="w-full relative">
+//                                 <img
+//                                     src={post.featured_media_url}
+//                                     alt={post.title.rendered}
+//                                     className="w-full h-full object-cover rounded-xl"
+//                                     sizes='100vw'
+//                                 />
+//                             </div>
+//                         )}
+//                         {/* Render post content */}
+//                         <div
+//                             className="prose"
+//                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+//                         />
+//                     </article>
+//                 </div>
+//             </div>
+//         </>
+//     );
+// };
+
+// export default SingleBlogPage;
+
+
+
+// // pages/blog/[slug].js
+// import React, { useEffect, useState } from "react";
+// import { useRouter } from "next/router";
+// import Seo from "@/components/Seo";
+// import styles from './SingleBlogPage.module.css'; // Import custom CSS module
+
+// const SingleBlogPage = () => {
+//     const router = useRouter();
+//     const { slug } = router.query;
+
+//     // State for the post data
+//     const [post, setPost] = useState(null);
+//     const [loading, setLoading] = useState(true);
+//     const [error, setError] = useState(null);
+
+//     // Fetch blog post data based on the slug,
+//     // then fetch the featured media URL and categories
+//     useEffect(() => {
+//         const fetchPostData = async () => {
+//             if (!slug) return;
+//             setLoading(true);
+//             setError(null);
+//             try {
+//                 // Fetch post data by slug
+//                 const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`;
+//                 const response = await fetch(apiUrl);
+//                 if (!response.ok) {
+//                     throw new Error(`HTTP error! Status: ${response.status}`);
+//                 }
+//                 const data = await response.json();
+//                 if (data.length === 0) {
+//                     throw new Error("Post not found");
+//                 }
+
+//                 // Use the first (and should be the only) post in the result array
+//                 const fetchedPost = data[0];
+
+//                 // Use _embed media if available
+//                 if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
+//                     fetchedPost.featured_media_url = fetchedPost._embedded["wp:featuredmedia"][0]?.source_url;
+//                 }
+
+//                  // Extract SEO data from yoast_head_json
+//                  if (fetchedPost.yoast_head_json) {
+//                     const yoastData = fetchedPost.yoast_head_json;
+//                     fetchedPost.seoData = {
+//                         title: yoastData.title || fetchedPost.title.rendered,
+//                         description: yoastData.description || fetchedPost.excerpt.rendered.replace(/<[^>]*>/g, ''),
+//                         og_image: yoastData.og_image?.[0]?.url || fetchedPost.featured_media_url,
+//                     };
+//                 }
+
+
+//                 // Fetch category names if categories exist
+//                 if (fetchedPost.categories && fetchedPost.categories.length > 0) {
+//                     try {
+//                         const categoriesNames = await Promise.all(
+//                             fetchedPost.categories.map(async (catId) => {
+//                                 const catRes = await fetch(
+//                                     `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/categories/${catId}`
+//                                 );
+//                                 if (catRes.ok) {
+//                                     const catData = await catRes.json();
+//                                     return catData.name;
+//                                 }
+//                                 return null;
+//                             })
+//                         );
+//                         fetchedPost.categories_names = categoriesNames.filter(Boolean);
+//                     } catch (catErr) {
+//                         console.error("Error fetching categories:", catErr);
+//                     }
+//                 }
+
+//                 setPost(fetchedPost);
+//             } catch (err) {
+//                 console.error("Error fetching post data:", err);
+//                 setError(err.message);
+//             } finally {
+//                 setLoading(false);
+//             }
+//         };
+
+//         fetchPostData();
+//     }, [slug]);
+
+//     if (loading) {
+//         return (
+//             <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+//                 <div className="flex space-x-2">
+//                     <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
+//                     <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
+//                     <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
+//                 </div>
+//             </div>
+//         );
+//     }
+
+//     if (error) {
+//         return <div className="mt-10 text-center">Error: {error}</div>;
+//     }
+
+//     if (!post) {
+//         return <div className="mt-10 text-center">No post found.</div>;
+//     }
+
+
+//     return (
+//         <>
+//             <Seo
+//                 title={post.seoData?.title || post.title.rendered}
+//                 description={post.seoData?.description || post.excerpt.rendered.replace(/<[^>]*>/g, '')}
+//                 image={post.seoData?.og_image || post.featured_media_url}
+//                 path={`/blog/${post.slug}`}
+//                 ogType="article"
+//                 publishedTime={post.date}
+//                 modifiedTime={post.modified}
+//                 siteName="Instagram Advice"
+//             />
+//             <div className={`${styles.singleBlogPage}`}>
+//                 <div className="container max-w-5xl mx-auto py-10 px-4">
+//                     <div className={`${styles.singleBlogHero} text-center`}>
+//                         <h1 className={`text-3xl text-gray-900 md:text-5xl font-gt font-bold mt-6 ${styles.blogTitle}`}>
+//                             {post.title.rendered}
+//                         </h1>
+//                         <div className="flex justify-center items-center gap-4 mt-4">
+//                             <span className="text-gray-500 text-base">{post.date && (
+//                                 <p className="text-gray-500">
+//                                     {new Date(post.date).toLocaleDateString("en-US", {
+//                                         year: "numeric",
+//                                         month: "long",
+//                                         day: "numeric",
+//                                     })}
+//                                 </p>
+//                             )}</span>
+//                             <span className="bg-violet-500 text-white text-xs font-medium px-2.5 py-1 rounded-xl">
+//                                 {post.categories_names.map((cat, index) => (
+//                                     <span key={cat}>
+//                                         {cat}
+//                                         {index < post.categories_names.length - 1 ? ", " : ""}
+//                                     </span>
+//                                 ))}
+//                             </span>
+//                         </div>
+//                     </div>
+//                     <article className="mt-6">
+//                         {/* Optionally display featured image if available */}
+//                         {post.featured_media_url && (
+//                             <div className="w-full relative">
+//                                 <img
+//                                     src={post.featured_media_url}
+//                                     alt={post.title.rendered}
+//                                     className={`w-full h-full object-cover rounded-xl ${styles.featuredImage}`}
+//                                     sizes='100vw'
+//                                 />
+//                             </div>
+//                         )}
+//                         {/* Render post content */}
+//                         <div
+//                             className={`prose ${styles.blogContent}`}
+//                             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+//                         />
+//                     </article>
+//                 </div>
+//             </div>
+//         </>
+//     );
+// };
+
+// export default SingleBlogPage;
+
+
 // pages/blog/[slug].js
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Seo from "@/components/Seo";
+import styles from './SingleBlogPage.module.css'; // Import custom CSS module
 
 const SingleBlogPage = () => {
-  const router = useRouter();
-  const { slug } = router.query;
+    const router = useRouter();
+    const { slug } = router.query;
 
-  // State for the post data
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    // State for the post data
+    const [post, setPost] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-  const proxyImageUrl = (url) => {
-    if (!url) return "";
-    return `/api/proxy-image?imageUrl=${encodeURIComponent(url)}`;
-  };
-
-
-  // Fetch blog post data based on the slug,
-  // then fetch the featured media URL and categories
-  useEffect(() => {
-    const fetchPostData = async () => {
-      if (!slug) return;
-      setLoading(true);
-      setError(null);
-      try {
-        // Fetch post data by slug
-        const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`;
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        if (data.length === 0) {
-          throw new Error("Post not found");
-        }
-
-        // Use the first (and should be the only) post in the result array
-        const fetchedPost = data[0];
-
-        // Use _embed media if available
-        if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
-          fetchedPost.featured_media_url = fetchedPost._embedded["wp:featuredmedia"][0]?.source_url;
-        }
-
-
-        // Extract SEO data from yoast_head_json
-        if (fetchedPost.yoast_head_json) {
-          const yoastData = fetchedPost.yoast_head_json;
-          fetchedPost.seoData = {
-            title: yoastData.title || fetchedPost.title.rendered,
-            description: yoastData.description || fetchedPost.excerpt.rendered.replace(/<[^>]*>/g, ''),
-            og_image: yoastData.og_image?.[0]?.url || fetchedPost.featured_media_url
-          };
-        }
-
-
-        // Fetch category names if categories exist
-        if (fetchedPost.categories && fetchedPost.categories.length > 0) {
-          try {
-            const categoriesNames = await Promise.all(
-              fetchedPost.categories.map(async (catId) => {
-                const catRes = await fetch(
-                  `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/categories/${catId}`
-                );
-                if (catRes.ok) {
-                  const catData = await catRes.json();
-                  return catData.name;
+    // Fetch blog post data based on the slug,
+    // then fetch the featured media URL and categories
+    useEffect(() => {
+        const fetchPostData = async () => {
+            if (!slug) return;
+            setLoading(true);
+            setError(null);
+            try {
+                // Fetch post data by slug
+                const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`;
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                return null;
-              })
-            );
-            fetchedPost.categories_names = categoriesNames.filter(Boolean);
-          } catch (catErr) {
-            console.error("Error fetching categories:", catErr);
-          }
-        }
+                const data = await response.json();
+                if (data.length === 0) {
+                    throw new Error("Post not found");
+                }
 
-        setPost(fetchedPost);
-      } catch (err) {
-        console.error("Error fetching post data:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+                // Use the first (and should be the only) post in the result array
+                const fetchedPost = data[0];
 
-    fetchPostData();
-  }, [slug]);
+                // Use _embed media if available
+                if (fetchedPost._embedded && fetchedPost._embedded["wp:featuredmedia"] && fetchedPost._embedded["wp:featuredmedia"][0]?.source_url) {
+                    fetchedPost.featured_media_url = fetchedPost._embedded["wp:featuredmedia"][0]?.source_url;
+                }
 
-  if (loading) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
-        <div className="flex space-x-2">
-          <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
-          <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
-          <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
-        </div>
-      </div>
-    );
-  }
+                 // Extract SEO data from yoast_head_json
+                 if (fetchedPost.yoast_head_json) {
+                    const yoastData = fetchedPost.yoast_head_json;
+                    fetchedPost.seoData = {
+                        title: yoastData.title || fetchedPost.title.rendered,
+                        description: yoastData.description || fetchedPost.excerpt.rendered.replace(/<[^>]*>/g, ''),
+                        og_image: yoastData.og_image?.[0]?.url || fetchedPost.featured_media_url,
+                    };
+                }
 
-  if (error) {
-    return <div className="mt-10 text-center">Error: {error}</div>;
-  }
+                setPost(fetchedPost);
+            } catch (err) {
+                console.error("Error fetching post data:", err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-  if (!post) {
-    return <div className="mt-10 text-center">No post found.</div>;
-  }
+        fetchPostData();
+    }, [slug]);
 
-
-  return (
-    <>
-      <Seo
-        title={post.seoData?.title || post.title.rendered}
-        description={post.seoData?.description || post.excerpt.rendered.replace(/<[^>]*>/g, '')}
-        image={proxyImageUrl(post.seoData?.og_image || post.featured_media_url)}
-        path={`/blog/${post.slug}`}
-        ogType="article"
-        publishedTime={post.date}
-        modifiedTime={post.modified}
-        siteName="Instagram Advice"
-      />
-      <div className="single-blog-page">
-        <div className="container max-w-5xl mx-auto py-10 px-4">
-          <div className="single-blog-hero text-center">
-            <h1 className="text-3xl text-gray-900 md:text-5xl font-gt font-bold mt-6">
-              {post.title.rendered}
-            </h1>
-            <div className="flex justify-center items-center gap-4 mt-4">
-              <span className="text-gray-500 text-base">{post.date && (
-                <p className="text-gray-500">
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </p>
-              )}</span>
-              <span className="bg-violet-500 text-white text-xs font-medium px-2.5 py-1 rounded-xl">
-                {post.categories_names.map((cat, index) => (
-                  <span key={cat}>
-                    {cat}
-                    {index < post.categories_names.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </span>
+    if (loading) {
+        return (
+            <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+                <div className="flex space-x-2">
+                    <span className="w-4 h-4 bg-light-royal-blue rounded-full animate-bounce [animation-delay:-0.2s]"></span>
+                    <span className="w-4 h-4 bg-purple-heart rounded-full animate-bounce"></span>
+                    <span className="w-4 h-4 bg-amaranth rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                </div>
             </div>
-          </div>
-          <article className="mt-6">
-            {/* Optionally display featured image if available */}
-            {post.featured_media_url && (
-              <div className="w-full relative">
-                <img
-                  src={proxyImageUrl(post.featured_media_url)}
-                  alt={post.title.rendered}
-                  className="w-full h-full object-cover rounded-xl"
-                  sizes='100vw'
-                />
-              </div>
-            )}
-            {/* Render post content */}
-            <div
-              className="prose"
-              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+        );
+    }
+
+    if (error) {
+        return <div className="mt-10 text-center">Error: {error}</div>;
+    }
+
+    if (!post) {
+        return <div className="mt-10 text-center">No post found.</div>;
+    }
+
+
+    return (
+        <>
+            <Seo
+                title={post.seoData?.title || post.title.rendered}
+                description={post.seoData?.description || post.excerpt.rendered.replace(/<[^>]*>/g, '')}
+                image={post.seoData?.og_image || post.featured_media_url}
+                path={`/blog/${post.slug}`}
+                ogType="article"
+                publishedTime={post.date}
+                modifiedTime={post.modified}
+                siteName="Instagram Advice"
             />
-          </article>
-        </div>
-      </div>
-    </>
-  );
+            <div className={`${styles.singleBlogPage}`}>
+                <div className="container max-w-5xl mx-auto py-10 px-4">
+                    <div className={`${styles.singleBlogHero} text-center`}>
+                        <h1 className={`text-3xl text-gray-900 md:text-5xl font-gt font-bold mt-6 ${styles.blogTitle}`}>
+                            {post.title.rendered}
+                        </h1>
+                         {post.date && (
+                            <p className="text-gray-500 text-base mt-4">
+                                {new Date(post.date).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </p>
+                        )}
+                    </div>
+                    <article className="mt-6">
+                        {/* Optionally display featured image if available */}
+                        {post.featured_media_url && (
+                            <div className="w-full relative">
+                                <img
+                                    src={post.featured_media_url}
+                                    alt={post.title.rendered}
+                                    className={`w-full h-full object-cover rounded-xl ${styles.featuredImage}`}
+                                    sizes='100vw'
+                                />
+                            </div>
+                        )}
+                        {/* Render post content */}
+                        <div
+                            className={`prose ${styles.blogContent}`}
+                            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+                        />
+                    </article>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default SingleBlogPage;
