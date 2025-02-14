@@ -286,6 +286,7 @@ const SingleComparisonPage = () => {
                 path={`/comparison/${slug}`}
                 ogType="article"
                 siteName={siteName}
+                focusKeyphrase=""
             />
             <div className='py-10 single-page-comparison'>
                 <div className="container mx-auto px-4">

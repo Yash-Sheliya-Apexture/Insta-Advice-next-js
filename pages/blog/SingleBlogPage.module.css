@@ -1,0 +1,98 @@
+/* SingleBlogPage.module.css */
+.blogContent {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #101828;
+}
+.blogContent p{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #101828;
+    margin-bottom: 10px;
+}
+.blogContent h1{
+    font-size: 32px;
+    line-height: 36px;
+    color: #101828;
+    margin: 10px 0px 14px 0px;
+}
+.blogContent h2{
+    font-size: 30px;
+    line-height: 34px;
+    color: #101828;
+    margin: 10px 0px 14px 0px;
+}
+.blogContent h3{
+    font-size: 28px;
+    line-height: 30px;
+    color: #101828;
+    margin: 10px 0px 14px 0px;
+}
+.blogContent h4{
+    font-size: 24px;
+    line-height: 28px;
+    color: #101828;
+    margin: 8px 0px 10px 0px;
+}
+.blogContent h5{
+    font-size: 20px;
+    line-height: 24px;
+    color: #101828;
+    margin: 8px 0px 10px 0px;
+}
+.blogContent h6{
+    font-size: 19px;
+    line-height: 22px;
+    color: #101828;
+    margin: 8px 0px 10px 0px;
+}
+
+
+@media(max-width:1199.98px){
+
+}
+@media(max-width:991.98px){
+
+}
+@media(max-width:767.98px){
+    .blogContent h1{
+        font-size: 30px;
+        line-height: 34px;
+        color: #101828;
+        margin: 10px 0px 10px 0px;
+    }
+    .blogContent h2{
+        font-size: 28px;
+        line-height: 30px;
+        color: #101828;
+        margin: 8px 0px 10px 0px;
+    }
+    .blogContent h3{
+        font-size: 24px;
+        line-height: 28px;
+        color: #101828;
+        margin: 8px 0px 10px 0px;
+    }
+    .blogContent h4{
+        font-size: 22px;
+        line-height: 24px;
+        color: #101828;
+        margin: 8px 0px 8px 0px;
+    }
+    .blogContent h5{
+        font-size: 20px;
+        line-height: 24px;
+        color: #101828;
+        margin: 8px 0px 8px 0px;
+    }
+    .blogContent h6{
+        font-size: 18px;
+        line-height: 20px;
+        color: #101828;
+        margin: 8px 0px 8px 0px;
+    }
+    
+}
+@media(max-width:350.98px){
+
+}

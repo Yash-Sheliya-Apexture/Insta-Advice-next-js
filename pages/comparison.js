@@ -81,6 +81,12 @@ const ComparisonPage = () => {
 
     return (
         <>
+            <Seo
+                title="InstaAdvice | Review & Compare Top Advice Services"
+                description="Compare top instagram growth tools & find the best fit for you! Read expert reviews and make informed decisions with InstaAdvice. Start saving time & money"
+                ogType="website"
+                path="/comparison"
+            />
             <div className="Comparison-list-wrap py-12">
                 <div className="Comparison-list-hero">
                     <div className="container mx-auto px-4">
