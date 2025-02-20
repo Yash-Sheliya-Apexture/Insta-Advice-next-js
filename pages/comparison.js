@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import VS from '../public/images/vs.svg';
+import Seo from "@/components/Seo";
+
 
 const ComparisonPage = () => {
     const [comparisons, setComparisons] = useState([]);
