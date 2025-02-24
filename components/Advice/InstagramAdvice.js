@@ -1648,7 +1648,6 @@
 
 
 // components/Advice/InstagramAdvice.js
-
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import FilterBar from "./FilterBar";
 import InstagramAdviceCardMain from "./InstagramAdviceCardMain";
