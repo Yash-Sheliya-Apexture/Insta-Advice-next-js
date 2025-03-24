@@ -21,7 +21,7 @@ const CompanyReviewHero = ({ data }) => {
      const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentPageUrl)}`;
     const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(currentPageUrl)}&title=${encodeURIComponent(`Check out this review for ${title?.rendered}`)}`;
      const redditShareUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(currentPageUrl)}&title=${encodeURIComponent(`Check out this review for ${title?.rendered}`)}`;
-
+ 
     return (
         <>
             <div className="hero-wrap ">
