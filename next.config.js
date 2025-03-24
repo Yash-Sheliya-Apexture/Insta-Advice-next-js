@@ -5,17 +5,17 @@
 //     remotePatterns: [
 //       {
 //         protocol: 'https',
-//         hostname: 'api.rahulkumark13.sg-host.com',
+//         hostname: 'api.niravr22.sg-host.com',
 //          pathname: '/**',
 //       },
 //       {
 //           protocol: 'https',
-//           hostname: 'rahulkumark13.sg-host.com',
+//           hostname: 'niravr22.sg-host.com',
 //           pathname: '/**',
 //         },
 //         {
 //          protocol: 'http',
-//             hostname: 'rahulkumark13.sg-host.com',
+//             hostname: 'niravr22.sg-host.com',
 //            pathname: '/**',
 //         }
 //     ],
@@ -29,7 +29,7 @@
 // const nextConfig = {
 //   reactStrictMode: true,
 //   images: {
-//       domains: ['api.rahulkumark13.sg-host.com'], // Add your image host here
+//       domains: ['api.niravr22.sg-host.com'], // Add your image host here
 //   },
 // };
 
@@ -59,13 +59,13 @@
 //     remotePatterns: [
 //       {
 //         protocol: 'https',
-//         hostname: 'rahulkumark13.sg-host.com',
+//         hostname: 'niravr22.sg-host.com',
 //         port: '',
 //         pathname: '/wp-content/uploads/**',
 //       },
 //       {
 //         protocol: 'http',
-//         hostname: 'rahulkumark13.sg-host.com',
+//         hostname: 'niravr22.sg-host.com',
 //         port: '',
 //         pathname: '/wp-content/uploads/**',
 //       },
@@ -74,6 +74,9 @@
 // };
 
 // module.exports = nextConfig;
+
+
+
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -94,13 +97,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'rahulkumark13.sg-host.com',
+        hostname: 'niravr22.sg-host.com',
         port: '',
         pathname: '/wp-content/uploads/**',
       },
       {
         protocol: 'http',
-        hostname: 'rahulkumark13.sg-host.com',
+        hostname: 'niravr22.sg-host.com',
         port: '',
         pathname: '/wp-content/uploads/**',
       },
